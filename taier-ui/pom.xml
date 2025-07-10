@@ -30,10 +30,11 @@
 						<!-- specified version -->
 						<configuration>
 							<nodeVersion>${node.version}</nodeVersion>
-							<pnpmVersion>${node.version}</pnpmVersion>
+							<pnpmVersion>${pnpm.version}</pnpmVersion>
 
 							<!-- If it is inconvenient to visit the official website, you can use the domestic Taobao mirror-->
-<!--							<nodeDownloadRoot>https://mirrors.aliyun.com/nodejs-release/</nodeDownloadRoot>-->
+							<!--<nodeDownloadRoot>https://mirrors.aliyun.com/nodejs-release/</nodeDownloadRoot>
+							<yarnDownloadRoot>https://mirrors.huaweicloud.com/yarn/</yarnDownloadRoot>-->
 						</configuration>
 					</execution>
 
