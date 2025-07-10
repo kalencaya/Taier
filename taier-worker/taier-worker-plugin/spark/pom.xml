@@ -247,7 +247,7 @@
                             <phase>package</phase>
                             <configuration>
                                 <tasks>
-                                    <move file="${basedir}/target/${artifactId}-${project.version}.jar"
+                                    <move file="${basedir}/target/${project.artifactId}-${project.version}.jar"
                                           tofile="${basedir}/target/${jar.name}.jar"/>
                                     <copy todir="${basedir}/target/../../../../../worker-plugins/${plugin.dir.name}/"
                                           file="${basedir}/target/${jar.name}.jar"/>
