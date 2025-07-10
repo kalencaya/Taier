@@ -31,9 +31,6 @@ on:
 jobs:
   release:
     runs-on: ${{ inputs.os }}
-    strategy:
-      matrix:
-        image: [ taier-mysql, taier, taier-ui ]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,7 +39,7 @@ jobs:
         with:
           java-version: ${{ inputs.jdk }}
 #          distribution: temurin
-          distribution: oracle
+          distribution: dragonwell
           cache: maven
       - name: Setup Version
         id: setup-version
