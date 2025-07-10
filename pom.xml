@@ -39,7 +39,7 @@
         <frontend-maven-plugin.version>1.12.1</frontend-maven-plugin.version>
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
         <node.version>v16.16.0</node.version>
-        <pnpm.version>7.3.0</pnpm.version>
+        <pnpm.version>7.33.7</pnpm.version>
         <yarn.version>v1.22.19</yarn.version>
     </properties>
 
