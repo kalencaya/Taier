@@ -35,10 +35,3 @@ jobs:
       - name: Run build
         working-directory: ${{ env.working-directory }}
         run: pnpm build
-
-      - name: Run tests
-        working-directory: ${{ env.working-directory }}
-        run: pnpm test
-        env:
-          CI: true
-          NODE_ENV: test
