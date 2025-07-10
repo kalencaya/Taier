@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  taier-db:
+    image: bitnami/mysql:8.0
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_DATABASE: taier
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
+    volumes:
+      - ../../../sql/utf8mb4.cnf:/opt/bitnami/mysql/conf/utf8mb4.cnf
+      - ../../../sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 3306:3306
+    networks:
+      - local
+
+  taier-zk:
+    image: bitnami/zookeeper:3.7.0
+    environment:
+      - TZ=Asia/Shanghai
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    ports:
+      - 2181:2181
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge
