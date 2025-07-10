@@ -22,9 +22,6 @@ import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.Semaphore;
 
-/**
- * @toutian
- */
 public class DelayBlockingQueue<E extends Delayed> {
 
     private final DelayQueue<E> delayQ = new DelayQueue<E>();

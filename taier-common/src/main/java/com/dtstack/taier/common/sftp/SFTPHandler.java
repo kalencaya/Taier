@@ -25,12 +25,12 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpATTRS;
 import com.jcraft.jsch.SftpException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,13 +40,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Vector;
 
-/**
- * @author: 小北(xiaobei @ dtstack.com)
- * @description:
- * @create: 2021-12-15 22:44
- **/
+@Slf4j
 public class SFTPHandler {
-    private static final Logger logger = LoggerFactory.getLogger(SFTPHandler.class);
 
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";
@@ -112,11 +107,11 @@ public class SFTPHandler {
         ChannelSftp channelSftp = null;
         SftpPool sftpPool = null;
         if (isUsePool) {
-            logger.info("get channelSftp from SftpPool!");
+            log.info("get channelSftp from SftpPool!");
             sftpPool = getSftpPool(sftpConfig);
             channelSftp = sftpPool.borrowObject();
         } else {
-            logger.info("get channelSftp from native!");
+            log.info("get channelSftp from native!");
             SftpFactory sftpFactory = new SftpFactory(sftpConfig);
             channelSftp = sftpFactory.create();
         }
@@ -133,8 +128,8 @@ public class SFTPHandler {
 
         @Override
         public void log(int level, String msg) {
-            if (logger.isDebugEnabled()) {
-                logger.debug(msg);
+            if (log.isDebugEnabled()) {
+                log.debug(msg);
             }
         }
     }
@@ -166,7 +161,7 @@ public class SFTPHandler {
                     os.flush();
                     os.close();
                 } catch (IOException e) {
-                    logger.error("", e);
+                    log.error("", e);
                 }
             }
         }
@@ -204,7 +199,7 @@ public class SFTPHandler {
                     if (isdir) {
                         File dir2 = new File(localFilePath);
                         if (!dir2.exists()) {
-                            logger.info("local file path mkdir {}:", localFilePath);
+                            log.info("local file path mkdir {}:", localFilePath);
                             dir2.mkdir();
                         }
                         sum += downloadDir(ftpFilePath, localFilePath);
@@ -214,11 +209,11 @@ public class SFTPHandler {
                     }
                 }
             } catch (SftpException e) {
-                logger.error("", e);
+                log.error("", e);
             }
             return sum;
         } catch (Exception e) {
-            logger.error("sftp downloadDir error ", e);
+            log.error("sftp downloadDir error ", e);
             return -1;
         }
     }
@@ -261,10 +256,10 @@ public class SFTPHandler {
 
         }
         if (dir.delete()) {
-            logger.info("delete success,dir={}", dir);
+            log.info("delete success,dir={}", dir);
             return true;
         } else {
-            logger.info("delete failed,dir={}", dir);
+            log.info("delete failed,dir={}", dir);
 
         }
         return false;
@@ -280,7 +275,7 @@ public class SFTPHandler {
         if (file.isDirectory()) {
             dstDir += "/" + file.getName();
             if (!mkdir(dstDir)) {
-                logger.error("create path error:" + dstDir);
+                log.error("create path error:" + dstDir);
                 return false;
             }
             File[] files = file.listFiles();
@@ -309,21 +304,21 @@ public class SFTPHandler {
      * @param filePath 本地文件目录
      */
     public boolean upload(String baseDir, String fileName, String filePath) {
-        logger.info("：baseDir=" + baseDir);
+        log.info("：baseDir=" + baseDir);
         try {
             //检查路径
             if (!mkdir(baseDir)) {
-                logger.error("create path error:" + baseDir);
+                log.error("create path error:" + baseDir);
                 return false;
             }
             String dst = baseDir + "/" + fileName;
             String src = filePath + "/" + fileName;
-            logger.info("begin upload，local path：[" + src + "] target path：[" + dst + "]");
+            log.info("begin upload，local path：[" + src + "] target path：[" + dst + "]");
             channelSftp.put(src, dst);
-            logger.info("upload success");
+            log.info("upload success");
             return true;
         } catch (Exception e) {
-            logger.error("upload fail", e);
+            log.error("upload fail", e);
             return false;
         }
     }
@@ -335,12 +330,12 @@ public class SFTPHandler {
      */
     public boolean remove(String dst) {
         try {
-            logger.info("begin delete，target path：[" + dst + "]");
+            log.info("begin delete，target path：[" + dst + "]");
             channelSftp.rm(dst);
-            logger.info("delete success");
+            log.info("delete success");
             return true;
         } catch (Exception e) {
-            logger.error("delete fail", e);
+            log.error("delete fail", e);
             return false;
         }
     }
@@ -363,7 +358,7 @@ public class SFTPHandler {
         try {
             channelSftp.cd(ftpPath);
         } catch (SftpException e) {
-            logger.info("", e);
+            log.info("", e);
             return;
         }
         try {
@@ -385,7 +380,7 @@ public class SFTPHandler {
                 channelSftp.rmdir(ftpPath);
             }
         } catch (SftpException e) {
-            logger.error("", e);
+            log.error("", e);
             throw new DtCenterDefException("删除sftp路径失败，sftpPath=" + ftpPath);
         }
     }
@@ -408,7 +403,7 @@ public class SFTPHandler {
                     try {
                         channelSftp.mkdir(currPath.toString());
                     } catch (SftpException e) {
-                        logger.error("sftp isExist error", e);
+                        log.error("sftp isExist error", e);
                         return false;
                     }
                 }
@@ -426,7 +421,7 @@ public class SFTPHandler {
                 channelSftp.disconnect();
                 channelSftp.getSession().disconnect();
             } catch (Exception e) {
-                logger.error("close channelSftp error: {}", e.getMessage());
+                log.error("close channelSftp error: {}", e.getMessage());
             }
         }
     }
@@ -444,7 +439,7 @@ public class SFTPHandler {
                     channelSftpTest.disconnect();
                     channelSftpTest.getSession().disconnect();
                 } catch (JSchException e) {
-                    logger.error("channelSftpTest get session error", e);
+                    log.error("channelSftpTest get session error", e);
                 }
                 int maxTotal = MapUtils.getInteger(sftpConfig, MAX_TOTAL, MAX_TOTAL_VALUE);
                 int maxIdle = MapUtils.getInteger(sftpConfig, MAX_IDLE, MAX_IDLE_VALUE);
@@ -463,7 +458,7 @@ public class SFTPHandler {
                 String message = String.format("SFTPHandler connect sftp fail : [%s]",
                         "message:host =" + MapUtils.getString(sftpConfig, KEY_HOST) +
                                 ",username = " + MapUtils.getString(sftpConfig, KEY_USERNAME));
-                logger.error(message);
+                log.error(message);
             }
             return sftpPool1;
         });
@@ -484,7 +479,7 @@ public class SFTPHandler {
             sessionSftp = channelSftp.getSession();
             sessionSftp.setTimeout(MapUtils.getIntValue(sftpConfig, KEY_TIMEOUT, DEFAULT_TIME_OUT));
         } catch (JSchException e) {
-            logger.error("get sessionSftp error", e);
+            log.error("get sessionSftp error", e);
             throw new RuntimeException("获取sessionSftp异常, 请检查sessionSftp是否正常", e);
         }
     }

@@ -64,7 +64,6 @@
         WHERE cluster_id = #{clusterId} and is_deleted = 0
     </select>
 
-
     <update id="deleteByComponentId">
         UPDATE console_kerberos SET is_deleted = 1
         WHERE cluster_id = (SELECT cluster_id from console_component WHERE id = #{componentId})

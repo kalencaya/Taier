@@ -18,22 +18,18 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : hanbeikai
- * Date: 2021/12/15 11:48 下午
- * Description: No Description
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EComputeType {
 
-    STREAM(0),BATCH(1);
+    STREAM(0),
+    BATCH(1);
 
     private final int type;
-
-    EComputeType(int type){
-        this.type = type;
-    }
 
     public static EComputeType getComputeType(int type){
         EComputeType[] computeTypes = EComputeType.values();
@@ -43,9 +39,5 @@ public enum EComputeType {
             }
         }
         return null;
-    }
-
-    public int getType(){
-        return this.type;
     }
 }

@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.stream;
 
-
 import com.dtstack.taier.common.metric.Filter;
 import com.dtstack.taier.common.metric.QueryInfo;
 import com.dtstack.taier.common.metric.prometheus.func.CommonFunc;
@@ -26,10 +25,6 @@ import com.dtstack.taier.common.metric.prometheus.func.CommonFunc;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 输入RPS
- * @author jiangbo
- */
 public class DataAcquisitionMetric extends StreamBaseMetric {
 
     @Override

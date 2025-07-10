@@ -60,7 +60,6 @@
         </set>
     </sql>
 
-
     <select id="listByNodePidAndTenantId" resultType="com.dtstack.taier.dao.domain.DevelopFunction">
         SELECT
         <include refid="select_content_fragment"/>
@@ -94,7 +93,6 @@
         </if>
     </select>
 
-
     <select id="listTenantByFunction" resultType="com.dtstack.taier.dao.domain.DevelopFunction">
         SELECT
         <include refid="select_content_fragment"/>
@@ -103,7 +101,6 @@
         <if test="taskType !=null">
             AND task_type = #{taskType}
         </if>
-
     </select>
 
     <select id="listByNameAndTenantId" resultType="com.dtstack.taier.dao.domain.DevelopFunction">
@@ -184,6 +181,5 @@
             and to_days(#{model.endTime}) >= to_days(gmt_modified)
         </if>
     </select>
-
 
 </mapper>

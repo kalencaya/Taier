@@ -30,7 +30,6 @@ import com.dtstack.taier.develop.vo.develop.query.GetCheckpointListVO;
 import com.dtstack.taier.develop.vo.develop.query.GetSavePointVO;
 import com.dtstack.taier.develop.vo.develop.query.TaskCheckPointQueryVO;
 import com.dtstack.taier.develop.vo.develop.result.GetCheckPointTimeRangeResultVO;
-import com.dtstack.taier.develop.vo.develop.result.GetCheckpointListResultVO;
 import com.dtstack.taier.develop.vo.develop.result.GetSavePointResultVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -43,18 +42,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @company: www.dtstack.com
- * @Author ：Nanqi
- * @Date ：Created in 15:07 2020/10/12
- * @Description：任务快照管理
- */
 @Api(value = "任务快照管理", tags = {"任务快照管理"})
 @RestController
-@RequestMapping(value =  "/streamTaskCheckpoint")
+@RequestMapping(value = "/streamTaskCheckpoint")
 public class DevelopTaskCheckpointController {
+
     @Autowired
-    StreamTaskCheckpointService taskCheckpointService;
+    private StreamTaskCheckpointService taskCheckpointService;
 
     @ApiOperation("获取任务的 CheckPoint 可选时间范围")
     @PostMapping(value = "getCheckpointTimeRange")

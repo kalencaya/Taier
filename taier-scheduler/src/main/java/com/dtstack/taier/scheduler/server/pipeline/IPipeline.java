@@ -24,10 +24,6 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import java.util.Map;
 
-/**
- * @author yuebai
- * @date 2021-05-17
- */
 public interface IPipeline {
 
     void pipeline(Map<String, Object> actionParam, Map<String, Object> pipelineParam) throws Exception;

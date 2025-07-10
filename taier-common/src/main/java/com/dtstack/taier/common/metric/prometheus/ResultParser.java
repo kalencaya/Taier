@@ -30,14 +30,6 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
-/**
- * Reason:
- * Date: 2018/10/25
- * Company: www.dtstack.com
- *
- * @author xuchao
- */
-
 public class ResultParser {
 
     public static MetricResult parseResult(String metricName, String response, String tagNameKey) {

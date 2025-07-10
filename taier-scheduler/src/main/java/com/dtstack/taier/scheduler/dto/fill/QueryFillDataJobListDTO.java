@@ -21,12 +21,6 @@ package com.dtstack.taier.scheduler.dto.fill;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-/**
- * @Auther: dazhi
- * @Date: 2021/12/9 4:31 PM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 public class QueryFillDataJobListDTO {
 
     /**

@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.develop.controller.datasource;
 
-
 import com.dtstack.taier.common.exception.TaierDefineException;
 import com.dtstack.taier.common.lang.coc.APITemplate;
 import com.dtstack.taier.common.lang.web.R;
@@ -34,12 +33,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @description:
- * @author: liuxx
- * @date: 2021/3/9
- */
 @Api(tags = {"数据源中心-数据源表单模版化"})
 @RestController
 @RequestMapping(value = "/dataSource/dsForm")
@@ -62,6 +55,4 @@ public class DatasourceFormController {
             }
         }.execute();
     }
-
-
 }

@@ -21,13 +21,16 @@ package com.dtstack.taier.dao.domain;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.dtstack.taier.common.enums.TempJobType;
 import com.google.common.base.Charsets;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
+@Getter
+@Setter
 @TableName("develop_select_sql")
 public class DevelopSelectSql extends TenantEntity {
-
 
     /**
      * 实例id
@@ -64,27 +67,10 @@ public class DevelopSelectSql extends TenantEntity {
      */
     private int taskType;
 
-
     /**
      * 数据源id
      */
     private Long datasourceId;
-
-    public Long getDatasourceId() {
-        return datasourceId;
-    }
-
-    public void setDatasourceId(Long datasourceId) {
-        this.datasourceId = datasourceId;
-    }
-
-    public int getIsSelectSql() {
-        return isSelectSql;
-    }
-
-    public void setIsSelectSql(int isSelectSql) {
-        this.isSelectSql = isSelectSql;
-    }
 
     /**
      * 如果是数据同步任务则需要解密
@@ -100,53 +86,5 @@ public class DevelopSelectSql extends TenantEntity {
             sql = getSqlText();
         }
         return sql;
-    }
-
-    public String getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
-    public String getTempTableName() {
-        return tempTableName;
-    }
-
-    public void setTempTableName(String tempTableName) {
-        this.tempTableName = tempTableName;
-    }
-
-    public String getSqlText() {
-        return sqlText;
-    }
-
-    public void setSqlText(String sqlText) {
-        this.sqlText = sqlText;
-    }
-
-    public String getParsedColumns() {
-        return parsedColumns;
-    }
-
-    public void setParsedColumns(String parsedColumns) {
-        this.parsedColumns = parsedColumns;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public int getTaskType() {
-        return taskType;
-    }
-
-    public void setTaskType(int taskType) {
-        this.taskType = taskType;
     }
 }

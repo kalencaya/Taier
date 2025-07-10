@@ -224,7 +224,7 @@ public class AbstractClientManager implements IClientManager {
 
     /**
      * 插件包及Lib包提前上传至HDFS，设置远程HDFS路径参数
-     * {@link com.dtstack.taier.flink.config.FlinkConfig}
+     * {@link FlinkConfig}
      */
     public Configuration setHdfsFlinkJarPath(FlinkConfig flinkConfig, Configuration flinkConfiguration){
         //检查HDFS上是否已经上传插件包及Lib包

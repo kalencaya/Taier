@@ -19,20 +19,13 @@
 package com.dtstack.taier.dao.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
-
+@Getter
+@Setter
 @TableName("console_cluster")
 public class Cluster extends BaseEntity {
 
     private String clusterName;
-
-
-    public String getClusterName() {
-        return clusterName;
-    }
-
-    public void setClusterName(String clusterName) {
-        this.clusterName = clusterName;
-    }
-
 }

@@ -189,7 +189,7 @@ public class SparkResourceUploader {
             method.setAccessible(true);
             Properties yarnConfProp = (Properties) method.invoke(yarnConf);
             Map<String, Object> yarnConfMap = new HashMap<>();
-            for (Map.Entry<Object, Object> yarnConfEntry : yarnConfProp.entrySet()) {
+            for (Entry<Object, Object> yarnConfEntry : yarnConfProp.entrySet()) {
                 if (FILTER_PARAM.contains((String) yarnConfEntry.getKey())) {
                     continue;
                 }
@@ -262,7 +262,7 @@ public class SparkResourceUploader {
         hadoopConfContent.append("<configuration>").append(System.lineSeparator());
         Iterator<Entry<String, Object>> it = hadoopConfMap.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry<String, Object> e = it.next();
+            Entry<String, Object> e = it.next();
             String name = e.getKey();
             // xml文件校验&需要转换为xml文件可识别字符
             String value = e.getValue().toString().replaceAll("&", "&amp;");

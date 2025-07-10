@@ -26,10 +26,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @author jiangbo
- * @date 2019/5/21
- */
 public class SqlRegexUtil {
 
     public static final String KEY_DB = "db";
@@ -44,9 +40,6 @@ public class SqlRegexUtil {
 
     public static final String CREATE_TABLE_REGEX = "(?i)create\\s+table\\s+(if\\s+not\\s+exists\\s+){0,1}`{0,1}(?<table>[a-zA-Z0-9_.\\s]+)`{0,1}";
 
-    /**
-     *
-     */
     public static final String CREATE_TEMP_TABLE = "(?i)(create\\s+(temp|TEMPORARY)\\s+table\\s+).*";
 
     public static Pattern CREATE_TEMP_TABLE_PATTERN = Pattern.compile(CREATE_TEMP_TABLE);

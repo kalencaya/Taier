@@ -18,9 +18,13 @@
 
 package com.dtstack.taier.dao.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
+@Getter
+@Setter
 public class DevelopResourceDTO {
 
     private Long tenantId;
@@ -38,69 +42,4 @@ public class DevelopResourceDTO {
     private String resourceName;
 
     private String sort = "desc";
-
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Long getResourceModifyUserId() {
-        return resourceModifyUserId;
-    }
-
-    public void setResourceModifyUserId(Long resourceModifyUserId) {
-        this.resourceModifyUserId = resourceModifyUserId;
-    }
-
-    public Timestamp getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
-    }
-
-    public Timestamp getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Timestamp endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getPageIndex() {
-        return pageIndex;
-    }
-
-    public void setPageIndex(Integer pageIndex) {
-        this.pageIndex = pageIndex;
-    }
-
-    public String getResourceName() {
-        return resourceName;
-    }
-
-    public void setResourceName(String resourceName) {
-        this.resourceName = resourceName;
-    }
-
-    public String getSort() {
-        return sort;
-    }
-
-    public void setSort(String sort) {
-        this.sort = sort;
-    }
 }

@@ -18,31 +18,17 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EngineCatalogueType {
-    /**
-     *
-     */
-    SPARK(-1, "SparkSQL"),
 
+    SPARK(-1, "SparkSQL"),
     FLINK(0, "FlinkSQL");
 
-    private int type;
-
-    private String desc;
-
-    EngineCatalogueType(int type, String desc) {
-        this.type = type;
-        this.desc = desc;
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-
+    private final int type;
+    private final String desc;
 }

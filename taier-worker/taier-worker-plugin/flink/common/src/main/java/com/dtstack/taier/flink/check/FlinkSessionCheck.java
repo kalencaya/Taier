@@ -52,9 +52,9 @@ public class FlinkSessionCheck {
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(Integer.MAX_VALUE, 0L));
         env.setStateBackend(new RocksDBStateBackend(checkpoint, true));
 
-        DataStream<String> stream = env.addSource(new FlinkSessionCheck.StringGeneratingSourceFunction(10_000_000L));
-        stream.map(new FlinkSessionCheck.StringPrefixCountRichMapFunction())
-                .addSink(new FlinkSessionCheck.ValidatingSink());
+        DataStream<String> stream = env.addSource(new StringGeneratingSourceFunction(10_000_000L));
+        stream.map(new StringPrefixCountRichMapFunction())
+                .addSink(new ValidatingSink());
         env.execute("session check");
     }
 

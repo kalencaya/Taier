@@ -24,11 +24,8 @@ import org.apache.ibatis.reflection.MetaObject;
 import java.sql.Timestamp;
 import java.time.Instant;
 
-/**
- * @author yuebai
- * @date 2022/7/19
- */
 public class TableEntityHandler implements MetaObjectHandler {
+
     @Override
     public void insertFill(MetaObject metaObject) {
         this.strictInsertFill(metaObject, "gmtCreate", Timestamp.class, Timestamp.from(Instant.now()));

@@ -4,23 +4,19 @@
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>taier</artifactId>
         <groupId>com.dtstack.taier</groupId>
+        <artifactId>taier</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>taier-scheduler</artifactId>
     <name>taier-scheduler</name>
-    <version>1.0.0</version>
-
-    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-
         <!-- 应用内依赖 -->
         <dependency>
             <groupId>com.dtstack.taier</groupId>
@@ -171,7 +167,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
-            <version>3.5</version>
+            <version>3.6.1</version>
         </dependency>
 
     </dependencies>

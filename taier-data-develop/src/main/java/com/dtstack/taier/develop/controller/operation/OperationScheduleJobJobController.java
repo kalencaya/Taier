@@ -28,21 +28,10 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @Auther: dazhi
- * @Date: 2021/12/26 10:26 AM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 @RestController
 @RequestMapping("/scheduleJobJob")
 @Api(value = "/scheduleJobJob", tags = {"运维中心---周期实例依赖关系相关接口"})

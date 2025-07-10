@@ -74,13 +74,6 @@ import java.sql.Timestamp;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * pluginInfo to SourceDTO, 用于 engine 使用
- *
- * @author ：wangchuan
- * date：Created in 下午6:00 2022/3/22
- * company: www.dtstack.com
- */
 public enum PluginInfoToSourceDTO {
 
     /**

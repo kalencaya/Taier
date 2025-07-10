@@ -41,13 +41,13 @@ import java.util.Properties;
  *
  * @author xuchao
  */
-
 public class ClientCache {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClientCache.class);
 
     private static final String MD5_SUM_KEY = "md5sum";
     private static final String MD5_ZIP_KEY = "md5zip";
+
     private String pluginPath;
 
     private Map<String, IClient> defaultClientMap = Maps.newConcurrentMap();
@@ -135,6 +135,4 @@ public class ClientCache {
         }
         return defaultClient;
     }
-
-
 }

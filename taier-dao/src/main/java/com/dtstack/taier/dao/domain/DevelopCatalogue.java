@@ -18,10 +18,13 @@
 
 package com.dtstack.taier.dao.domain;
 
-
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @TableName("develop_catalogue")
 public class DevelopCatalogue extends TenantEntity{
 
@@ -50,62 +53,6 @@ public class DevelopCatalogue extends TenantEntity{
     private Integer catalogueType;
 
     @TableField(exist=false)
-    DevelopCatalogue parentCatalogue;
-
-    public String getNodeName() {
-        return nodeName;
-    }
-
-    public void setNodeName(String nodeName) {
-        this.nodeName = nodeName;
-    }
-
-    public Long getNodePid() {
-        return nodePid;
-    }
-
-    public void setNodePid(Long nodePid) {
-        this.nodePid = nodePid;
-    }
-
-    public Long getCreateUserId() {
-        return createUserId;
-    }
-
-    public void setCreateUserId(Long createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public Integer getOrderVal() {
-        return orderVal;
-    }
-
-    public void setOrderVal(Integer orderVal) {
-        this.orderVal = orderVal;
-    }
-
-    public Integer getCatalogueType() {
-        return catalogueType;
-    }
-
-    public void setCatalogueType(Integer catalogueType) {
-        this.catalogueType = catalogueType;
-    }
-
-    public DevelopCatalogue getParentCatalogue() {
-        return parentCatalogue;
-    }
-
-    public void setParentCatalogue(DevelopCatalogue parentCatalogue) {
-        this.parentCatalogue = parentCatalogue;
-    }
+    private DevelopCatalogue parentCatalogue;
 
 }

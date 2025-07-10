@@ -19,13 +19,11 @@
 package com.dtstack.taier.dao.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
-
-/**
- * @author 全阅
- * @Description: 数据源版本类
- * @Date: 2021/3/10
- */
+@Getter
+@Setter
 @TableName("datasource_version")
 public class DsVersion extends BaseModel {
 
@@ -43,28 +41,4 @@ public class DsVersion extends BaseModel {
      * 版本排序字段,高版本排序,默认从0开始
      */
     private Integer sorted;
-
-    public String getDataType() {
-        return dataType;
-    }
-
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
-    }
-
-    public String getDataVersion() {
-        return dataVersion;
-    }
-
-    public void setDataVersion(String dataVersion) {
-        this.dataVersion = dataVersion;
-    }
-
-    public Integer getSorted() {
-        return sorted;
-    }
-
-    public void setSorted(Integer sorted) {
-        this.sorted = sorted;
-    }
 }

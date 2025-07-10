@@ -18,46 +18,22 @@
 
 package com.dtstack.taier.common.enums;
 
-
 import com.dtstack.taier.common.exception.DtCenterDefException;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-/**
- * @author qianyi
- */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum TableType {
-    /**
-     * 源表
-     */
+
     SOURCE(1, "源表"),
-
-    /**
-     * 结果表
-     */
     SINK(2, "结果表"),
-
-    /**
-     * 维表
-     */
     SIDE(3, "维表");
 
     private final Integer tableType;
-
     private final String name;
-
-
-    public Integer getTableType() {
-        return tableType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    TableType(Integer tableType, String name) {
-        this.tableType = tableType;
-        this.name = name;
-    }
-
+    
     public static TableType getByType(Integer type) {
         for (TableType tableType : values()) {
             if (tableType.tableType.equals(type)) {

@@ -24,33 +24,14 @@ import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.dtstack.taier.common.enums.CatalogueType;
-import com.dtstack.taier.common.enums.Deleted;
-import com.dtstack.taier.common.enums.DictType;
-import com.dtstack.taier.common.enums.EComputeType;
-import com.dtstack.taier.common.enums.EFTPTaskFileType;
-import com.dtstack.taier.common.enums.EScheduleJobType;
-import com.dtstack.taier.common.enums.EScheduleStatus;
-import com.dtstack.taier.common.enums.ResourceRefType;
+import com.dtstack.taier.common.enums.*;
 import com.dtstack.taier.common.exception.DtCenterDefException;
 import com.dtstack.taier.common.exception.ErrorCode;
 import com.dtstack.taier.common.exception.TaierDefineException;
 import com.dtstack.taier.common.util.AssertUtils;
 import com.dtstack.taier.common.util.FileUtil;
 import com.dtstack.taier.common.util.PublicUtil;
-import com.dtstack.taier.dao.domain.Component;
-import com.dtstack.taier.dao.domain.DevelopCatalogue;
-import com.dtstack.taier.dao.domain.DevelopDataSource;
-import com.dtstack.taier.dao.domain.DevelopSysParameter;
-import com.dtstack.taier.dao.domain.DevelopTaskParam;
-import com.dtstack.taier.dao.domain.DevelopTaskTask;
-import com.dtstack.taier.dao.domain.Dict;
-import com.dtstack.taier.dao.domain.ScheduleTaskShade;
-import com.dtstack.taier.dao.domain.ScheduleTaskTaskShade;
-import com.dtstack.taier.dao.domain.Task;
-import com.dtstack.taier.dao.domain.TaskDirtyDataManage;
-import com.dtstack.taier.dao.domain.TaskParamTemplate;
-import com.dtstack.taier.dao.domain.Tenant;
+import com.dtstack.taier.dao.domain.*;
 import com.dtstack.taier.dao.mapper.DevelopTaskMapper;
 import com.dtstack.taier.datasource.api.base.ClientCache;
 import com.dtstack.taier.datasource.api.client.IClient;
@@ -59,11 +40,7 @@ import com.dtstack.taier.datasource.api.dto.SqlQueryDTO;
 import com.dtstack.taier.datasource.api.dto.source.ISourceDTO;
 import com.dtstack.taier.datasource.api.source.DataSourceType;
 import com.dtstack.taier.develop.datasource.convert.load.SourceLoaderService;
-import com.dtstack.taier.develop.dto.devlop.TaskCatalogueVO;
-import com.dtstack.taier.develop.dto.devlop.TaskCheckResultVO;
-import com.dtstack.taier.develop.dto.devlop.TaskGetNotDeleteVO;
-import com.dtstack.taier.develop.dto.devlop.TaskResourceParam;
-import com.dtstack.taier.develop.dto.devlop.TaskVO;
+import com.dtstack.taier.develop.dto.devlop.*;
 import com.dtstack.taier.develop.enums.develop.TaskCreateModelType;
 import com.dtstack.taier.develop.enums.develop.WorkFlowScheduleConfEnum;
 import com.dtstack.taier.develop.mapstruct.vo.TaskDirtyDataManageTransfer;
@@ -103,18 +80,13 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.SftpException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.poi.ss.usermodel.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -128,102 +100,68 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-
+@Slf4j
 @Service
 public class DevelopTaskService extends ServiceImpl<DevelopTaskMapper, Task> {
 
-    public static Logger LOGGER = LoggerFactory.getLogger(DevelopTaskService.class);
-
     private static final ObjectMapper objMapper = new ObjectMapper();
-
-    @Autowired
-    private TenantService tenantService;
-
-    @Autowired
-    private DevelopTaskMapper developTaskMapper;
-
-    @Autowired
-    private TaskTemplateService taskTemplateService;
-
-    @Autowired
-    private DevelopTaskResourceService developTaskResourceService;
-
-    @Autowired
-    private TaskDirtyDataManageService taskDirtyDataManageService;
-
-    @Autowired
-    private DevelopTaskParamService developTaskParamService;
-
-    @Autowired
-    private DevelopTaskTaskService developTaskTaskService;
-
-    @Autowired
-    private DatasourceService dataSourceService;
-
-    @Autowired
-    private DevelopCatalogueService developCatalogueService;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private TaskService taskService;
-
-    @Autowired
-    private DevelopSysParamService developSysParamService;
-
-    @Autowired
-    private DevelopResourceService developResourceService;
-
-    @Autowired
-    private DevelopTaskResourceShadeService developTaskResourceShadeService;
-
-    @Autowired
-    private HadoopJobExeService hadoopJobExeService;
-
-    @Autowired
-    private ComponentService componentService;
-
-    @Autowired
-    private ScheduleActionService actionService;
-
-    @Autowired
-    private FlinkTaskService flinkTaskService;
-
-    @Autowired
-    private TaskConfiguration taskConfiguration;
-
-    @Autowired
-    private ScheduleTaskTaskService scheduleTaskTaskService;
-
-    @Autowired
-    private DevelopFunctionService developFunctionService;
-
-    @Autowired
-    SftpFileManage sftpFileManage;
-
-    @Autowired
-    private ScheduleDictService scheduleDictService;
-
-    @Autowired
-    private SourceLoaderService sourceLoaderService;
 
     private static final Integer IS_FILE = 1;
 
     public static final String HADOOP_CONFIG = "hadoopConfig";
+
+    @Autowired
+    private TenantService tenantService;
+    @Autowired
+    private DevelopTaskMapper developTaskMapper;
+    @Autowired
+    private TaskTemplateService taskTemplateService;
+    @Autowired
+    private DevelopTaskResourceService developTaskResourceService;
+    @Autowired
+    private TaskDirtyDataManageService taskDirtyDataManageService;
+    @Autowired
+    private DevelopTaskParamService developTaskParamService;
+    @Autowired
+    private DevelopTaskTaskService developTaskTaskService;
+    @Autowired
+    private DatasourceService dataSourceService;
+    @Autowired
+    private DevelopCatalogueService developCatalogueService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private TaskService taskService;
+    @Autowired
+    private DevelopSysParamService developSysParamService;
+    @Autowired
+    private DevelopResourceService developResourceService;
+    @Autowired
+    private DevelopTaskResourceShadeService developTaskResourceShadeService;
+    @Autowired
+    private HadoopJobExeService hadoopJobExeService;
+    @Autowired
+    private ComponentService componentService;
+    @Autowired
+    private ScheduleActionService actionService;
+    @Autowired
+    private FlinkTaskService flinkTaskService;
+    @Autowired
+    private TaskConfiguration taskConfiguration;
+    @Autowired
+    private ScheduleTaskTaskService scheduleTaskTaskService;
+    @Autowired
+    private DevelopFunctionService developFunctionService;
+    @Autowired
+    private SftpFileManage sftpFileManage;
+    @Autowired
+    private ScheduleDictService scheduleDictService;
+    @Autowired
+    private SourceLoaderService sourceLoaderService;
 
     /**
      * 按id查询任务详情
@@ -482,7 +420,7 @@ public class DevelopTaskService extends ServiceImpl<DevelopTaskMapper, Task> {
                             }
                         }
                     } catch (Exception e) {
-                        LOGGER.error("send task error {} ", subTask.getName(), e);
+                        log.error("send task error {} ", subTask.getName(), e);
                         throw new TaierDefineException(String.format("任务提交异常：%s", e.getMessage()), e);
                     }
                 }
@@ -498,7 +436,7 @@ public class DevelopTaskService extends ServiceImpl<DevelopTaskMapper, Task> {
                 sendTaskStartTrigger(task.getId(), userId, scheduleTasks);
 
             } catch (Exception e) {
-                LOGGER.error("send task error {} ", task.getName(), e);
+                log.error("send task error {} ", task.getName(), e);
                 throw new TaierDefineException(String.format("任务提交异常：%s", e.getMessage()), e);
             }
 
@@ -646,7 +584,8 @@ public class DevelopTaskService extends ServiceImpl<DevelopTaskMapper, Task> {
                 .eq(Task::getName, taskName)
                 .eq(Task::getTenantId, tenantId)
                 .last("limit 1"));
-        if (ObjectUtils.isNotEmpty(task)) {
+
+        if (Objects.nonNull(task)) {
             throw new TaierDefineException(ErrorCode.NAME_ALREADY_EXIST);
         }
         return true;
@@ -1071,7 +1010,7 @@ public class DevelopTaskService extends ServiceImpl<DevelopTaskMapper, Task> {
                             continue;
                         }
                     } catch (Exception e) {
-                        LOGGER.info("hadoop version：{}, {}", o1, o2, e);
+                        log.info("hadoop version：{}, {}", o1, o2, e);
                     }
                 }
             }
@@ -1399,7 +1338,7 @@ public class DevelopTaskService extends ServiceImpl<DevelopTaskMapper, Task> {
 
         // check file exist
         if (!sftpFileManage.isFileExist(channelSftp, payload.getFilepath())) {
-            LOGGER.error("File not exist on sftp:" + payload.getFilepath());
+            log.error("File not exist on sftp:" + payload.getFilepath());
             throw new RuntimeException("File not exist on sftp" + payload.getFilepath());
         }
         try {

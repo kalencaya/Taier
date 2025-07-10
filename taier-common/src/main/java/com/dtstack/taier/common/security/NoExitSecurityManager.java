@@ -21,6 +21,7 @@ package com.dtstack.taier.common.security;
 import java.security.Permission;
 
 public class NoExitSecurityManager extends SecurityManager {
+
     @Override
     public void checkPermission(Permission perm) {
         // allow anything.

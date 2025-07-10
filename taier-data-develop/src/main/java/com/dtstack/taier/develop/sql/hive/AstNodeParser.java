@@ -18,6 +18,7 @@
 
 package com.dtstack.taier.develop.sql.hive;
 
+import com.dtstack.taier.common.util.StringUtil;
 import com.dtstack.taier.develop.sql.AlterResult;
 import com.dtstack.taier.develop.sql.BaseSqlParser;
 import com.dtstack.taier.develop.sql.Column;
@@ -243,7 +244,8 @@ public class AstNodeParser extends BaseSqlParser {
                 LOG.warn("parseFunction error:{}", e);
             }
         }
-        return backLists.stream().filter(StringUtils::isNoneBlank).collect(Collectors.toSet());
+
+        return backLists.stream().filter(back -> !org.springframework.util.StringUtils.isEmpty(back)).collect(Collectors.toSet());
     }
 
     private void parseTableFromASTNode(ASTNode root, Set<Table> tables, String defaultDb) {

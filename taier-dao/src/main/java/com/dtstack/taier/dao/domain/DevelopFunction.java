@@ -18,19 +18,18 @@
 
 package com.dtstack.taier.dao.domain;
 
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
-/**
- * date: 2022/1/24 2:29 下午
- * author: zhaiyue
- */
+@Getter
+@Setter
 @TableName("develop_function")
 public class DevelopFunction {
 
@@ -118,162 +117,12 @@ public class DevelopFunction {
     /**
      * 实体创建时间
      */
-    @TableField(
-            value = "gmt_create",
-            fill = FieldFill.INSERT
-    )
+    @TableField(value = "gmt_create", fill = FieldFill.INSERT)
     private Timestamp gmtCreate;
+
     /**
      * 实体修改时间
      */
-    @TableField(
-            value = "gmt_modified",
-            fill = FieldFill.INSERT_UPDATE
-    )
+    @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
     private Timestamp gmtModified;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    public String getPurpose() {
-        return purpose;
-    }
-
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
-
-    public String getCommandFormate() {
-        return commandFormate;
-    }
-
-    public void setCommandFormate(String commandFormate) {
-        this.commandFormate = commandFormate;
-    }
-
-    public String getParamDesc() {
-        return paramDesc;
-    }
-
-    public void setParamDesc(String paramDesc) {
-        this.paramDesc = paramDesc;
-    }
-
-    public Long getNodePid() {
-        return nodePid;
-    }
-
-    public void setNodePid(Long nodePid) {
-        this.nodePid = nodePid;
-    }
-
-    public Long getCreateUserId() {
-        return createUserId;
-    }
-
-    public void setCreateUserId(Long createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public Long getModifyUserId() {
-        return modifyUserId;
-    }
-
-    public void setModifyUserId(Long modifyUserId) {
-        this.modifyUserId = modifyUserId;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getTaskType() {
-        return taskType;
-    }
-
-    public void setTaskType(Integer taskType) {
-        this.taskType = taskType;
-    }
-
-    public String getResourceName() {
-        return resourceName;
-    }
-
-    public void setResourceName(String resourceName) {
-        this.resourceName = resourceName;
-    }
-
-    public String getSqlText() {
-        return sqlText;
-    }
-
-    public void setSqlText(String sqlText) {
-        this.sqlText = sqlText;
-    }
-
-
-    public Integer getUdfType() {
-        return udfType;
-    }
-
-    public void setUdfType(Integer udfType) {
-        this.udfType = udfType;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Timestamp getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Timestamp gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Timestamp getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Timestamp gmtModified) {
-        this.gmtModified = gmtModified;
-    }
 }

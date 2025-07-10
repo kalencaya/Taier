@@ -18,24 +18,20 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 /**
  * 参数类型
- * Date: 2017/6/7
- * Company: www.dtstack.com
- * @ahthor xuchao
  */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EParamType {
 
-    SYS_TYPE(0), CUSTOMIZE_TYPE(1),COMPONENT(2);
+    SYS_TYPE(0),
+    CUSTOMIZE_TYPE(1),
+    COMPONENT(2);
 
-    private Integer type;
-
-    EParamType(Integer type){
-        this.type = type;
-    }
-
-    public Integer getType(){
-        return type;
-    }
-
+    private final Integer type;
 }

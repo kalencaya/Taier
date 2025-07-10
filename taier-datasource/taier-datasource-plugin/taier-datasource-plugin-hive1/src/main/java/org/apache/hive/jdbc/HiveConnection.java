@@ -99,7 +99,7 @@ import java.util.concurrent.TimeUnit;
  * HiveConnection.
  *
  */
-public class HiveConnection implements java.sql.Connection {
+public class HiveConnection implements Connection {
     public static final Log LOG = LogFactory.getLog(HiveConnection.class.getName());
     private static final String HIVE_VAR_PREFIX = "hivevar:";
     private static final String HIVE_CONF_PREFIX = "hiveconf:";
@@ -154,7 +154,7 @@ public class HiveConnection implements java.sql.Connection {
         }
 
         hiveVarMap = connParams.getHiveVars();
-        for (Map.Entry<Object, Object> kv : info.entrySet()) {
+        for (Entry<Object, Object> kv : info.entrySet()) {
             if ((kv.getKey() instanceof String)) {
                 String key = (String) kv.getKey();
                 if (key.startsWith(HIVE_VAR_PREFIX)) {
@@ -303,7 +303,7 @@ public class HiveConnection implements java.sql.Connection {
         Map<String, String> additionalHttpHeaders = new HashMap<String, String>();
 
         // Retrieve the additional HttpHeaders
-        for (Map.Entry<String, String> entry : sessConfMap.entrySet()) {
+        for (Entry<String, String> entry : sessConfMap.entrySet()) {
             String key = entry.getKey();
 
             if (key.startsWith(JdbcConnectionParams.HTTP_HEADER_PREFIX)) {
@@ -819,7 +819,7 @@ public class HiveConnection implements java.sql.Connection {
      *
      * @throws SQLException
      *           if a database access error occurs.
-     * @see java.sql.Connection#createStatement()
+     * @see Connection#createStatement()
      */
 
     @Override

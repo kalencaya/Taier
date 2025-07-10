@@ -52,7 +52,6 @@ public class TenantController {
 
     @Autowired
     private TenantService tenantService;
-
     @Autowired
     private ClusterService clusterService;
 

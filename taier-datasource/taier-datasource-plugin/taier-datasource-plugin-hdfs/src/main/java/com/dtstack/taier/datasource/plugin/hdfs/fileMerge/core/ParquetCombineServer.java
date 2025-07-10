@@ -133,7 +133,7 @@ public class ParquetCombineServer extends CombineServer {
                 .builder(new Path(combineFileName))
                 .withWriteMode(org.apache.parquet.hadoop.ParquetFileWriter.Mode.CREATE)
                 .withWriterVersion(ParquetProperties.WriterVersion.PARQUET_1_0)
-                .withRowGroupSize(org.apache.parquet.hadoop.ParquetWriter.DEFAULT_BLOCK_SIZE)
+                .withRowGroupSize(ParquetWriter.DEFAULT_BLOCK_SIZE)
                 .withConf(configuration)
                 .withType(metadata.getSchema());
 

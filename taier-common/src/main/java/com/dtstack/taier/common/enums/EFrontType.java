@@ -18,9 +18,11 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 /**
- * @author yuebai
- * @date 2020-05-11
  * input: 普通文件输入框
  * radio: 单选框 无子控件渲染
  * group: 类型切换tab框
@@ -32,6 +34,8 @@ package com.dtstack.taier.common.enums;
  * password: 隐藏显示的输入框
  * custom_control: 自定义控件 可手动添加 可删除
  */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EFrontType {
     INPUT(0, "input"),
     RADIO(1, "radio"),
@@ -44,11 +48,6 @@ public enum EFrontType {
     PASSWORD(8, "password"),
     CUSTOM_CONTROL(9, "custom_control");
 
-    private int code;
-    private String name;
-
-    EFrontType(int code, String name) {
-        this.code = code;
-        this.name = name;
-    }
+    private final int code;
+    private final String name;
 }

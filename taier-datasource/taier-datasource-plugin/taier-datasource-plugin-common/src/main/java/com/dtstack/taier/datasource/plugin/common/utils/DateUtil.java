@@ -297,24 +297,24 @@ public class DateUtil {
         }
     }
 
-    public static java.sql.Timestamp getSqlTimeStampVal(Object val) {
+    public static Timestamp getSqlTimeStampVal(Object val) {
         if (val == null) {
             return null;
         } else if (val instanceof String) {
-            return new java.sql.Timestamp(stringToDate((String) val).getTime());
+            return new Timestamp(stringToDate((String) val).getTime());
         } else if (val instanceof Integer) {
             Integer rawData = (Integer) val;
-            return new java.sql.Timestamp(rawData.longValue());
+            return new Timestamp(rawData.longValue());
         } else if (val instanceof Long) {
             Long rawData = (Long) val;
-            return new java.sql.Timestamp(rawData);
+            return new Timestamp(rawData);
         } else if (val instanceof java.sql.Date) {
-            return (java.sql.Timestamp) val;
+            return (Timestamp) val;
         } else if (val instanceof Timestamp) {
             return (Timestamp) val;
         } else if (val instanceof Date) {
             Date d = (Date) val;
-            return new java.sql.Timestamp(d.getTime());
+            return new Timestamp(d.getTime());
         }
 
         throw new IllegalArgumentException("Can't convert " + val.getClass().getName() + " to Date");

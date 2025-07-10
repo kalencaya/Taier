@@ -20,7 +20,6 @@
         </trim>
     </sql>
 
-
     <select id="getByClusterName" resultType="com.dtstack.taier.dao.domain.Cluster">
         SELECT
         <include refid="select_content_fragment"/>

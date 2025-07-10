@@ -24,12 +24,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
 
-/**
- *
- * @author 全阅
- * @Description:
- * @Date: 2021/3/8 19:14
- */
 @ApiModel("数据源列表查询参数")
 public class DsListParam extends BasePageParam {
 

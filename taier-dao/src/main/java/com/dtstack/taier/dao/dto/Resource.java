@@ -18,25 +18,19 @@
 
 package com.dtstack.taier.dao.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Resource {
-
-    public Resource() {
-    }
-
-    public Resource(String fileName, String uploadedFileName, int size, String contentType, String key) {
-        this.uploadedFileName = uploadedFileName;
-        this.fileName = fileName;
-        this.size = size;
-        this.contentType = contentType;
-        this.key = key;
-    }
-
-    private String uploadedFileName;
 
     /**
      * @return the file name of the upload as provided in the form submission
      */
     private String fileName;
+
+    private String uploadedFileName;
 
     /**
      * @return the size of the upload, in bytes
@@ -50,44 +44,15 @@ public class Resource {
      */
     private String key;
 
-    public String getKey() {
-        return key;
+    public Resource() {
     }
 
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getUploadedFileName() {
-        return uploadedFileName;
-    }
-
-    public void setUploadedFileName(String uploadedFileName) {
+    public Resource(String fileName, String uploadedFileName, int size, String contentType, String key) {
         this.uploadedFileName = uploadedFileName;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
         this.fileName = fileName;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
         this.size = size;
-    }
-
-    public String getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(String contentType) {
         this.contentType = contentType;
+        this.key = key;
     }
 }
 

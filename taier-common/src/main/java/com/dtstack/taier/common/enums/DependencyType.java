@@ -18,12 +18,15 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 /**
  * 任务依赖类型
- * Date: 2018/6/12
- * Company: www.dtstack.com
- * @author xuchao
  */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum DependencyType {
 
     NO_SELF_DEPENDENCY(0),
@@ -36,13 +39,5 @@ public enum DependencyType {
     //依赖下游任务的上一个周期的结束:只要运行结束就可以
     PRE_PERIOD_CHILD_DEPENDENCY_END(4);
 
-    Integer type;
-
-    DependencyType(Integer type){
-        this.type = type;
-    }
-
-    public Integer getType() {
-        return type;
-    }
+    private final Integer type;
 }

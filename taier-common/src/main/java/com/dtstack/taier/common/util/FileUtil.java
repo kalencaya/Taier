@@ -27,13 +27,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * file util
- *
- * @author ：wangchuan
- * date：Created in 17:06 2022/10/8
- * company: www.dtstack.com
- */
 public class FileUtil {
 
     public static void mkdirsIfNotExist(String directoryPath) {

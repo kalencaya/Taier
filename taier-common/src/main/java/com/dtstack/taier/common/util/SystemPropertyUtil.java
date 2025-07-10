@@ -16,33 +16,25 @@
  * limitations under the License.
  */
 
-
 package com.dtstack.taier.common.util;
 
 import java.io.File;
 
-
-/**
- *
- * @author sishu.yss
- *
- */
 public class SystemPropertyUtil {
 
     public static void setSystemUserDir() {
         String dir = System.getProperty("user.dir");
         String conf = String.format("%s%s%s", dir, File.separator, "conf");
         File file = new File(conf);
-        if(!file.exists()) {
+        if (!file.exists()) {
             dir = dir.substring(0, dir.lastIndexOf(File.separator));
             conf = String.format("%s%s%s", dir, File.separator, "conf");
             file = new File(conf);
-            if(file.exists()) {
+            if (file.exists()) {
                 System.setProperty("user.dir", dir);
             }
         }
         System.setProperty("user.dir.conf", System.getProperty("user.dir") + "/conf");
-
     }
 
     public static void setHadoopUserName(String userName) {

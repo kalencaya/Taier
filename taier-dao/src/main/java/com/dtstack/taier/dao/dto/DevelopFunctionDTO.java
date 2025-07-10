@@ -18,9 +18,13 @@
 
 package com.dtstack.taier.dao.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
+@Getter
+@Setter
 public class DevelopFunctionDTO {
 
     private Long tenantId;
@@ -40,76 +44,4 @@ public class DevelopFunctionDTO {
     private String sort = "desc";
 
     private Integer type;
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Long getFunctionModifyUserId() {
-        return functionModifyUserId;
-    }
-
-    public void setFunctionModifyUserId(Long functionModifyUserId) {
-        this.functionModifyUserId = functionModifyUserId;
-    }
-
-    public Timestamp getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
-    }
-
-    public Timestamp getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Timestamp endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getPageIndex() {
-        return pageIndex;
-    }
-
-    public void setPageIndex(Integer pageIndex) {
-        this.pageIndex = pageIndex;
-    }
-
-    public String getFunctionName() {
-        return functionName;
-    }
-
-    public void setFunctionName(String functionName) {
-        this.functionName = functionName;
-    }
-
-    public String getSort() {
-        return sort;
-    }
-
-    public void setSort(String sort) {
-        this.sort = sort;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
 }

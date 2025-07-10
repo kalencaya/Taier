@@ -18,30 +18,24 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * Reason:
- * Date: 2017/5/5
- * Company: www.dtstack.com
- * @author xuchao
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EScheduleStatus {
 
     // 调度状态：0 正常 1冻结 2停止
-    NORMAL(0),FREEZE(1), STOP(2);
+    NORMAL(0),
+    FREEZE(1),
+    STOP(2);
 
-    private Integer val;
+    private final Integer val;
 
-    EScheduleStatus(Integer val){
-        this.val = val;
-    }
-
-    public Integer getVal() {
-        return val;
-    }
-
-    public static EScheduleStatus getStatus(Integer val){
-        for(EScheduleStatus status : EScheduleStatus.values()){
-            if(status.getVal().equals(val)){
+    public static EScheduleStatus getStatus(Integer val) {
+        for (EScheduleStatus status : EScheduleStatus.values()) {
+            if (status.getVal().equals(val)) {
                 return status;
             }
         }

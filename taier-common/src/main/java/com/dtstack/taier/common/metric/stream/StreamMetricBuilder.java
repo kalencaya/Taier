@@ -37,10 +37,6 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * metric builder
- * @author jiangbo
- */
 public class StreamMetricBuilder {
 
     private static final Logger logger = LoggerFactory.getLogger(StreamMetricBuilder.class);

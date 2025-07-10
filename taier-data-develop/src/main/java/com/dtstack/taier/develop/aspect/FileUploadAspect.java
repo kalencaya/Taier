@@ -40,12 +40,6 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * @company:www.dtstack.com
- * @Author:beihai
- * @Date:2020-12-29 16:11
- * @Description: 文件上传切面
- */
 @Aspect
 @Component
 public class FileUploadAspect {
@@ -57,8 +51,6 @@ public class FileUploadAspect {
 
     /**
      * 文件上传前处理，生产临时文件
-     * @param joinPoint
-     * @throws Throwable
      */
     @Before("fileUploadPointCut()")
     public void before(JoinPoint joinPoint) throws Throwable {

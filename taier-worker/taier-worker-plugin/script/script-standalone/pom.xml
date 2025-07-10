@@ -8,7 +8,6 @@
         <artifactId>taier-worker-plugin.script</artifactId>
         <version>1.0.0</version>
     </parent>
-
     <artifactId>script-standalone</artifactId>
 
     <properties>

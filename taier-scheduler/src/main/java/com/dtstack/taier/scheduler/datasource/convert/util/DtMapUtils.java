@@ -22,13 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * map 工具类
- *
- * @author ：wangchuan
- * date：Created in 下午8:53 2021/7/5
- * company: www.dtstack.com
- */
 public class DtMapUtils {
 
     /**

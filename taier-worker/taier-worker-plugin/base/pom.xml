@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.dtstack.taier</groupId>
         <artifactId>taier-worker-plugin</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
     <artifactId>taier-worker-plugin.base</artifactId>
     <name>taier-worker-plugin.base</name>
-
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -20,7 +17,6 @@
     </properties>
 
     <!--base 模块以provided方式依赖hadoop-2.7.3, 避免高低版本间api不兼容问题-->
-
     <dependencies>
         <dependency>
             <groupId>org.apache.hadoop</groupId>

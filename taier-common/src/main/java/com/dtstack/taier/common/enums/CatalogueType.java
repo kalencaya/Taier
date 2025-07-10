@@ -18,7 +18,12 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum CatalogueType {
 
     /**
@@ -41,14 +46,5 @@ public enum CatalogueType {
      */
     CUSTOM_FUNCTION("CustomFunction");
 
-    private String type;
-
-    CatalogueType(String type) {
-        this.type = type;
-    }
-
-    public String getType() {
-        return type;
-    }
-
+    private final String type;
 }

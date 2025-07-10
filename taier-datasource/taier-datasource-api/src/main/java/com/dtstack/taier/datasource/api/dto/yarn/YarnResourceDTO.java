@@ -40,8 +40,8 @@ import java.util.List;
 @NoArgsConstructor
 public class YarnResourceDTO {
 
-    private YarnResourceDTO.ResourceMetrics resourceMetrics;
-    private List<YarnResourceDTO.NodeDescription> nodes = new ArrayList<>();
+    private ResourceMetrics resourceMetrics;
+    private List<NodeDescription> nodes = new ArrayList<>();
     private List<JSONObject> queues;
     private JSONObject scheduleInfo;
 

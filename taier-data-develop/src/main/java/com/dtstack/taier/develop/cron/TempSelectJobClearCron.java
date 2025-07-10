@@ -26,9 +26,8 @@ import com.dtstack.taier.datasource.api.dto.source.ISourceDTO;
 import com.dtstack.taier.develop.datasource.convert.load.SourceLoaderService;
 import com.dtstack.taier.develop.service.develop.IJdbcService;
 import com.dtstack.taier.pluginapi.leader.LeaderNode;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -38,14 +37,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author yuebai
- * @date 2023/2/10
- */
+@Slf4j
 @Component
 public class TempSelectJobClearCron {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(TempSelectJobClearCron.class);
 
     private static final String LOCK_PATH = "TempSelectJobClear";
     @Autowired
@@ -56,7 +50,6 @@ public class TempSelectJobClearCron {
     private EnvironmentContext environmentContext;
     @Autowired
     private IJdbcService jdbcService;
-
 
     @Scheduled(cron = "${temp.job.clean.cron:0 0 2 * * ? } ")
     public void clear() {
@@ -70,7 +63,7 @@ public class TempSelectJobClearCron {
                 index = clearTemp(index);
             }
         } catch (Exception e) {
-            LOGGER.error("clear temp job error", e);
+            log.error("clear temp job error", e);
         } finally {
             LeaderNode.getInstance().release(LOCK_PATH);
         }
@@ -101,7 +94,7 @@ public class TempSelectJobClearCron {
                 try {
                     dropTempTable(dropSql, selectSql.getDatasourceId());
                 } catch (Exception e) {
-                    LOGGER.error("datasource sql delete temp table ", e);
+                    log.error("datasource sql delete temp table ", e);
                 }
                 developSelectSqlMapper.deleteById(selectSql.getId());
                 return true;
@@ -117,7 +110,7 @@ public class TempSelectJobClearCron {
         }
         ISourceDTO sourceDTO = sourceLoaderService.buildSourceDTO(datasourceId);
         jdbcService.executeQueryWithoutResult(sourceDTO, sql);
-        LOGGER.info("datasource sql [{}] delete temp table with sql [{}] ", datasourceId, sql);
+        log.info("datasource sql [{}] delete temp table with sql [{}] ", datasourceId, sql);
     }
 
 }

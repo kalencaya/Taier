@@ -18,15 +18,18 @@
 
 package com.dtstack.taier.dao.domain;
 
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
+@Getter
+@Setter
 @TableName("develop_function_resource")
 public class DevelopFunctionResource {
 
@@ -64,60 +67,4 @@ public class DevelopFunctionResource {
             fill = FieldFill.INSERT_UPDATE
     )
     private Timestamp gmtModified;
-
-    public Long getFunctionId() {
-        return functionId;
-    }
-
-    public void setFunctionId(Long functionId) {
-        this.functionId = functionId;
-    }
-
-    public Long getResourceId() {
-        return resourceId;
-    }
-
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Timestamp getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Timestamp gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Timestamp getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Timestamp gmtModified) {
-        this.gmtModified = gmtModified;
-    }
 }

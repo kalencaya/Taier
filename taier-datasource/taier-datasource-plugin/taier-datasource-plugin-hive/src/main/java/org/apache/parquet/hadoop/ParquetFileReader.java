@@ -378,9 +378,9 @@ public class ParquetFileReader implements Closeable {
   }
   
   private class Chunk extends ByteArrayInputStream {
-    private final ParquetFileReader.ChunkDescriptor descriptor;
+    private final ChunkDescriptor descriptor;
     
-    public Chunk(ParquetFileReader.ChunkDescriptor descriptor, byte[] data, int offset) {
+    public Chunk(ChunkDescriptor descriptor, byte[] data, int offset) {
       super(data);
       this.descriptor = descriptor;
       this.pos = offset;
@@ -445,7 +445,7 @@ public class ParquetFileReader implements Closeable {
   private class WorkaroundChunk extends Chunk {
     private final FSDataInputStream f;
     
-    private WorkaroundChunk(ParquetFileReader.ChunkDescriptor descriptor, byte[] data, int offset, FSDataInputStream f) {
+    private WorkaroundChunk(ChunkDescriptor descriptor, byte[] data, int offset, FSDataInputStream f) {
       super(descriptor, data, offset);
       this.f = f;
     }
@@ -496,30 +496,30 @@ public class ParquetFileReader implements Closeable {
     
     private int length;
     
-    private final List<ParquetFileReader.ChunkDescriptor> chunks = new ArrayList<ParquetFileReader.ChunkDescriptor>();
+    private final List<ChunkDescriptor> chunks = new ArrayList<ChunkDescriptor>();
     
     ConsecutiveChunkList(long offset) {
       this.offset = offset;
     }
     
-    public void addChunk(ParquetFileReader.ChunkDescriptor descriptor) {
+    public void addChunk(ChunkDescriptor descriptor) {
       this.chunks.add(descriptor);
       this.length += descriptor.size;
     }
     
-    public List<ParquetFileReader.Chunk> readAll(FSDataInputStream f) throws IOException {
-      List<ParquetFileReader.Chunk> result = new ArrayList<ParquetFileReader.Chunk>(this.chunks.size());
+    public List<Chunk> readAll(FSDataInputStream f) throws IOException {
+      List<Chunk> result = new ArrayList<Chunk>(this.chunks.size());
       f.seek(this.offset);
       byte[] chunksBytes = new byte[this.length];
       f.readFully(chunksBytes);
       BenchmarkCounter.incrementBytesRead(this.length);
       int currentChunkOffset = 0;
       for (int i = 0; i < this.chunks.size(); i++) {
-        ParquetFileReader.ChunkDescriptor descriptor = this.chunks.get(i);
+        ChunkDescriptor descriptor = this.chunks.get(i);
         if (i < this.chunks.size() - 1) {
-          result.add(new ParquetFileReader.Chunk(descriptor, chunksBytes, currentChunkOffset));
+          result.add(new Chunk(descriptor, chunksBytes, currentChunkOffset));
         } else {
-          result.add(new ParquetFileReader.WorkaroundChunk(descriptor, chunksBytes, currentChunkOffset, f));
+          result.add(new WorkaroundChunk(descriptor, chunksBytes, currentChunkOffset, f));
         } 
         currentChunkOffset += descriptor.size;
       } 

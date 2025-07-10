@@ -46,7 +46,7 @@ public class JobParam {
 
     private Long endTime;
 
-    private JobParam.RequestConfig requestConfig;
+    private RequestConfig requestConfig;
 
     private String sql;
 

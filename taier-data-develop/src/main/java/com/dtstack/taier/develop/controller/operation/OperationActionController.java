@@ -36,40 +36,23 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.http.HttpStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * @Auther: dazhi
- * @Date: 2021/12/6 10:52 AM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 @RestController
 @RequestMapping("/action")
 @Api(value = "/action", tags = {"运维中心---任务动作相关接口"})
 public class OperationActionController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OperationActionController.class);
-
     @Autowired
     private JobService jobService;
-
     @Autowired
     private ActionService actionService;
-
     @Autowired
     private EnvironmentContext environmentContext;
 

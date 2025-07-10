@@ -27,6 +27,7 @@ import java.util.Objects;
  * @param <T>
  */
 public abstract class Converter<S, T> {
+
     public T convert(S source) {
         if (Objects.isNull(source)) {
             return null;

@@ -16,7 +16,6 @@
  * limitations under the License.
  */
 
-
 package com.dtstack.taier.develop.config;
 
 import com.dtstack.taier.develop.interceptor.LoginInterceptor;
@@ -48,7 +47,10 @@ public class MvcConfig extends DelegatingWebMvcConfiguration {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("*").allowedHeaders("*/*").allowedMethods("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH");
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedHeaders("*/*")
+                .allowedMethods("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH");
     }
 
     @Bean

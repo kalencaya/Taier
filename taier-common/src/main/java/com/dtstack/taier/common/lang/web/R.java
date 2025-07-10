@@ -19,8 +19,13 @@
 package com.dtstack.taier.common.lang.web;
 
 import com.dtstack.taier.common.exception.ErrorCode;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class R<T> {
+
     private static String DATA_VERSION;
 
     /**
@@ -86,38 +91,6 @@ public class R<T> {
         return this;
     }
 
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public long getSpace() {
-        return space;
-    }
-
-    public void setSpace(long space) {
-        this.space = space;
-    }
-
     /**
      * 是否成功标志位,便于前端进行返回判断
      * @return
@@ -129,8 +102,6 @@ public class R<T> {
     public String getVersion() {
         return R.DATA_VERSION;
     }
-
-
 
     /**
      * 设置接口版本

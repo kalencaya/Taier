@@ -18,9 +18,6 @@
 
 package com.dtstack.taier.common.exception;
 
-/**
- * @author toutian
- */
 public class LimitResourceException extends RuntimeException {
 
     public LimitResourceException(String msg) {

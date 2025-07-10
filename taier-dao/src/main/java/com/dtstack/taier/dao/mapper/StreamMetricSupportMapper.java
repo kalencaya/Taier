@@ -26,10 +26,6 @@ import java.util.List;
 
 /**
  * 各任务支持的 metric 指标
- *
- * @author ：wangchuan
- * date：Created in 上午11:33 2021/4/16
- * company: www.dtstack.com
  */
 @Mapper
 public interface StreamMetricSupportMapper {

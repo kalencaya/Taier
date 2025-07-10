@@ -19,6 +19,7 @@
 package com.dtstack.taier.common.exception;
 
 public class LockServiceException extends RuntimeException {
+
     public LockServiceException() {
     }
 

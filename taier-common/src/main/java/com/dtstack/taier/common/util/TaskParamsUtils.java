@@ -21,19 +21,17 @@ package com.dtstack.taier.common.util;
 import com.dtstack.taier.pluginapi.enums.ComputeType;
 import com.dtstack.taier.pluginapi.enums.EDeployMode;
 import com.dtstack.taier.pluginapi.util.PublicUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-
+@Slf4j
 public class TaskParamsUtils {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(TaskParamsUtils.class);
 
     /**
      * 解析对应数据同步任务的环境参数 获取对应数据同步模式
+     *
      * @param taskParams
      * @return
      */
@@ -62,7 +60,7 @@ public class TaskParamsUtils {
                 }
             }
         } catch (Exception e) {
-            LOGGER.error(" parseDeployTypeByTaskParams {} error", taskParams, e);
+            log.error(" parseDeployTypeByTaskParams {} error", taskParams, e);
         }
         if (ComputeType.STREAM.getType().equals(computeType)) {
             return EDeployMode.PERJOB;

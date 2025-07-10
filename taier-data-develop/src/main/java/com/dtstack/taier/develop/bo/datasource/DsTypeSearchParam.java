@@ -21,12 +21,6 @@ package com.dtstack.taier.develop.bo.datasource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-/**
- *
- * @description:
- * @author: liuxx
- * @date: 2021/3/18
- */
 @ApiModel("搜索数据源类型参数")
 public class DsTypeSearchParam extends PubSvcBaseParam {
 

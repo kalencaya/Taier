@@ -25,10 +25,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @author yuebai
- * @date 2020-05-14
- */
 @ApiModel
 public class ClientTemplate implements Serializable {
     /**

@@ -2,24 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>taier-worker-plugin.hadoop</artifactId>
         <groupId>com.dtstack.taier</groupId>
+        <artifactId>taier-worker-plugin.hadoop</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
     <artifactId>taier-worker-plugin.hadoop.yarn3-hdfs3-hadoop3</artifactId>
     <name>taier-worker-plugin.hadoop.yarn3-hdfs3-hadoop3</name>
-    <packaging>jar</packaging>
 
     <properties>
         <pluginDir.name>yarn3-hdfs3-hadoop3</pluginDir.name>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.dtstack.taier</groupId>
             <artifactId>taier-worker-plugin.hadoop.yarn2-hdfs2-hadoop2-core</artifactId>

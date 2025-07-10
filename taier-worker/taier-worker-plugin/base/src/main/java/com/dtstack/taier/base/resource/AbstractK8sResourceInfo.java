@@ -169,7 +169,7 @@ public abstract class AbstractK8sResourceInfo implements EngineResourceInfo {
             double freeCores = cpuAllocatable.subtract(cpuUsage).doubleValue();
             double freeMem = menAllocatable.subtract(menUsage).doubleValue();
 
-            this.addNodeResource(new AbstractK8sResourceInfo.NodeResourceDetail(nodeName, cpuAllocatable.doubleValue(), cpuUsage.doubleValue(), freeCores, menAllocatable.doubleValue(), menUsage.doubleValue(), freeMem));
+            this.addNodeResource(new NodeResourceDetail(nodeName, cpuAllocatable.doubleValue(), cpuUsage.doubleValue(), freeCores, menAllocatable.doubleValue(), menUsage.doubleValue(), freeMem));
         }
 
 
@@ -182,7 +182,7 @@ public abstract class AbstractK8sResourceInfo implements EngineResourceInfo {
 
         int index = 0;
         //执行时，统一对每个node保留512M和1core
-        for (AbstractK8sResourceInfo.NodeResourceDetail resourceDetail : nodeResources) {
+        for (NodeResourceDetail resourceDetail : nodeResources) {
             double nodeFreeMem = Math.max(resourceDetail.memoryFree - RETAIN_MEM, 0);
             double nodeMem = resourceDetail.memoryTotal - RETAIN_MEM;
 

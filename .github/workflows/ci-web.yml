@@ -1,0 +1,37 @@
+name: CI-Web
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ${{ inputs.os }}
+    env:
+      working-directory: ./taier-ui
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Use Node.js 16
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+#          cache: yarn
+      - name: Install dependencies
+        working-directory: ${{ env.working-directory }}
+        run: yarn
+
+      - name: Run build
+        working-directory: ${{ env.working-directory }}
+        run: yarn run build
+
+      - name: Run tests
+        working-directory: ${{ env.working-directory }}
+        run: yarn run test
+        env:
+          CI: true
+          NODE_ENV: test

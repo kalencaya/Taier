@@ -18,13 +18,17 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 /**
- * @author yuebai
- * @date 2021-03-02
  * 0～4 各个组件对于版本
  * 5 各个版本组件的额外配置
  * 6 默认模版id和typename对应关系
  */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum DictType {
     HADOOP_VERSION(0),
     FLINK_VERSION(1),
@@ -47,14 +51,9 @@ public enum DictType {
     DATA_DEVELOP_CATALOGUE(32),
     DATA_DEVELOP_FUNCTION(33),
     SCRIPT_VERSION(34),
-
     ;
 
-    public Integer type;
-
-    DictType(Integer type) {
-        this.type = type;
-    }
+    public final Integer type;
 
     public static Integer getByEComponentType(EComponentType type) {
         switch (type) {
@@ -65,9 +64,5 @@ public enum DictType {
             default:
                 return null;
         }
-    }
-
-    public Integer getType() {
-        return type;
     }
 }

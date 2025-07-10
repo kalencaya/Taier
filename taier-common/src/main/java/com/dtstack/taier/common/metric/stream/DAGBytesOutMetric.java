@@ -29,16 +29,9 @@ import java.util.Map;
 
 import static com.dtstack.taier.common.metric.stream.DAGBackPressureMetrics.METRIC_QUERY;
 
-/**
- * @company:www.dtstack.com
- * @Author:shiFang
- * @Date:2020-09-11 20:10
- * @Description:
- */
 public class DAGBytesOutMetric extends DagMetric{
 
     private static String METRIC_NAME = "flink_taskmanager_job_task_numBytesOut";
-
 
     @Override
     public Object formatData(String result) {
@@ -59,15 +52,12 @@ public class DAGBytesOutMetric extends DagMetric{
         return null;
     }
 
-
-    public static String getMetrics() {
-        return METRIC_NAME;
-    }
-
     @Override
     public String getMetricName() {
         return METRIC_NAME;
     }
 
-
+    public static String getMetrics() {
+        return METRIC_NAME;
+    }
 }

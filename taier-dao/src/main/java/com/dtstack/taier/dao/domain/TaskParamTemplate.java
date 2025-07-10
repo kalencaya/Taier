@@ -18,10 +18,11 @@
 
 package com.dtstack.taier.dao.domain;
 
-/**
- * @author yuebai
- * @date 2019-05-17
- */
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class TaskParamTemplate {
 
     /**
@@ -34,47 +35,13 @@ public class TaskParamTemplate {
      */
     private String taskName;
 
-
     /**
      * 版本
      */
     private String taskVersion;
 
-
     /**
      * 环境参数
      */
     private String params;
-
-    public Integer getTaskType() {
-        return taskType;
-    }
-
-    public void setTaskType(Integer taskType) {
-        this.taskType = taskType;
-    }
-
-    public String getTaskName() {
-        return taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
-
-    public String getTaskVersion() {
-        return taskVersion;
-    }
-
-    public void setTaskVersion(String taskVersion) {
-        this.taskVersion = taskVersion;
-    }
-
-    public String getParams() {
-        return params;
-    }
-
-    public void setParams(String params) {
-        this.params = params;
-    }
 }

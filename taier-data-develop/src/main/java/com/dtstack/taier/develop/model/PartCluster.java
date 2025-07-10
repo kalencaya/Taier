@@ -31,7 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
 /**
  * 将集群从db初始化为PartCluster
  * part -- 组件具体的实现类 根据组件对应的组件角色 定义不同的实现方式

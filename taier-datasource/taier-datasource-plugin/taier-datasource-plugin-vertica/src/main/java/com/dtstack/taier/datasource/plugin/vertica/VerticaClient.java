@@ -179,7 +179,7 @@ public class VerticaClient extends AbsRdbmsClient {
      */
     private String buildSearchSql(String tableSearchSql, SqlQueryDTO queryDTO) {
         StringBuilder constr = new StringBuilder();
-        if (org.apache.commons.lang3.StringUtils.isNotBlank(queryDTO.getTableNamePattern())) {
+        if (StringUtils.isNotBlank(queryDTO.getTableNamePattern())) {
             constr.append(String.format(tableSearchSql, addFuzzySign(queryDTO)));
         }
         return constr.toString();

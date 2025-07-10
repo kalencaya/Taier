@@ -24,12 +24,6 @@ import com.dtstack.taier.common.util.Strings;
 import com.dtstack.taier.develop.bo.datasource.AddDataSourceParam;
 import com.dtstack.taier.develop.dto.devlop.DataSourceVO;
 
-/**
- * AddDataSourceParam 转 DataSourceVO
- * @description:
- * @author: liuxx
- * @date: 2021/3/24
- */
 public class DataSourceParam2SourceVOConverter extends Converter<AddDataSourceParam, DataSourceVO> {
 
     @Override

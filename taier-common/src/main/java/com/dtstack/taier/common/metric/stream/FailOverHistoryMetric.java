@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.stream;
 
-
 import com.dtstack.taier.common.metric.Filter;
 import com.dtstack.taier.common.metric.QueryInfo;
 
@@ -27,10 +26,6 @@ import java.util.List;
 
 /**
  * 任务失败历史
- *
- * @author ：wangchuan
- * date：Created in 下午5:33 2021/6/7
- * company: www.dtstack.com
  */
 public class FailOverHistoryMetric extends StreamBaseMetric {
 

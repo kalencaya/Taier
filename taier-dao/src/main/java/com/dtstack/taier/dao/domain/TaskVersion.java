@@ -23,11 +23,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
+@Getter
+@Setter
 @TableName("develop_task_version")
 public class TaskVersion {
+
     /**
      * 任务 ID
      */
@@ -154,189 +159,4 @@ public class TaskVersion {
             fill = FieldFill.INSERT_UPDATE
     )
     private Timestamp gmtModified;
-
-    public String getDependencyTaskIds() {
-        return dependencyTaskIds;
-    }
-
-    public void setDependencyTaskIds(String dependencyTaskIds) {
-        this.dependencyTaskIds = dependencyTaskIds;
-    }
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getSqlText() {
-        return sqlText;
-    }
-
-    public void setSqlText(String sqlText) {
-        this.sqlText = sqlText;
-    }
-
-    public String getOriginSql() {
-        return originSql;
-    }
-
-    public void setOriginSql(String originSql) {
-        this.originSql = originSql;
-    }
-
-    public String getPublishDesc() {
-        return publishDesc;
-    }
-
-    public void setPublishDesc(String publishDesc) {
-        this.publishDesc = publishDesc;
-    }
-
-    public Long getCreateUserId() {
-        return createUserId;
-    }
-
-    public void setCreateUserId(Long createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    public String getComponentVersion() {
-        return componentVersion;
-    }
-
-    public void setComponentVersion(String componentVersion) {
-        this.componentVersion = componentVersion;
-    }
-
-    public String getTaskDesc() {
-        return taskDesc;
-    }
-
-    public void setTaskDesc(String taskDesc) {
-        this.taskDesc = taskDesc;
-    }
-
-    public Integer getCreateModel() {
-        return createModel;
-    }
-
-    public void setCreateModel(Integer createModel) {
-        this.createModel = createModel;
-    }
-
-    public String getSourceStr() {
-        return sourceStr;
-    }
-
-    public void setSourceStr(String sourceStr) {
-        this.sourceStr = sourceStr;
-    }
-
-    public String getTargetStr() {
-        return targetStr;
-    }
-
-    public void setTargetStr(String targetStr) {
-        this.targetStr = targetStr;
-    }
-
-    public String getSettingStr() {
-        return settingStr;
-    }
-
-    public void setSettingStr(String settingStr) {
-        this.settingStr = settingStr;
-    }
-
-    public String getTaskParams() {
-        return taskParams;
-    }
-
-    public void setTaskParams(String taskParams) {
-        this.taskParams = taskParams;
-    }
-
-    public String getExeArgs() {
-        return exeArgs;
-    }
-
-    public void setExeArgs(String exeArgs) {
-        this.exeArgs = exeArgs;
-    }
-
-    public String getScheduleConf() {
-        return scheduleConf;
-    }
-
-    public void setScheduleConf(String scheduleConf) {
-        this.scheduleConf = scheduleConf;
-    }
-
-    public Integer getPeriodType() {
-        return periodType;
-    }
-
-    public void setPeriodType(Integer periodType) {
-        this.periodType = periodType;
-    }
-
-    public Integer getScheduleStatus() {
-        return scheduleStatus;
-    }
-
-    public void setScheduleStatus(Integer scheduleStatus) {
-        this.scheduleStatus = scheduleStatus;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Timestamp getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Timestamp gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Timestamp getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Timestamp gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
 }

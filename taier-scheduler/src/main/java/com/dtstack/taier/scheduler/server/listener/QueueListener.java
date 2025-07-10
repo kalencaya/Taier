@@ -29,7 +29,6 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * company: www.dtstack.com
  * author: toutian
@@ -39,7 +38,6 @@ import java.util.Map;
 public class QueueListener {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(QueueListener.class);
-
 
     @Autowired
     private JobDealer jobDealer;

@@ -45,11 +45,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Reason: 类转化工具
- * Date: 2017年03月10日 下午1:16:37
- * Company: www.dtstack.com
- *
- * @author sishu.yss
+ * 类转化工具
  */
 public class PublicUtil {
 

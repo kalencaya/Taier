@@ -18,9 +18,6 @@
 
 package com.dtstack.taier.common.exception;
 
-/**
- * @author toutian
- */
 public class WorkerAccessException extends RuntimeException {
 
     private static final String WORKER_ACCESS_EXCEPTION = "not find available worker, ";

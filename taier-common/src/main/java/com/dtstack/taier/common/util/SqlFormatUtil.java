@@ -29,13 +29,8 @@ import java.util.regex.Pattern;
 
 /**
  * sql格式化工具类
- *
- * @author jiangbo
- * @date 2018/5/25 16:23
  */
 public class SqlFormatUtil {
-
-    private String sql;
 
 
     private static final String RETURN_REGEX = "\r";
@@ -60,6 +55,8 @@ public class SqlFormatUtil {
 
     private static final String MULTIPLE_BLANKS = "(?i)\\s\\s+";
 
+    private String sql;
+
     private SqlFormatUtil() {
     }
 
@@ -69,7 +66,6 @@ public class SqlFormatUtil {
     public static boolean isCreateSql(String sql) {
         return sql.matches(CREATE_REGEX);
     }
-
 
     public static List<String> splitSqlText(String sqlText) {
         String sqlTemp = sqlText;

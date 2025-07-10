@@ -18,17 +18,11 @@
 
 package com.dtstack.taier.common.exception;
 
-
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author sishu.yss
- */
 public class TaierDefineException extends RuntimeException {
 
-
     private String errorMessage;
-
     private ErrorCode errorCode;
 
     public TaierDefineException() {

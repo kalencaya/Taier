@@ -6,7 +6,6 @@
       id,dict_code,dict_name,dict_value,dict_desc,`type`,sort,data_type,depend_name,gmt_create,gmt_modified,is_deleted
     </sql>
 
-
     <select id="listDictByType" resultType="com.dtstack.taier.dao.domain.Dict">
         SELECT
         <include refid="select_content_fragment"/>
@@ -14,14 +13,12 @@
         WHERE `type` = #{type} AND is_deleted = 0 ORDER BY sort
     </select>
 
-
     <select id="listByDictCode" resultType="com.dtstack.taier.dao.domain.Dict">
         SELECT
         <include refid="select_content_fragment"/>
         FROM dict
         WHERE `dict_code` = #{code} AND is_deleted = 0 ORDER BY sort
     </select>
-
 
     <select id="getByNameValue" resultType="com.dtstack.taier.dao.domain.Dict">
         SELECT

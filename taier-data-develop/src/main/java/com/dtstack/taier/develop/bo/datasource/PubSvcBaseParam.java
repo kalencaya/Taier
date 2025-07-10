@@ -21,12 +21,6 @@ package com.dtstack.taier.develop.bo.datasource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-/**
- * 基础服务入参基类
- * @description:
- * @author: liuxx
- * @date: 2021/3/18
- */
 @ApiModel("基础服务入参基类")
 public class PubSvcBaseParam {
 

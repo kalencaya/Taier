@@ -24,10 +24,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * @author yuebai
- * @date 2021-03-02
- */
 public interface DictMapper extends BaseMapper<Dict> {
 
     List<Dict> listDictByType(@Param("type") Integer type);

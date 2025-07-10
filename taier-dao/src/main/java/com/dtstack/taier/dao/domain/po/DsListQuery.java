@@ -18,16 +18,16 @@
 
 package com.dtstack.taier.dao.domain.po;
 
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
  * 数据源列表参数类
- *
- * @description:
- * @author: liuxx
- * @date: 2021/3/26
  */
+@Getter
+@Setter
 public class DsListQuery extends DaoPageParam {
     /**
      * 搜索参数
@@ -55,52 +55,4 @@ public class DsListQuery extends DaoPageParam {
      * 连接状态
      */
     private List<Integer> status;
-
-    public String getSearch() {
-        return search;
-    }
-
-    public void setSearch(String search) {
-        this.search = search;
-    }
-
-    public List<String> getDataTypeList() {
-        return dataTypeList;
-    }
-
-    public void setDataTypeList(List<String> dataTypeList) {
-        this.dataTypeList = dataTypeList;
-    }
-
-    public List<Integer> getAppTypeList() {
-        return appTypeList;
-    }
-
-    public void setAppTypeList(List<Integer> appTypeList) {
-        this.appTypeList = appTypeList;
-    }
-
-    public Integer getIsMeta() {
-        return isMeta;
-    }
-
-    public void setIsMeta(Integer isMeta) {
-        this.isMeta = isMeta;
-    }
-
-    public List<Integer> getStatus() {
-        return status;
-    }
-
-    public void setStatus(List<Integer> status) {
-        this.status = status;
-    }
-
-    public Integer getDataTypeCode() {
-        return dataTypeCode;
-    }
-
-    public void setDataTypeCode(Integer dataTypeCode) {
-        this.dataTypeCode = dataTypeCode;
-    }
 }

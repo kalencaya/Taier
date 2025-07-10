@@ -18,11 +18,6 @@
 
 package com.dtstack.taier.dao.pager;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2017/12/29
- */
 public class PageQuery<T> {
 
     private T model;

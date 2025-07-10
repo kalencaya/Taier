@@ -21,13 +21,6 @@ package com.dtstack.taier.develop.bo.datasource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
-/**
- * 新增数据源整体入参
- * @description:
- * @author: liuxx
- * @date: 2021/3/9
- */
 @ApiModel("新增数据源整体入参")
 public class AddDataSourceParam extends PubSvcBaseParam {
 

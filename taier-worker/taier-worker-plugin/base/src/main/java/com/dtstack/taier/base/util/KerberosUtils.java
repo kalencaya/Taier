@@ -77,7 +77,7 @@ public class KerberosUtils {
      * @param supplier
      * @param <T>
      * @return
-     * @see HadoopKerberosName#setConfiguration(org.apache.hadoop.conf.Configuration)
+     * @see HadoopKerberosName#setConfiguration(Configuration)
      */
     private static <T> T loginKerberosWithCallBack(UserGroupInformation ugi, Supplier<T> supplier) {
         try {
@@ -100,7 +100,7 @@ public class KerberosUtils {
      * @param isMergeKrb5
      * @param <T>
      * @return
-     * @see HadoopKerberosName#setConfiguration(org.apache.hadoop.conf.Configuration)
+     * @see HadoopKerberosName#setConfiguration(Configuration)
      */
     private static <T> T retryLoginKerberosWithCallBack(UserGroupInformation ugi,
                                                         Supplier<T> supplier,

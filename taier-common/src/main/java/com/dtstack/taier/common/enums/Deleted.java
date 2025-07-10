@@ -18,38 +18,24 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-/**
- * 
- * @author sishu.yss
- *
- */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum Deleted {
-	
-	NORMAL(0),DELETED(1);
-	
-	private Integer status;
-	
-	Deleted(Integer status){
-		this.status = status;
-	}
 
-	public Integer getStatus() {
-		return status;
-	}
+    NORMAL(0), DELETED(1);
 
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
+    private final Integer status;
 
-	public static Deleted getByStatus(Integer status){
-
-		for (Deleted value : Deleted.values()) {
-			if(value.status.equals(status)){
-				return value;
-			}
-		}
-		return null;
-	}
-
+    public static Deleted getByStatus(Integer status) {
+        for (Deleted value : Deleted.values()) {
+            if (value.status.equals(status)) {
+                return value;
+            }
+        }
+        return null;
+    }
 }

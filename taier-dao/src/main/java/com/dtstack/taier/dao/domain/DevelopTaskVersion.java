@@ -18,10 +18,11 @@
 
 package com.dtstack.taier.dao.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 
-/**
- * @author : toutian
- */
+@Getter
+@Setter
 public class DevelopTaskVersion extends TenantEntity {
 
     private Long taskId;
@@ -48,7 +49,6 @@ public class DevelopTaskVersion extends TenantEntity {
      */
     private Integer version;
 
-
     /**
      * 环境参数
      */
@@ -63,86 +63,6 @@ public class DevelopTaskVersion extends TenantEntity {
      * 依赖的任务id
      */
     private String dependencyTaskIds;
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getOriginSql() {
-        return originSql;
-    }
-
-    public void setOriginSql(String originSql) {
-        this.originSql = originSql;
-    }
-
-    public String getSqlText() {
-        return sqlText;
-    }
-
-    public void setSqlText(String sqlText) {
-        this.sqlText = sqlText;
-    }
-
-    public String getPublishDesc() {
-        return publishDesc;
-    }
-
-    public void setPublishDesc(String publishDesc) {
-        this.publishDesc = publishDesc;
-    }
-
-    public Long getCreateUserId() {
-        return createUserId;
-    }
-
-    public void setCreateUserId(Long createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    public String getTaskParams() {
-        return taskParams;
-    }
-
-    public void setTaskParams(String taskParams) {
-        this.taskParams = taskParams;
-    }
-
-    public String getScheduleConf() {
-        return scheduleConf;
-    }
-
-    public void setScheduleConf(String scheduleConf) {
-        this.scheduleConf = scheduleConf;
-    }
-
-    public Integer getScheduleStatus() {
-        return scheduleStatus;
-    }
-
-    public void setScheduleStatus(Integer scheduleStatus) {
-        this.scheduleStatus = scheduleStatus;
-    }
-
-    public String getDependencyTaskIds() {
-        return dependencyTaskIds;
-    }
-
-    public void setDependencyTaskIds(String dependencyTaskIds) {
-        this.dependencyTaskIds = dependencyTaskIds;
-    }
 }
 
 

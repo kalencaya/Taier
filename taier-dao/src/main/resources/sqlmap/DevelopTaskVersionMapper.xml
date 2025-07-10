@@ -19,8 +19,6 @@
         order by rb.${pageQuery.orderBy} ${pageQuery.sort} limit #{pageQuery.start} , #{pageQuery.pageSize}
     </select>
 
-
-
     <select id="getByVersionId" resultType="com.dtstack.taier.dao.dto.DevelopTaskVersionDetailDTO">
         select
         rb.id as id, rb.task_id as taskId, rb.origin_sql as originSql, rb.sql_text as sqlText,rb.publish_desc as publishDesc,rb.create_user_id as createUserId,rb.version,rb.gmt_create as gmtCreate,rb.gmt_modified as gmtModified,
@@ -47,7 +45,6 @@
             #{id}
         </foreach>
     </select>
-
 
     <select id="getByTaskIds" resultType="com.dtstack.taier.dao.dto.DevelopTaskVersionDetailDTO">
         select

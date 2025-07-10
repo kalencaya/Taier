@@ -28,7 +28,6 @@ import java.util.List;
 
 /**
  * 各数据源输入bps
- * @author jiangbo
  */
 public class SourceMetric extends StreamBaseMetric {
 

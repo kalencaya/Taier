@@ -31,12 +31,6 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
 
-/**
- * @Auther: dazhi
- * @Date: 2021/12/9 3:05 PM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 @Mapper
 public interface ScheduleJobMapper extends BaseMapper<ScheduleJob> {
 
@@ -56,7 +50,6 @@ public interface ScheduleJobMapper extends BaseMapper<ScheduleJob> {
      * @param fillIdList 补数据id
      */
     List<CountFillDataJobStatusPO> countByFillIdGetAllStatus(@Param("fillIdList") Set<Long> fillIdList);
-
 
     /**
      * 统计实例状态
@@ -87,7 +80,6 @@ public interface ScheduleJobMapper extends BaseMapper<ScheduleJob> {
      * @return 包含部分字段的job集合
      */
     List<ScheduleJob> listSimpleJobByStatusAddress(@Param("startId") Long startId, @Param("statuses") List<Integer> statuses, @Param("nodeAddress") String nodeAddress);
-
 
     /**
      * 查询容灾的时候的实例
@@ -129,6 +121,5 @@ public interface ScheduleJobMapper extends BaseMapper<ScheduleJob> {
      * @return 更新数
      */
     Integer updateJobStatusAndExecTime(@Param("jobId") String jobId, @Param("status") int status);
-
 
 }

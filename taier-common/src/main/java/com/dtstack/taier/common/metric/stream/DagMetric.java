@@ -27,18 +27,10 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
-/**
- * @company:www.dtstack.com
- * @Author:shiFang
- * @Date:2020-09-03 15:01
- * @Description:
- */
 public abstract class DagMetric implements IMetric {
 
     private String jobId;
-
     private DAGPrometheusMetricQuery prometheusMetricQuery;
-
 
     public QueryInfo buildQueryInfo() {
         List<Filter> filters = Lists.newArrayList();

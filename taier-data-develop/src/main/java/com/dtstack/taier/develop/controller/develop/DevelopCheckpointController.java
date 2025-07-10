@@ -56,16 +56,12 @@ public class DevelopCheckpointController {
 
     @Autowired
     private JobHistoryService jobHistoryService;
-
     @Autowired
     private DatasourceOperator datasourceOperator;
-
     @Autowired
     private ScheduleJobService scheduleJobService;
-
     @Autowired
     private ClusterService clusterService;
-
     @Autowired
     private ComponentService componentService;
 

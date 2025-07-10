@@ -31,11 +31,9 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * MD5加密工具类
- * User:lizhangqu(513163535@qq.com)
- * Date:2015-07-31
- * Time: 10:32
  */
 public class MD5Util {
+
     /**
      * 获得字符串的md5值
      *
@@ -57,7 +55,6 @@ public class MD5Util {
     }
 
 
-
     /**
      * 获得字符串的md5大写值
      *
@@ -76,8 +73,8 @@ public class MD5Util {
      */
     public static String getFileMD5String(File file) {
         String ret = "";
-        try(FileInputStream in = new FileInputStream(file);
-            FileChannel ch = in.getChannel();) {
+        try (FileInputStream in = new FileInputStream(file);
+             FileChannel ch = in.getChannel();) {
 
             ByteBuffer byteBuffer = ch.map(FileChannel.MapMode.READ_ONLY, 0,
                     file.length());

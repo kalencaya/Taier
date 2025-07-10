@@ -18,22 +18,18 @@
 
 package com.dtstack.taier.dao.domain;
 
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
-/**
- * Reason:
- * Date: 2017/6/7
- * Company: www.dtstack.com
- *
- * @ahthor xuchao
- */
+@Getter
+@Setter
 @TableName("develop_task_param_shade")
 public class DevelopTaskParamShade {
 
@@ -72,68 +68,4 @@ public class DevelopTaskParamShade {
     )
     private Timestamp gmtModified;
 
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getParamName() {
-        return paramName;
-    }
-
-    public void setParamName(String paramName) {
-        this.paramName = paramName;
-    }
-
-    public String getParamCommand() {
-        return paramCommand;
-    }
-
-    public void setParamCommand(String paramCommand) {
-        this.paramCommand = paramCommand;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public Timestamp getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Timestamp gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Timestamp getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Timestamp gmtModified) {
-        this.gmtModified = gmtModified;
-    }
 }

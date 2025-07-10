@@ -24,9 +24,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-/**
- * Created by sishu.yss on 2017/3/14.
- */
 @Service
 public class MigrationService {
 

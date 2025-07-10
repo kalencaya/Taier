@@ -18,11 +18,6 @@
 
 package com.dtstack.taier.dao.pager;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2017/4/27
- */
 public class PageResult<T> {
 
     public final static PageResult EMPTY_PAGE_RESULT = new PageResult<>();
@@ -121,7 +116,6 @@ public class PageResult<T> {
         this.data = data;
         return this;
     }
-
 
     @Override
     public String toString() {

@@ -22,12 +22,6 @@ import com.dtstack.taier.dao.domain.ScheduleTaskShade;
 import com.dtstack.taier.scheduler.dto.schedule.ScheduleTaskShadeDTO;
 import io.swagger.annotations.ApiModelProperty;
 
-/**
- * @Auther: dazhi
- * @Date: 2020/11/23 11:15 上午
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 public class ParamTaskAction {
 
     private ScheduleTaskShade task;

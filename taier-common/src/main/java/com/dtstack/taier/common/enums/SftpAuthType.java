@@ -18,13 +18,12 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : hanbeikai
- * Date: 2021/12/16 12:13 上午
- * Description: No Description
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum SftpAuthType {
 
     /**
@@ -36,13 +35,5 @@ public enum SftpAuthType {
      */
     RSA(2);
 
-    private Integer type;
-
-    SftpAuthType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getType() {
-        return type;
-    }
+    private final Integer type;
 }

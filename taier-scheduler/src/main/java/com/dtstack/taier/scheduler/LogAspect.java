@@ -23,27 +23,20 @@ import com.alibaba.fastjson.serializer.PropertyFilter;
 import com.dtstack.taier.pluginapi.JobClient;
 import com.dtstack.taier.pluginapi.enums.TaskStatus;
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
 
-/**
- * @author yuebai
- * @date 2021-01-28
- */
-
+@Slf4j
 @Aspect
 @Component
 public class LogAspect {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(LogAspect.class);
 
     private static final ArrayList<String> filterMethod = Lists.newArrayList("getEngineMessageByHttp", "getEngineLog",
             "getRollingLogBaseInfo", "clusterResource", "getDefaultPluginConfig", "containerInfos", "judgeSlots");
@@ -71,14 +64,14 @@ public class LogAspect {
                     .findFirst();
             if (jobClientOpt.isPresent()) {
                 if (logPluginInfoMethod.contains(methodName)) {
-                    argsString = JSONObject.toJSONString(jobClientOpt.get(),submitPropertyFilter);
+                    argsString = JSONObject.toJSONString(jobClientOpt.get(), submitPropertyFilter);
                 } else {
                     //忽略pluginInfo打印
                     argsString = JSONObject.toJSONString(jobClientOpt.get(), propertyFilter);
                 }
             } else {
                 if (skipChangeMethod.contains(methodName)) {
-                    if (ret instanceof TaskStatus && (TaskStatus.RUNNING.equals(ret)|| TaskStatus.SCHEDULED.equals(ret))) {
+                    if (ret instanceof TaskStatus && (TaskStatus.RUNNING.equals(ret) || TaskStatus.SCHEDULED.equals(ret))) {
                         //状态获取 多以running 为主 过滤频繁打印
                         return;
                     }
@@ -87,15 +80,15 @@ public class LogAspect {
                 }
             }
 
-            if (LOGGER.isInfoEnabled()) {
+            if (log.isInfoEnabled()) {
                 JSONObject logInfo = new JSONObject(3);
                 logInfo.put("method", joinPoint.getSignature().getDeclaringTypeName() + "." + methodName);
                 logInfo.put("args", argsString);
                 logInfo.put("return", JSONObject.toJSONString(ret));
-                LOGGER.info(logInfo.toJSONString());
+                log.info(logInfo.toJSONString());
             }
         } catch (Exception e) {
-            LOGGER.error("logAspect error ", e);
+            log.error("logAspect error ", e);
         }
     }
 

@@ -64,13 +64,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * 新增数据源相关功能控制器类
- *
- * @description:
- * @author: liuxx
- * @date: 2021/3/8
- */
 @Api(tags = {"数据源中心-新增数据源"})
 @RestController
 @RequestMapping(value = "/dataSource/addDs")
@@ -80,38 +73,30 @@ public class DatasourceAddController {
 
     @Autowired
     private DsClassifyService dsClassifyService;
-
     @Autowired
     private DsTypeService dsTypeService;
-
     @Autowired
     private DatasourceService datasourceService;
-
     @Autowired
     private DsVersionService dsVersionService;
 
     @ApiOperation("获取数据源分类类目列表")
     @PostMapping("/queryDsClassifyList")
     public R<List<DsClassifyVO>> queryDsClassifyList() {
-
         return R.ok(dsClassifyService.queryDsClassifyList());
     }
-
 
     @ApiOperation("根据分类获取数据源类型")
     @PostMapping("/queryDsTypeByClassify")
     public R<List<DsTypeVO>> queryDsTypeByClassify(@RequestBody DsTypeSearchParam searchParam) {
-
         return R.ok(dsTypeService.queryDsTypeByClassify(searchParam));
     }
 
     @ApiOperation("根据数据源类型获取版本列表")
     @PostMapping("/queryDsVersionByType")
     public R<List<DsVersionVO>> queryDsVersionByType(@RequestBody DsVersionSearchParam searchParam) {
-
         return R.ok(dsVersionService.queryDsVersionByType(searchParam));
     }
-
 
     @ApiOperation("测试联通性")
     @PostMapping("/testCon")

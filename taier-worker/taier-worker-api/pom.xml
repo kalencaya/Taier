@@ -4,14 +4,14 @@
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>taier-worker</artifactId>
         <groupId>com.dtstack.taier</groupId>
+        <artifactId>taier-worker</artifactId>
         <version>1.0.0</version>
-        <relativePath>..</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>taier-worker-api</artifactId>
     <name>taier-worker-api</name>
-    <packaging>jar</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
         <dependency>

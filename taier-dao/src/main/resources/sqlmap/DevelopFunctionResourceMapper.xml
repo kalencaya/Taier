@@ -27,7 +27,6 @@
         </set>
     </sql>
 
-
     <select id="listByFunctionId" resultType="com.dtstack.taier.dao.domain.DevelopFunctionResource">
         SELECT resource_id AS resource_id,
         <include refid="select_content_fragment"/>

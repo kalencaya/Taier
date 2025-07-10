@@ -26,8 +26,6 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -36,25 +34,11 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
-
-/**
- * 上传文件切面
- *
- * @description:
- * @author: liuxx
- * @date: 2021/3/18
- */
+import java.util.*;
 
 @Aspect
 @Component
 public class UploadAspect {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(UploadAspect.class);
 
     private static String uploadLocation = System.getProperty("user.dir") + File.separator + "upload";
 

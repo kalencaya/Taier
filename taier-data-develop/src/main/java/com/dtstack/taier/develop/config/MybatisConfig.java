@@ -44,11 +44,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2017/8/14
- */
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = {"com.dtstack.taier.*"})

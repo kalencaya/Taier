@@ -29,13 +29,8 @@ import org.apache.commons.collections.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @company: www.dtstack.com
- * @Author ：Nanqi
- * @Date ：Created in 14:17 2019-07-12
- * @Description：checkpoint 个数 普罗米修斯
- */
 public class CheckPointsNumberMetric extends DataDelayMetric {
+
     private String metricName;
 
     public CheckPointsNumberMetric(String jobId, PrometheusMetricQuery prometheusMetricQuery) {

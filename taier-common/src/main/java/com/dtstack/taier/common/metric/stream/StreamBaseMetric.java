@@ -34,32 +34,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author jiangbo
- */
 public abstract class StreamBaseMetric implements IMetric {
 
-    private String metricName;
-
-    private long startTime;
-
-    private long endTime;
-
-    protected String jobName;
-
-    protected String jobId;
-
-    protected String granularity;
-
-    private PrometheusMetricQuery prometheusMetricQuery;
-
-    private String componentVersion;
-
     private static Map<String, String> metricNameMap = new HashMap<>();
-
     private final static Map<String, String> FLINK_112_METRIC_NAME_MAP = new HashMap<>();
-
     private static List<String> specialDealmetricName = new ArrayList<>();
+
+    private String metricName;
+    private long startTime;
+    private long endTime;
+    protected String jobName;
+    protected String jobId;
+    protected String granularity;
+    private PrometheusMetricQuery prometheusMetricQuery;
+    private String componentVersion;
 
     static {
         metricNameMap.put("fail_over_history", "flink_jobmanager_job_numRestarts");
@@ -101,7 +89,6 @@ public abstract class StreamBaseMetric implements IMetric {
         specialDealmetricName.add("source_dirty_out");
         specialDealmetricName.add("source_dirty_data");
     }
-
 
     protected abstract QueryInfo buildQueryInfo();
 

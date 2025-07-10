@@ -160,7 +160,7 @@ public class DmClient extends AbsRdbmsClient {
      */
     private String buildSearchSql(String tableSearchSql, String tableNamePattern, Integer limit) {
         StringBuilder constr = new StringBuilder();
-        if (org.apache.commons.lang3.StringUtils.isNotBlank(tableNamePattern)) {
+        if (StringUtils.isNotBlank(tableNamePattern)) {
             constr.append(String.format(tableSearchSql, tableNamePattern));
         }
         if (Objects.nonNull(limit)) {

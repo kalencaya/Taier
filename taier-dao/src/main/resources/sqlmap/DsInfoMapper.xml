@@ -13,7 +13,6 @@
         a.gmt_modified as gmtModified
     </sql>
 
-
     <sql id="select_content_fragment">
         a.id as id,
         a.data_type as dataType,
@@ -68,11 +67,7 @@
         ORDER BY a.gmt_modified DESC
     </sql>
 
-
-
-
     <select id="queryDsByAppTypeAndOldDataInfoId" resultType="com.dtstack.taier.dao.domain.DsInfo">
-
         select
         <include refid="select_content_fragment" />
         from datasource_info a
@@ -118,8 +113,6 @@
         )
     </select>
 
-
-
     <select id="queryListByDataTypeAndVersion" resultType="com.dtstack.taier.dao.domain.DsInfo">
 
         select
@@ -132,9 +125,7 @@
         and is_deleted = 0;
     </select>
 
-
     <update id="updateDataTypeByDataTypeCode" >
-
         update
         datasource_info
         set data_type = #{dataType},
@@ -173,6 +164,5 @@
             limit #{listQuery.start}, #{listQuery.end}
         </if>
     </select>
-
 
 </mapper>

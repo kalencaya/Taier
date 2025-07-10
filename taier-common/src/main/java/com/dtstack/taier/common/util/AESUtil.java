@@ -27,13 +27,8 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.SecureRandom;
 
-/**
- * @Auther: dazhi
- * @Date: 2020/10/9 9:44 上午
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 public class AESUtil {
+
     private final static int BYTE_PARSE_HEX_BASE = 0xFF;
     private final static Logger LOGGER = LoggerFactory.getLogger(AESUtil.class);
     private final static char[] ENCRYPT_AES_KEYS = {0xfe, 0xee, 0xe3, 0x34, 0x2f, 0x9f, 0xe2, 0xbe, 0xc1, 0xd4, 0xdf,
@@ -42,16 +37,13 @@ public class AESUtil {
     /**
      * 加密
      *
-     * @param sSrc
-     *            待加密的内容
-     * @param raw
-     *            密钥
+     * @param sSrc 待加密的内容
+     * @param raw  密钥
      * @return 加密后的密文
      * @throws Exception
      */
     private static byte[] encrypt(String sSrc, String raw)
-            throws Exception
-    {
+            throws Exception {
 
         KeyGenerator kgen = KeyGenerator.getInstance("AES");
         SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
@@ -75,21 +67,18 @@ public class AESUtil {
     /**
      * 加密
      *
-     * @param sSrc
-     *            待加密的内容
+     * @param sSrc 待加密的内容
      * @return 加密后的密文
      * @throws Exception 异常信息
      */
     public static String encrypt(String sSrc)
-            throws Exception
-    {
+            throws Exception {
 
         char[] key = ENCRYPT_AES_KEYS;
 
         StringBuffer buffer = new StringBuffer();
         int temp;
-        for (int i = 0; i < key.length; i++)
-        {
+        for (int i = 0; i < key.length; i++) {
             temp = key[i];
             buffer.append(temp);
         }
@@ -99,21 +88,17 @@ public class AESUtil {
     /**
      * 解密
      *
-     * @param sSrc
-     *            待解密的内容
-     * @param raw
-     *            密钥
+     * @param sSrc 待解密的内容
+     * @param raw  密钥
      * @return 解密后的明文
      * @throws Exception 异常
      */
 
     private static byte[] decrypt(byte[] sSrc, String raw)
-            throws Exception
-    {
+            throws Exception {
 
         byte[] result = null;
-        try
-        {
+        try {
             KeyGenerator kgen = KeyGenerator.getInstance("AES");
 
             SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
@@ -131,10 +116,8 @@ public class AESUtil {
             cipher.init(Cipher.DECRYPT_MODE, key);
             result = cipher.doFinal(sSrc);
             return result;
-        }
-        catch (Exception e)
-        {
-            LOGGER.error("error: ",e);
+        } catch (Exception e) {
+            LOGGER.error("error: ", e);
             throw e;
         }
     }
@@ -142,20 +125,17 @@ public class AESUtil {
     /**
      * 解密
      *
-     * @param sSrc
-     *            待解密的内容
+     * @param sSrc 待解密的内容
      * @return 解密后的明文
      * @throws Exception 异常
      */
     public static String decrypt(String sSrc)
-            throws Exception
-    {
+            throws Exception {
         char[] key = ENCRYPT_AES_KEYS;
 
         StringBuffer buffer = new StringBuffer();
         int temp;
-        for (int i = 0; i < key.length; i++)
-        {
+        for (int i = 0; i < key.length; i++) {
             temp = key[i];
             buffer.append(temp);
         }
@@ -169,14 +149,11 @@ public class AESUtil {
      * @param buf 源二进制
      * @return 十六进制
      */
-    public static String parseByte2HexStr(byte buf[])
-    {
+    public static String parseByte2HexStr(byte buf[]) {
         StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < buf.length; i++)
-        {
+        for (int i = 0; i < buf.length; i++) {
             String hex = Integer.toHexString(buf[i] & BYTE_PARSE_HEX_BASE);
-            if (hex.length() == 1)
-            {
+            if (hex.length() == 1) {
                 hex = '0' + hex;
             }
             sb.append(hex.toUpperCase());
@@ -186,19 +163,17 @@ public class AESUtil {
 
     /**
      * 将十六进制转换为二进制
+     *
      * @param hexStr 十六进制
      * @return 二进制
      */
-    public static byte[] parseHexStr2Byte(String hexStr)
-    {
-        if (hexStr.length() < 1)
-        {
+    public static byte[] parseHexStr2Byte(String hexStr) {
+        if (hexStr.length() < 1) {
             return null;
         }
 
         byte[] result = new byte[hexStr.length() / 2];
-        for (int i = 0; i < hexStr.length() / 2; i++)
-        {
+        for (int i = 0; i < hexStr.length() / 2; i++) {
             int high =
                     Integer.parseInt(hexStr.substring(i * 2, i * 2 + 1),
                             16);
@@ -206,7 +181,7 @@ public class AESUtil {
                     Integer.parseInt(hexStr.substring(i * 2 + 1, i * 2
                                     + 2),
                             16);
-            result[i] = (byte)(high * 16 + low);
+            result[i] = (byte) (high * 16 + low);
         }
 
         return result;

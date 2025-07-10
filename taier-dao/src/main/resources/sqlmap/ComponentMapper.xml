@@ -103,7 +103,6 @@
           and is_deleted = 0
     </select>
 
-
     <select id="getDefaultComponentVersionByClusterAndComponentType" resultType="java.lang.String">
         SELECT cc.version_value
         FROM console_component cc

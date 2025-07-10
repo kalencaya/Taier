@@ -33,11 +33,6 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2017/5/5
- */
 public class DateUtil {
 
     private static final ThreadLocal<SoftReference<Map<String, SimpleDateFormat>>>

@@ -22,9 +22,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dtstack.taier.dao.domain.DevelopCatalogue;
 import org.apache.ibatis.annotations.Mapper;
 
-/**
- * @author toutian
- */
 @Mapper
 public interface DevelopCatalogueMapper extends BaseMapper<DevelopCatalogue> {
 

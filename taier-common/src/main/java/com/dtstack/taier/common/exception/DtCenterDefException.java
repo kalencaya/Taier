@@ -19,12 +19,12 @@
 package com.dtstack.taier.common.exception;
 
 import com.dtstack.taier.common.util.Strings;
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author 猫爸
- */
 public class DtCenterDefException extends RuntimeException {
+
+    @Getter
     private int code;
 
     public DtCenterDefException(String message){
@@ -42,7 +42,6 @@ public class DtCenterDefException extends RuntimeException {
     }
 
     public DtCenterDefException(ExceptionEnums exEnum, String message) {
-
         super(StringUtils.isNotBlank(message) ? message : exEnum.getDescription());
         code = exEnum.getCode();
     }
@@ -65,9 +64,5 @@ public class DtCenterDefException extends RuntimeException {
     public DtCenterDefException(Throwable throwable, ExceptionEnums exEnum, String message, Object... args) {
         super(StringUtils.isNotBlank(message) ? Strings.format(message, args) : exEnum.getDescription(), throwable);
         code = exEnum.getCode();
-    }
-
-    public int getCode() {
-        return code;
     }
 }

@@ -29,12 +29,6 @@ import org.springframework.util.StringUtils;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 
-/**
- * @company:www.dtstack.com
- * @Author:shiFang
- * @Date:2020-09-11 14:51
- * @Description:
- */
 public class DAGPrometheusMetricQuery {
 
     private static Logger logger = LoggerFactory.getLogger(DAGPrometheusMetricQuery.class);

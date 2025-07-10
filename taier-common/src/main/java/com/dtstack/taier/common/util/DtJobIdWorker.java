@@ -19,16 +19,12 @@
 package com.dtstack.taier.common.util;
 
 import com.dtstack.taier.common.client.ClientOperator;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author yuebai
- * @date 2021-09-08
- */
+@Slf4j
 public class DtJobIdWorker {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ClientOperator.class);
 
     private static volatile DtJobIdWorker singleton;
 
@@ -57,7 +53,7 @@ public class DtJobIdWorker {
             synchronized (ClientOperator.class) {
                 if (singleton == null) {
                     singleton = new DtJobIdWorker(network, sequence);
-                    LOGGER.info("init DtJobIdUtils DtJobIdUtils{}", network);
+                    log.info("init DtJobIdUtils DtJobIdUtils{}", network);
                 }
             }
         }
@@ -97,7 +93,7 @@ public class DtJobIdWorker {
         long timestamp = timeGen();
 
         if (timestamp < lastTimestamp) {
-            LOGGER.error("Clock moved backwards.  lastTimeStamp {} timeStamp {}", lastTimestamp, timestamp);
+            log.error("Clock moved backwards.  lastTimeStamp {} timeStamp {}", lastTimestamp, timestamp);
             timestamp = lastTimestamp;
         }
 

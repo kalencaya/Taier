@@ -19,16 +19,11 @@
 package com.dtstack.taier.common.sftp;
 
 import com.jcraft.jsch.ChannelSftp;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPool;
-import org.slf4j.LoggerFactory;
 
-/**
- * @author: 小北(xiaobei @ dtstack.com)
- * @description:
- * @create: 2021-12-15 22:48
- **/
+@Slf4j
 public class SftpPool {
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SftpPool.class);
 
     private GenericObjectPool<ChannelSftp> pool;
 
@@ -50,7 +45,7 @@ public class SftpPool {
     public ChannelSftp borrowObject() {
         try {
             ChannelSftp channelSftp = pool.borrowObject();
-            logger.info("borrow channelSftp : " + channelSftp);
+            log.info("borrow channelSftp : " + channelSftp);
             return channelSftp;
         } catch (Exception e) {
             throw new RuntimeException("从Sfpt连接池中获取连接失败", e);
@@ -63,7 +58,7 @@ public class SftpPool {
     public void returnObject(ChannelSftp channelSftp) {
         if (channelSftp != null) {
             pool.returnObject(channelSftp);
-            logger.info("return channelSftp to pool : " + channelSftp);
+            log.info("return channelSftp to pool : " + channelSftp);
         }
     }
 }

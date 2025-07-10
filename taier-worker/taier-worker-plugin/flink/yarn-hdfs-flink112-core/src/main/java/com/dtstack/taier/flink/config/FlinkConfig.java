@@ -37,7 +37,7 @@ import java.util.Map;
  * parameter doc: https://dtstack.yuque.com/rd-center/sm6war/mqef0g
  * relevant class
  * {@link com.dtstack.taier.flink.client.AbstractClientManager}
- * {@link com.dtstack.taier.flink.config.PluginConfig}
+ * {@link PluginConfig}
  */
 public class FlinkConfig extends BaseConfig {
 

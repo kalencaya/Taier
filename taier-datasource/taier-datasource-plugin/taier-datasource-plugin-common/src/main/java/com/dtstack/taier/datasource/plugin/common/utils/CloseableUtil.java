@@ -36,7 +36,7 @@ public class CloseableUtil {
      * 执行方法并调用 close 关闭 obj
      *
      * @param autoCloseSupplier 获取 autoClose 接口实现类的方法, 只有在调用
-     *                          {@link java.util.function.Supplier#get()} 方法时才会进行获取</p>
+     *                          {@link Supplier#get()} 方法时才会进行获取</p>
      * @param callbackFunc      方法执行回调
      * @param <T>               返回值的范型
      * @return 方法执行结果

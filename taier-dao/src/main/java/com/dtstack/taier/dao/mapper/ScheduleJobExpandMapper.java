@@ -24,12 +24,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.Set;
 
-/**
- * @Auther: dazhi
- * @Date: 2021/12/6 10:32 AM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 public interface ScheduleJobExpandMapper extends BaseMapper<ScheduleJobExpand> {
 
     Integer updateLogByJobIds(@Param("jobIds") Set<String> jobIds,

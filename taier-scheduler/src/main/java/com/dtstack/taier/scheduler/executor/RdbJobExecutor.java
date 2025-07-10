@@ -34,21 +34,12 @@ import com.dtstack.taier.scheduler.jobdealer.JobDealer;
 import com.dtstack.taier.scheduler.service.ScheduleJobCacheService;
 import com.dtstack.taier.scheduler.service.ScheduleJobExpandService;
 import com.dtstack.taier.scheduler.service.ScheduleJobService;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
-/**
- * rdb executor
- *
- * @author ：wangchuan
- * date：Created in 14:04 2022/10/8
- * company: www.dtstack.com
- */
+@Slf4j
 public class RdbJobExecutor {
-
-    private final Logger LOGGER = LoggerFactory.getLogger(RdbJobExecutor.class);
 
     private final JobDealer jobDealer;
 
@@ -80,7 +71,7 @@ public class RdbJobExecutor {
 
     public void executeJob(JobClient jobClient) {
         jobClient.doStatusCallBack(TaskStatus.RUNNING.getStatus());
-        LOGGER.info("jobId:{} taskType:{} submit to job start run", jobClient.getJobId(), jobClient.getTaskType());
+        log.info("jobId:{} taskType:{} submit to job start run", jobClient.getJobId(), jobClient.getTaskType());
         // executeBatchQuery 执行不成功 会执行抛异常，不会返回false
         ISourceDTO sourceDTO = sourceDTOLoader.buildSourceDTO(jobClient.getDatasourceId());
         if (sourceDTO instanceof RdbmsSourceDTO) {
@@ -100,7 +91,7 @@ public class RdbJobExecutor {
                 return null;
             }, 3, 200, false);
         } catch (Exception e) {
-            LOGGER.error("jobId:{} taskType:{} update  job to finish error", jobClient.getJobId(), jobClient.getTaskType(), e);
+            log.error("jobId:{} taskType:{} update  job to finish error", jobClient.getJobId(), jobClient.getTaskType(), e);
         }
     }
 
@@ -113,7 +104,7 @@ public class RdbJobExecutor {
     }
 
     private void updateJobStatus(JobClient jobClient, Integer status) {
-        LOGGER.info("jobId:{} status :{}", jobClient.getJobId(), status);
+        log.info("jobId:{} status :{}", jobClient.getJobId(), status);
         scheduleJobService.updateJobStatusAndExecTime(jobClient.getJobId(), status);
     }
 }

@@ -3,17 +3,13 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.0</version>
-
     <parent>
-        <artifactId>taier-worker-plugin.spark</artifactId>
         <groupId>com.dtstack.taier</groupId>
+        <artifactId>taier-worker-plugin.spark</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
     <artifactId>taier-worker-plugin.spark.yarn3-hdfs3-spark320</artifactId>
-    <packaging>jar</packaging>
 
     <properties>
         <jar.name>spark-yarn-client</jar.name>

@@ -24,10 +24,6 @@ import static com.dtstack.taier.common.constant.PatternConstant.TENANT_NAME_REGE
 
 /**
  * 正则表达式校验工具
- * Regular expression check utils
- *
- * 
- * @date 2022/5/2 16:03
  */
 public class RegexUtils {
 

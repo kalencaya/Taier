@@ -19,17 +19,18 @@
 package com.dtstack.taier.common.enums;
 
 import com.google.common.collect.Lists;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2020/01/17
- */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EJobCacheStage {
+
     //JOB 在DB中，未加到优先级队列
     DB(1),
     //JOB 在优先级队列，等待提交
@@ -41,16 +42,7 @@ public enum EJobCacheStage {
     //JOB 已经提交，处于状态轮询中
     SUBMITTED(5);
 
-
-    int stage;
-
-    EJobCacheStage(int stage) {
-        this.stage = stage;
-    }
-
-    public int getStage() {
-        return stage;
-    }
+    private final int stage;
 
     public static List<Integer> unSubmitted() {
         return Lists.newArrayList(

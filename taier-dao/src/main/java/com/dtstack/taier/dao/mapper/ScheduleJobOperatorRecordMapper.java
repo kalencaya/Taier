@@ -26,10 +26,6 @@ import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @author yuebai
- * @date 2021-07-06
- */
 public interface ScheduleJobOperatorRecordMapper extends BaseMapper<ScheduleJobOperatorRecord> {
 
     /**
@@ -50,6 +46,5 @@ public interface ScheduleJobOperatorRecordMapper extends BaseMapper<ScheduleJobO
     void updateNodeAddress(@Param("nodeAddress") String nodeAddress, @Param("jobIds")List<String> value);
 
     Integer insertIgnoreBatch(@Param("records") Collection<ScheduleJobOperatorRecord> records);
-
 
 }

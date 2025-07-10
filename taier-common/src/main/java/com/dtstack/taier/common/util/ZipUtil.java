@@ -18,18 +18,10 @@
 
 package com.dtstack.taier.common.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tools.zip.ZipFile;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,15 +31,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-/**
- * @company: www.dtstack.com
- * @Author ：Nanqi
- * @Date ：Created in 10:23 2019-07-24
- * @Description：Zip 压缩工具
- */
+@Slf4j
 public class ZipUtil {
-
-    private static final Logger LOG = LoggerFactory.getLogger(ZipUtil.class);
 
     private static byte[] ZIP_HEADER_1 = new byte[]{80, 75, 3, 4};
     private static byte[] ZIP_HEADER_2 = new byte[]{80, 75, 5, 6};
@@ -66,14 +51,14 @@ public class ZipUtil {
             zip.putNextEntry(entry);
             zip.write(rowData);
         } catch (Exception ex) {
-            LOG.error(ex.getMessage(), ex);
+            log.error(ex.getMessage(), ex);
         } finally {
             if (null != zip) {
                 try {
                     zip.close();
                     zip.closeEntry();
                 } catch (IOException e) {
-                    LOG.error(e.getMessage(), e);
+                    log.error(e.getMessage(), e);
                 }
             }
             if (null != bos) {
@@ -81,7 +66,7 @@ public class ZipUtil {
                 try {
                     bos.close();
                 } catch (IOException e) {
-                    LOG.error(e.getMessage(), e);
+                    log.error(e.getMessage(), e);
                 }
             }
         }
@@ -108,13 +93,13 @@ public class ZipUtil {
                 baos.close();
             }
         } catch (Exception ex) {
-            LOG.error(ex.getMessage(), ex);
+            log.error(ex.getMessage(), ex);
         } finally {
             if (null != bis) {
                 try {
                     bis.close();
                 } catch (IOException e) {
-                    LOG.error(e.getMessage(), e);
+                    log.error(e.getMessage(), e);
                 }
             }
 
@@ -122,7 +107,7 @@ public class ZipUtil {
                 try {
                     zip.close();
                 } catch (IOException e) {
-                    LOG.error(e.getMessage(), e);
+                    log.error(e.getMessage(), e);
                 }
             }
 
@@ -130,7 +115,7 @@ public class ZipUtil {
                 try {
                     baos.close();
                 } catch (IOException e) {
-                    LOG.error(e.getMessage(), e);
+                    log.error(e.getMessage(), e);
                 }
             }
         }
@@ -310,7 +295,7 @@ public class ZipUtil {
                 file.delete();
             }
         } catch (Exception e) {
-            LOG.error("delete path " + delpath, e);
+            log.error("delete path " + delpath, e);
         }
     }
 

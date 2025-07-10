@@ -21,10 +21,6 @@ package com.dtstack.taier.dao.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dtstack.taier.dao.domain.ScheduleTaskTaskShade;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2019/10/22
- */
 public interface ScheduleTaskTaskShadeMapper extends BaseMapper<ScheduleTaskTaskShade> {
+
 }

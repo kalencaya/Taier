@@ -27,10 +27,9 @@ import com.dtstack.taier.common.sftp.SFTPHandler;
 import com.google.common.collect.Maps;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.SftpException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,25 +38,15 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Vector;
+import java.util.*;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
 
 /**
  * 有关解析数据源工具类
- *
- * @description:
- * @author: liuxx
- * @date: 2021/3/24
  */
+@Slf4j
 public class DataSourceUtils {
-
-    public static final Logger LOGGER = LoggerFactory.getLogger(DataSourceUtils.class);
 
     public static final String KERBEROS_FILE = "kerberosFile";
     public static final String KERBEROS_CONFIG = "kerberosConfig";
@@ -166,7 +155,7 @@ public class DataSourceUtils {
                 return JSONObject.parseObject(Base64Util.baseDecode(base64Str));
             }
         } catch (Exception e) {
-            LOGGER.error("parse datasource error", e);
+            log.error("parse datasource error", e);
             throw new TaierDefineException("数据源信息解码异常", e);
         }
     }
@@ -435,10 +424,10 @@ public class DataSourceUtils {
                 delFile(f);
             }
         }
-        LOGGER.info("delete local file path ：{}", file.getAbsolutePath());
+        log.info("delete local file path ：{}", file.getAbsolutePath());
         boolean delete = file.delete();
         if (!delete) {
-            LOGGER.warn("delete local file path fail：{}", file.getAbsolutePath());
+            log.warn("delete local file path fail：{}", file.getAbsolutePath());
         }
     }
 
@@ -457,7 +446,7 @@ public class DataSourceUtils {
         String filename = System.currentTimeMillis() + LOCK_SUFFIX;
         boolean createResult = new File(srcDir + SEPARATE + filename).createNewFile();
         if (!createResult) {
-            LOGGER.warn("kerberos lock file 文件创建失败");
+            log.warn("kerberos lock file 文件创建失败");
         }
     }
 

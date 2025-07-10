@@ -65,7 +65,6 @@
         </if>
     </delete>
 
-
     <select id="listByResourceId" resultType="com.dtstack.taier.dao.domain.DevelopTaskResource">
         SELECT
         <include refid="select_content_fragment"/>

@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.develop.service.develop.impl;
 
-
 import com.alibaba.fastjson.JSONObject;
 import com.dtstack.taier.common.enums.DAGMetricType;
 import com.dtstack.taier.common.exception.DtCenterDefException;
@@ -61,26 +60,20 @@ import java.util.concurrent.Future;
 @Service
 public class FlinkTaskVertexGraphService {
 
-    private static final Integer CORE_POOL_NUMBER = 16;
-
-    private static ExecutorService executorService = Executors.newFixedThreadPool(CORE_POOL_NUMBER, new RdosThreadFactory("stream_metrics_query"));
-
-
-    @Autowired
-    private DevelopTaskMapper developTaskMapper;
-
-    @Autowired
-    private StreamJobMetricService streamJobMetricService;
-
-    @Autowired
-    private ScheduleJobExpandService scheduleJobExpandService;
+    public static final String METRIC_QUERY = "%s-%s-%s";
+    public static final String METRIC_QUERY_LATENCY = "%s-%s-%s-%s-%s";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FlinkTaskVertexGraphService.class);
 
+    private static final Integer CORE_POOL_NUMBER = 16;
+    private static ExecutorService executorService = Executors.newFixedThreadPool(CORE_POOL_NUMBER, new RdosThreadFactory("stream_metrics_query"));
 
-    public static final String METRIC_QUERY = "%s-%s-%s";
-
-    public static final String METRIC_QUERY_LATENCY = "%s-%s-%s-%s-%s";
+    @Autowired
+    private DevelopTaskMapper developTaskMapper;
+    @Autowired
+    private StreamJobMetricService streamJobMetricService;
+    @Autowired
+    private ScheduleJobExpandService scheduleJobExpandService;
 
     /**
      * 根据taskId查询任务的dag以及指标
@@ -208,7 +201,7 @@ public class FlinkTaskVertexGraphService {
         List<Service> services = new ArrayList<>();
         CountDownLatch latch = new CountDownLatch(DAGMetricType.values().length);
         for (DAGMetricType dagMetricType : DAGMetricType.values()) {
-            DagMetric dagMetric = (DagMetric) dagMetricType.getaClass().newInstance();
+            DagMetric dagMetric = (DagMetric) dagMetricType.getAClass().newInstance();
             dagMetric.setJobId(jobId);
             dagMetric.setPrometheusMetricQuery(prometheusMetricQuery);
             Service service = new Service(latch, dagMetric);

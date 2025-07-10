@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.dao.mapper;
 
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dtstack.taier.dao.domain.ScheduleJobCache;
 import org.apache.ibatis.annotations.Param;

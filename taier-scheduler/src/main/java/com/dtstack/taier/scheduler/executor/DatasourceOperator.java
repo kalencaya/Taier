@@ -41,19 +41,11 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * rdb executor
- *
- * @author ：wangchuan
- * date：Created in 14:04 2022/10/8
- * company: www.dtstack.com
- */
 @Component
 public class DatasourceOperator {
 
     @Autowired
     private ComponentService componentService;
-
     @Autowired
     private ClusterService clusterService;
 

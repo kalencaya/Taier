@@ -25,11 +25,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2017/5/15
- */
 public class Base64Util {
 
     /**

@@ -16,7 +16,6 @@
  * limitations under the License.
  */
 
-
 package com.dtstack.taier.develop.bo;
 
 import com.dtstack.taier.develop.sql.ParseResult;

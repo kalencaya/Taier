@@ -24,10 +24,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * @author yuebai
- * @date 2021-02-08
- */
 public interface ComponentConfigMapper extends BaseMapper<ComponentConfig> {
 
     List<ComponentConfig> listByComponentId(@Param("componentId")Long componentId,@Param("isFilter") boolean isFilter);

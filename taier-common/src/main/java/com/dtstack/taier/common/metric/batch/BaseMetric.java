@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.batch;
 
-
 import com.dtstack.taier.common.metric.MetricData;
 import com.dtstack.taier.common.metric.MetricResult;
 import com.dtstack.taier.common.metric.QueryInfo;

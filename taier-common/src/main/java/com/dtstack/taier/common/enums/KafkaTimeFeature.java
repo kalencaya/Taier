@@ -18,23 +18,16 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum  KafkaTimeFeature {
-    /**
-     *
-     */
+
     PROCTIME(1),
-    /**
-     *
-     */
     EVENTTIME(2);
 
-    private int value;
-
-    KafkaTimeFeature(int value){
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
-    }
+    private final int value;
 }

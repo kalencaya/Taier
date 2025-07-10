@@ -32,28 +32,24 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class TimeParamOperator {
-    private static final String STD_FMT = "yyyyMMddHHmmss";
 
+    private static final String STD_FMT = "yyyyMMddHHmmss";
     private static final String DAY_FMT = "yyyyMMdd";
     private static final String MONTH_FMT = "yyyyMM";
     private static final String YEAR_FMT = "yyyy";
+    private static final String ISODATE_FORMATE = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+    private static final String FORMATTED_TIME = "^yyyy|MM|dd|HH|hh|hh24|mm|ss|yyyyMM|yyyyMMdd|yyyyMMddHH|yyyyMMddHHmm|yyyyMMddHHmmss|yyyyMMddhh24|yyyyMMddhh24mm|yyyyMMddhh24mmss" +
+            "|HH:mm:ss|yyyy-MM-dd HH:mm:ss|yyyy-MM-dd?";
+    private static final Pattern customizePattern = Pattern.compile("^(yyyyMMdd|hh24miss)\\s*([\\-\\+])\\s*(.*)");
+
+    private static final DateTimeFormatter cycTimeFormat = DateTimeFormat.forPattern(STD_FMT);
+    private static final Pattern formattedPattern = Pattern.compile(FORMATTED_TIME);
 
     private static final String SYSTEM_CURRENTTIME = "bdp.system.currenttime";
 
-    private static final DateTimeFormatter cycTimeFormat = DateTimeFormat.forPattern(STD_FMT);
-
-    private static final String ISODATE_FORMATE = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
     private static final Pattern pattern = Pattern.compile("([a-zA-Z]{4,14})\\s*([\\-\\+])\\s*(\\d+)");
-
-    private static final Pattern customizePattern = Pattern.compile("^(yyyyMMdd|hh24miss)\\s*([\\-\\+])\\s*(.*)");
-
-    private static final String FORMATTED_TIME = "^yyyy|MM|dd|HH|hh|hh24|mm|ss|yyyyMM|yyyyMMdd|yyyyMMddHH|yyyyMMddHHmm|yyyyMMddHHmmss|yyyyMMddhh24|yyyyMMddhh24mm|yyyyMMddhh24mmss" +
-            "|HH:mm:ss|yyyy-MM-dd HH:mm:ss|yyyy-MM-dd?";
-
-    private static final Pattern formattedPattern = Pattern.compile(FORMATTED_TIME);
 
     /**
      * format 函数解析 日期类型

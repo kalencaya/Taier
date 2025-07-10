@@ -59,11 +59,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * @author 全阅
- * @Description: 数据源中心控制层
- * @Date: 2021/3/8 18:57
- */
 @Api(tags = {"数据源中心-数据源管理"})
 @RestController
 @RequestMapping(value = "/dataSource/manager")
@@ -71,13 +66,10 @@ public class DataSourceController {
 
     @Autowired
     private DsInfoService dsInfoService;
-
     @Autowired
     private DsTypeService dsTypeService;
-
     @Autowired
     private DatasourceService datasourceService;
-
     @Autowired
     private SyncBuilderFactory syncBuilderFactory;
 

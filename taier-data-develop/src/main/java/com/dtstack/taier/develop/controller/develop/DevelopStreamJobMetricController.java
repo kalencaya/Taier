@@ -38,17 +38,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @author zhiChen
- * @date 2022/4/27 18:40
- */
 @Api(value = "任务指标接口", tags = {"任务指标接口"})
 @RestController
 @RequestMapping(value = "/streamJobMetric")
 public class DevelopStreamJobMetricController {
 
     @Autowired
-    StreamJobMetricService streamJobMetricService;
+    private StreamJobMetricService streamJobMetricService;
+
     @ApiOperation(value = "获取任务指标")
     @PostMapping(value = "getTaskMetrics")
     public R<JSONArray> getTaskMetrics(@RequestBody  StreamTaskMetricDTO dto) {

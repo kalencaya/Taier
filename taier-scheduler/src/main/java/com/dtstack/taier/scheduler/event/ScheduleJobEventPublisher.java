@@ -19,6 +19,7 @@
 package com.dtstack.taier.scheduler.event;
 
 import com.dtstack.taier.pluginapi.enums.TaskStatus;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
@@ -26,15 +27,10 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author yuebai
- * @date 2020-07-28
- */
+@Slf4j
 public class ScheduleJobEventPublisher {
 
     private static volatile ScheduleJobEventPublisher publisher = null;
-
-    private final Logger logger = LoggerFactory.getLogger(ScheduleJobEventPublisher.class);
 
     private List<ScheduleJobEventLister> scheduleJobEventMulticaster;
 
@@ -68,7 +64,7 @@ public class ScheduleJobEventPublisher {
             return;
         }
         if (TaskStatus.getStoppedStatus().contains(event.getStatus())) {
-            logger.info("publishBatchEvent {}", event);
+            log.info("publishBatchEvent {}", event);
         }
         for (ScheduleJobEventLister scheduleJobEventLister : scheduleJobEventMulticaster) {
             scheduleJobEventLister.publishBatchEvent(event);

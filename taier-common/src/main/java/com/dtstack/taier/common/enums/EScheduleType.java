@@ -18,36 +18,21 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * Reason:
- * Date: 2017/6/2
- * Company: www.dtstack.com
- *
- * @author xuchao
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EScheduleType {
 
     //正常调度(0), 补数据(1),临时运行一次
-    NORMAL_SCHEDULE(0, "正常调度"), FILL_DATA(1, "补数据"), TEMP_JOB(2, "临时运行");
+    NORMAL_SCHEDULE(0, "正常调度"),
+    FILL_DATA(1, "补数据"),
+    TEMP_JOB(2, "临时运行");
 
-    private Integer type;
-
-    private String desc;
-
-
-    EScheduleType(int type, String desc) {
-        this.type = type;
-        this.desc = desc;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
+    private final Integer type;
+    private final String desc;
 
     public static String getTypeName(int type) {
         if (NORMAL_SCHEDULE.type == type) {

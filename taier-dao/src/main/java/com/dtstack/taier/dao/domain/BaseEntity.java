@@ -18,61 +18,28 @@
 
 package com.dtstack.taier.dao.domain;
 
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+@Getter
+@Setter
 public class BaseEntity implements Serializable {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id = 0L;
 
-    @TableField(
-            value = "gmt_create",
-            fill = FieldFill.INSERT
-    )
+    @TableField(value = "gmt_create", fill = FieldFill.INSERT)
     private Timestamp gmtCreate;
 
     @TableField(fill = FieldFill.INSERT_UPDATE, update = "now()", value = "gmt_modified")
     private Timestamp gmtModified;
 
     private Integer isDeleted = 0;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Timestamp getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Timestamp gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Timestamp getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Timestamp gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
 }

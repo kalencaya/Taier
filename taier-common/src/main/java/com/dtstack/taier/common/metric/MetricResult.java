@@ -19,55 +19,17 @@
 package com.dtstack.taier.common.metric;
 
 import com.dtstack.taier.common.param.MetricPO;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-/**
- * metric 查询返回结果对象
- * Date: 2018/10/9
- * Company: www.dtstack.com
- * @author xuchao
- */
-
+@Getter
+@Setter
 public class MetricResult {
 
     private String metricName;
-
     private List<MetricData> metricDataList;
-
     private MetricPO metric;
-
     private List<Object> value;
-
-    public MetricPO getMetric() {
-        return metric;
-    }
-
-    public void setMetric(MetricPO metric) {
-        this.metric = metric;
-    }
-
-    public List<Object> getValue() {
-        return value;
-    }
-
-    public void setValue(List<Object> value) {
-        this.value = value;
-    }
-
-    public List<MetricData> getMetricDataList() {
-        return metricDataList;
-    }
-
-    public void setMetricDataList(List<MetricData> metricDataList) {
-        this.metricDataList = metricDataList;
-    }
-
-    public String getMetricName() {
-        return metricName;
-    }
-
-    public void setMetricName(String metricName) {
-        this.metricName = metricName;
-    }
 }

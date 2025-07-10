@@ -24,25 +24,17 @@ import com.dtstack.taier.common.security.NoExitSecurityManager;
 import com.dtstack.taier.common.util.JavaPolicyUtils;
 import com.dtstack.taier.common.util.ShutdownHookUtil;
 import com.dtstack.taier.common.util.SystemPropertyUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2020/07/08
- */
+@Slf4j
 @SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableScheduling
 public class TaierApplication {
-
-    private static Logger LOGGER = LoggerFactory.getLogger(TaierApplication.class);
 
     public static void main(String[] args) {
         try {
@@ -51,18 +43,18 @@ public class TaierApplication {
             SpringApplication application = new SpringApplication(TaierApplication.class);
             application.run(args);
             System.setSecurityManager(new NoExitSecurityManager());
-            ShutdownHookUtil.addShutdownHook(TaierApplication::shutdown, TaierApplication.class.getSimpleName(), LOGGER);
+            ShutdownHookUtil.addShutdownHook(TaierApplication::shutdown, TaierApplication.class.getSimpleName(), log);
             JavaPolicyUtils.checkJavaPolicy();
         } catch (Throwable t) {
-            LOGGER.error("start error:", t);
+            log.error("start error:", t);
             System.exit(-1);
         } finally {
-            LOGGER.info("taier start end...");
+            log.info("taier start end...");
         }
     }
 
     private static void shutdown() {
-        LOGGER.info("taier is shutdown...");
+        log.info("taier is shutdown...");
     }
 
 }

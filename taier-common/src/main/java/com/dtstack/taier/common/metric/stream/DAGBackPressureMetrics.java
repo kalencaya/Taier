@@ -26,20 +26,16 @@ import com.dtstack.taier.common.param.PromtheusMetrics;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @company:www.dtstack.com
- * @Author:shiFang
- * @Date:2020-09-03 17:24
- * @Description:
- */
 public class DAGBackPressureMetrics extends DagMetric{
+
     public static final String METRIC_QUERY = "%s-%s-%s";
     public static final String METRIC_QUERY_LATENCY = "%s-%s-%s-%s-%s";
-    private String taskId;
-
-    private Integer subtaskIndex;
 
     private static String METRIC_NAME = "flink_taskmanager_job_task_isBackPressured";
+
+    private String taskId;
+    private Integer subtaskIndex;
+
     @Override
     public Object formatData(String result) {
         Map<String,Object> metricMap = new HashMap<>();
@@ -59,18 +55,12 @@ public class DAGBackPressureMetrics extends DagMetric{
         return null;
     }
 
-    public static String getMetrics() {
-        return METRIC_NAME;
-    }
-
     @Override
     public String getMetricName() {
         return METRIC_NAME;
     }
 
-    public static String getMetricQuery() {
-        return METRIC_QUERY;
-    }
+
 
     public String getTaskId() {
         return taskId;
@@ -90,5 +80,13 @@ public class DAGBackPressureMetrics extends DagMetric{
 
     public static void setMetricName(String metricName) {
         METRIC_NAME = metricName;
+    }
+
+    public static String getMetrics() {
+        return METRIC_NAME;
+    }
+
+    public static String getMetricQuery() {
+        return METRIC_QUERY;
     }
 }

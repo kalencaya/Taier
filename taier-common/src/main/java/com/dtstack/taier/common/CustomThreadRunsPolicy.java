@@ -19,27 +19,14 @@
 package com.dtstack.taier.common;
 
 import com.dtstack.taier.common.thread.SignRunnable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Field;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.function.Consumer;
 
-/**
- * company: www.dtstack.com
- *
- * @author: toutian
- * create: 2020/07/01
- */
+@Slf4j
 public class CustomThreadRunsPolicy<T> implements RejectedExecutionHandler {
-
-    protected static final Logger LOGGER = LoggerFactory.getLogger(CustomThreadRunsPolicy.class);
 
     private String threadName;
 
@@ -83,14 +70,14 @@ public class CustomThreadRunsPolicy<T> implements RejectedExecutionHandler {
                 e.getTaskCount(), e.getCompletedTaskCount(), e.isShutdown(), e.isTerminated(), e.isTerminating(),
                 type);
         try {
-            LOGGER.warn(msg);
+            log.warn(msg);
             boolean offer = e.getQueue().offer(r, timeout, TimeUnit.SECONDS);
             if (!offer && null != callBack) {
                 getSignAndCallBack(r, callBack);
             }
-            LOGGER.warn("offer {}", offer);
+            log.warn("offer {}", offer);
         } catch (InterruptedException interruptedException) {
-            LOGGER.error(msg);
+            log.error(msg);
             throw new RejectedExecutionException("Interrupted waiting for worker");
         }
     }
@@ -119,7 +106,7 @@ public class CustomThreadRunsPolicy<T> implements RejectedExecutionHandler {
                 }
             }
         } catch (Exception e) {
-            LOGGER.error("getSign error callback", e);
+            log.error("getSign error callback", e);
         }
         return null;
     }

@@ -46,11 +46,9 @@ public class DevelopJobController {
     @Autowired
     private DevelopJobService batchJobService;
 
-
     @ApiOperation(value = "运行同步任务")
     @PostMapping(value = "startSyncImmediately")
     public R<DevelopStartSyncResultVO> startSyncImmediately(@RequestBody DevelopJobStartSyncVO vo) {
-
         return new APITemplate<DevelopStartSyncResultVO>() {
 
             @Override
@@ -63,7 +61,6 @@ public class DevelopJobController {
     @ApiOperation(value = "获取同步任务运行状态")
     @PostMapping(value = "getSyncTaskStatus")
     public R<DevelopGetSyncTaskStatusInnerResultVO> getSyncTaskStatus(@RequestBody DevelopJobSyncTaskVO vo) {
-
         return new APITemplate<DevelopGetSyncTaskStatusInnerResultVO>() {
             @Override
             protected DevelopGetSyncTaskStatusInnerResultVO process() throws TaierDefineException {
@@ -75,7 +72,6 @@ public class DevelopJobController {
     @ApiOperation(value = "停止同步任务")
     @PostMapping(value = "stopSyncJob")
     public R<Void> stopSyncJob(@RequestBody DevelopJobSyncTaskVO vo) {
-
         return new APITemplate<Void>() {
             @Override
             protected Void process() throws TaierDefineException {
@@ -88,7 +84,6 @@ public class DevelopJobController {
     @ApiOperation(value = "运行sql")
     @PostMapping(value = "startSqlImmediately")
     public R<DevelopExecuteResultVO> startSqlImmediately(@RequestBody DevelopJobStartSqlVO vo) {
-
         return new APITemplate<DevelopExecuteResultVO>() {
             @Override
             protected DevelopExecuteResultVO process() throws TaierDefineException {
@@ -102,7 +97,6 @@ public class DevelopJobController {
     @ApiOperation(value = "停止通过sql任务执行的sql查询语句")
     @PostMapping(value = "stopSqlImmediately")
     public R<Void> stopSqlImmediately(@RequestBody DevelopJobSyncTaskVO vo) {
-
         return new APITemplate<Void>() {
             @Override
             protected Void process() throws TaierDefineException {
@@ -111,6 +105,5 @@ public class DevelopJobController {
             }
         }.execute();
     }
-
 
 }

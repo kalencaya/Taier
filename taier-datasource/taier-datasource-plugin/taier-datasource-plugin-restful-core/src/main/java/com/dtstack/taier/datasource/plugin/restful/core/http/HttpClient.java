@@ -254,13 +254,13 @@ public class HttpClient implements Closeable {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         if (MapUtils.isNotEmpty(files)) {
             // 上传的文件
-            for (Map.Entry<String, File> file : files.entrySet()) {
+            for (Entry<String, File> file : files.entrySet()) {
                 builder.addBinaryBody(file.getKey(), file.getValue(), ContentType.MULTIPART_FORM_DATA.withCharset(DEFAULT_CHARSET), file.getValue().getName());
             }
         }
         if (MapUtils.isNotEmpty(params)) {
             // 设置其他参数
-            for (Map.Entry<String, String> entry : params.entrySet()) {
+            for (Entry<String, String> entry : params.entrySet()) {
                 builder.addTextBody(entry.getKey(), entry.getValue(), ContentType.MULTIPART_FORM_DATA.withCharset(DEFAULT_CHARSET));
             }
         }
@@ -281,11 +281,11 @@ public class HttpClient implements Closeable {
         }
         // 先取传参里的 header，再取 sourceDTO 里的 header
         if (MapUtils.isNotEmpty(headers)) {
-            for (Map.Entry<String, String> entry : headers.entrySet()) {
+            for (Entry<String, String> entry : headers.entrySet()) {
                 request.addHeader(entry.getKey(), String.valueOf(entry.getValue()));
             }
         } else if (MapUtils.isNotEmpty(this.headers)) {
-            for (Map.Entry<String, String> entry : this.headers.entrySet()) {
+            for (Entry<String, String> entry : this.headers.entrySet()) {
                 request.addHeader(entry.getKey(), String.valueOf(entry.getValue()));
             }
         }
@@ -342,7 +342,7 @@ public class HttpClient implements Closeable {
     public static String getCookieFormat(Map<String, String> cookies) {
         StringBuilder sb = new StringBuilder();
         Set<Entry<String, String>> sets = cookies.entrySet();
-        for (Map.Entry<String, String> s : sets) {
+        for (Entry<String, String> s : sets) {
             String value = Objects.isNull(s.getValue()) ? "" : s.getValue();
             sb.append(s.getKey()).append("=").append(value).append(";");
         }

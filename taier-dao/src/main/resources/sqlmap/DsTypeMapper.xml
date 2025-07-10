@@ -6,7 +6,6 @@
         data_type,data_classify_id,weight,img_url,is_deleted,sorted,invisible
     </sql>
 
-
     <select id="dsTypeList" resultType="com.dtstack.taier.dao.domain.DsType">
         select
         <include refid="select_content_fragment" />

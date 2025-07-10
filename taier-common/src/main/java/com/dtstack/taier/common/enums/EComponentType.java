@@ -19,12 +19,17 @@
 package com.dtstack.taier.common.enums;
 
 import com.google.common.collect.Lists;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EComponentType {
 
     FLINK(0, "Flink", "flinkConf", EComponentScheduleType.COMPUTE),
@@ -34,23 +39,12 @@ public enum EComponentType {
     SFTP(6, "SFTP", "sftpConf", EComponentScheduleType.COMMON),
     SCRIPT(8, "Script", "scriptConf", EComponentScheduleType.COMPUTE),
     DATAX(9, "DataX", "dataXConf", EComponentScheduleType.COMPUTE),
-
     ;
 
     private final Integer typeCode;
-
     private final String name;
-
     private final String confName;
-
     private final EComponentScheduleType componentScheduleType;
-
-    EComponentType(int typeCode, String name, String confName, EComponentScheduleType componentScheduleType) {
-        this.typeCode = typeCode;
-        this.name = name;
-        this.confName = confName;
-        this.componentScheduleType = componentScheduleType;
-    }
 
     private static final Map<Integer, EComponentType> COMPONENT_TYPE_CODE_MAP = new ConcurrentHashMap<>(16);
     private static final Map<String, EComponentType> COMPONENT_TYPE_CONF_NAME_MAP = new ConcurrentHashMap<>(16);

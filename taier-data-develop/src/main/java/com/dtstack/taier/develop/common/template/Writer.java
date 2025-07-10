@@ -20,12 +20,8 @@ package com.dtstack.taier.develop.common.template;
 
 import com.alibaba.fastjson.JSONObject;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2017/5/15
- */
 public interface Writer extends CheckFormat {
+
     JSONObject toWriterJson();
 
     String toWriterJsonString();
@@ -33,12 +29,12 @@ public interface Writer extends CheckFormat {
     /**
      * Whether the current write data source needs to rewrite the write mode,
      * and regenerate the required mode through the replace and insert passed in from the front end
-     *  For example: the front end of the FTP writer passes in replace and insert,
-     *  but chunjun needs overwrite and append, so it needs to be rewritten
-     *  default is not rewritten
+     * For example: the front end of the FTP writer passes in replace and insert,
+     * but chunjun needs overwrite and append, so it needs to be rewritten
+     * default is not rewritten
      *
      * @return If you return True, you need to rewrite the write Mode,
-     *          and if you return False, you don't need to rewrite the write Mode
+     * and if you return False, you don't need to rewrite the write Mode
      */
     default boolean resetWriteMode() {
         return false;

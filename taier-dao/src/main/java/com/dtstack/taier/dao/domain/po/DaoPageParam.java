@@ -19,15 +19,13 @@
 package com.dtstack.taier.dao.domain.po;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Objects;
 
-/**
- *
- * @author <a href="mailto:linfeng@dtstack.com">林丰</a>
- * @date 2021/3/17
- * @desc 分页参数基类
- */
+@Getter
+@Setter
 public class DaoPageParam {
 
     public static final int DEFAULT_PAGE_NO = 1;
@@ -49,7 +47,6 @@ public class DaoPageParam {
     private Integer currentPage;
     private String sort;
     private String sortColumn;
-
 
     /**
      * 生成mybatis-plus能访问的分页对象
@@ -86,61 +83,5 @@ public class DaoPageParam {
         this.setStart(start);
         this.setEnd(this.getPageSize());
         return this;
-    }
-
-    public Integer getStart() {
-        return start;
-    }
-
-    public void setStart(Integer start) {
-        this.start = start;
-    }
-
-    public Integer getEnd() {
-        return end;
-    }
-
-    public void setEnd(Integer end) {
-        this.end = end;
-    }
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getCurrentPage() {
-        return currentPage;
-    }
-
-    public void setCurrentPage(Integer currentPage) {
-        this.currentPage = currentPage;
-    }
-
-    public String getSort() {
-        return sort;
-    }
-
-    public void setSort(String sort) {
-        this.sort = sort;
-    }
-
-    public String getSortColumn() {
-        return sortColumn;
-    }
-
-    public void setSortColumn(String sortColumn) {
-        this.sortColumn = sortColumn;
     }
 }

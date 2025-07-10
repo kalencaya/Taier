@@ -37,10 +37,6 @@ import java.util.Objects;
 
 /**
  * 自定义 prometheus 结果解析器
- *
- * @author ：wangchuan
- * date：Created in 下午2:16 2021/4/16
- * company: www.dtstack.com
  */
 public class CustomResultParser {
 

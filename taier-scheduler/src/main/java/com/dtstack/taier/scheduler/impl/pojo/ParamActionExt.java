@@ -22,11 +22,6 @@ import com.dtstack.taier.pluginapi.pojo.ParamAction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-/**
- * @author yuemo
- * @company www.dtstack.com
- * @Date 2020-04-15
- */
 @ApiModel
 public class ParamActionExt extends ParamAction {
 

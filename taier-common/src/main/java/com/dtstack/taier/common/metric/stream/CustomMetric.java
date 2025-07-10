@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.stream;
 
-
 import com.dtstack.taier.common.enums.EMetricTag;
 import com.dtstack.taier.common.metric.Filter;
 import com.dtstack.taier.common.metric.QueryInfo;
@@ -29,13 +28,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 自定义 metric
- *
- * @author ：wangchuan
- * date：Created in 下午2:06 2021/4/16
- * company: www.dtstack.com
- */
 public class CustomMetric<T> implements ICustomMetric<T> {
 
     // metric 名称

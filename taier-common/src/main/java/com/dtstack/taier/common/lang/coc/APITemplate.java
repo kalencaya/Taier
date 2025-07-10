@@ -34,6 +34,7 @@ public abstract class APITemplate<T> {
      * 业务执行时间默认阀值(10秒)
      */
     public static final long THRESHOLD = 10_000L;
+
     protected Logger log = LoggerFactory.getLogger(getClass());
 
     protected APITemplate() {
@@ -129,6 +130,4 @@ public abstract class APITemplate<T> {
             }
         }
     }
-
-
 }

@@ -24,12 +24,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.sql.Timestamp;
 
-/**
- * @Auther: dazhi
- * @Date: 2022/1/5 6:59 PM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 public interface JobGraphTriggerMapper extends BaseMapper<JobGraphTrigger> {
 
     /**

@@ -36,12 +36,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @Auther: dazhi
- * @Date: 2021/12/26 10:26 AM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 @RestController
 @RequestMapping("/scheduleTaskTaskShade")
 @Api(value = "/scheduleTaskTaskShade", tags = {"运维中心---任务依赖相关接口"})

@@ -18,20 +18,18 @@
 
 package com.dtstack.taier.common.enums;
 
-
 import com.dtstack.taier.common.metric.stream.DAGBackPressureMetrics;
 import com.dtstack.taier.common.metric.stream.DAGBytesInMetric;
 import com.dtstack.taier.common.metric.stream.DAGBytesOutMetric;
 import com.dtstack.taier.common.metric.stream.DAGNumRecordsInMetric;
 import com.dtstack.taier.common.metric.stream.DAGNumRecordsOutMetric;
 import com.dtstack.taier.common.metric.stream.DagLatencyMarkerMetric;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-/**
- * @company:www.dtstack.com
- * @Author:shiFang
- * @Date:2020-09-03 20:15
- * @Description:
- */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum DAGMetricType {
     /**
      * 延迟标记
@@ -63,28 +61,7 @@ public enum DAGMetricType {
      */
     BYTES_RECORDS_OUT(5, DAGBytesOutMetric.class, DAGBytesOutMetric.getMetrics());
 
-    private String metricName;
-
-    private Integer type;
-
-    private Class<?> aClass;
-
-    public Integer getType() {
-        return type;
-    }
-
-    public Class<?> getaClass() {
-        return aClass;
-    }
-
-
-    public String getMetricName() {
-        return metricName;
-    }
-
-    DAGMetricType(Integer type, Class<?> aClass, String metricName) {
-        this.type = type;
-        this.aClass = aClass;
-        this.metricName = metricName;
-    }
+    private final Integer type;
+    private final Class<?> aClass;
+    private final String metricName;
 }

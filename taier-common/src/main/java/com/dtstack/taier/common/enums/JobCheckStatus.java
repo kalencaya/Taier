@@ -18,6 +18,10 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 /**
  * 0:可以执行
  * 1:时间未到
@@ -27,13 +31,11 @@ package com.dtstack.taier.common.enums;
  * 5:当前任务处于暂停状态
  * 6:找不到该任务
  * 7:非未未提交状态
- * Date: 2017/5/28
- * Company: www.dtstack.com
- *
- * @ahthor xuchao
  */
-
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum JobCheckStatus {
+
     TASK_STATUS_STOP(1,"任务:%s,调度状态:%s,不能执行实例"),
     TASK_DELETE(2, "该任务已经被删除"),
     NOT_UNSUBMIT(3, "并非未提交状态"),
@@ -46,20 +48,6 @@ public enum JobCheckStatus {
     NO_TASK(10, "找不到该任务"),
     ;
 
-    private Integer status;
-
-    private String msg;
-
-    JobCheckStatus(int status, String msg) {
-        this.status = status;
-        this.msg = msg;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
+    private final Integer status;
+    private final String msg;
 }

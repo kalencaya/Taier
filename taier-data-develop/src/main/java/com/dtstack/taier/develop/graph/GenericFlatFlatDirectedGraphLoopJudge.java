@@ -29,10 +29,6 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * @author leon
- * @date 2022-08-01 19:23
- **/
 public class GenericFlatFlatDirectedGraphLoopJudge<V, I, S extends FlatDirectGraphSide<V, I>> implements FlatDirectedGraphLoopJudge<V, I, S> {
 
     private final List<S> sidesForJudge;

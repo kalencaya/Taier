@@ -18,15 +18,10 @@
 
 package com.dtstack.taier.common.metric.stream.prometheus;
 
-
 import com.dtstack.taier.common.metric.QueryInfo;
 
 /**
  * 自定义 metric 查询接口
- *
- * @author ：wangchuan
- * date：Created in 下午2:26 2021/4/16
- * company: www.dtstack.com
  */
 public interface ICustomMetricQuery<T> {
 

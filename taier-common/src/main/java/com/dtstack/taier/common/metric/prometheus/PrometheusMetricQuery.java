@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.prometheus;
 
-
 import com.dtstack.taier.common.metric.IMetricQuery;
 import com.dtstack.taier.common.metric.MetricResult;
 import com.dtstack.taier.common.metric.QueryInfo;
@@ -31,23 +30,14 @@ import java.io.UnsupportedEncodingException;
 /**
  * prometheus 监控信息查询接口
  * 使用http rest api获取数据
- * Date: 2018/10/9
- * Company: www.dtstack.com
- *
- * @author xuchao
  */
-
 public class PrometheusMetricQuery implements IMetricQuery {
 
     private final static String QUERY_RANGE_METHOD = "/api/v1/query_range?";
-
     private final static String QUERY_METHOD = "/api/v1/query?";
 
-
     private String queryRange;
-
     private String query;
-
 
     public PrometheusMetricQuery() {
     }
@@ -64,13 +54,6 @@ public class PrometheusMetricQuery implements IMetricQuery {
 
     /**
      * 查询指定时间范围内的指标信息
-     *
-     * @param metricName
-     * @param startTime
-     * @param endTime
-     * @param queryInfo
-     * @param tagName
-     * @return
      */
     @Override
     public MetricResult queryRange(String metricName, long startTime, long endTime, QueryInfo queryInfo, String tagName) {
@@ -95,14 +78,8 @@ public class PrometheusMetricQuery implements IMetricQuery {
         return ResultParser.parseResult(metricName, result, tagName);
     }
 
-
     /**
      * 查询指定时间点的指标
-     *
-     * @param metricName
-     * @param time
-     * @param queryInfo
-     * @param tagName
      */
     public MetricResult query(String metricName, Long time, QueryInfo queryInfo, String tagName) {
         String urlParam;

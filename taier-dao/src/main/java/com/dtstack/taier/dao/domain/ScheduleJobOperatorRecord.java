@@ -21,19 +21,19 @@ package com.dtstack.taier.dao.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.Objects;
 
-
+@Data
 @TableName("schedule_job_operator_record")
 public class ScheduleJobOperatorRecord {
 
     /**
      * 主键
      */
-    @TableId(value="id", type= IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -57,7 +57,7 @@ public class ScheduleJobOperatorRecord {
     private Integer operatorType;
 
     /**
-     *  强制标志 0非强制 1强制
+     * 强制标志 0非强制 1强制
      */
     private Integer forceCancelFlag;
 
@@ -80,113 +80,4 @@ public class ScheduleJobOperatorRecord {
      * 0正常 1逻辑删除
      */
     private Integer isDeleted;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    public Date getOperatorExpired() {
-        return operatorExpired;
-    }
-
-    public void setOperatorExpired(Date operatorExpired) {
-        this.operatorExpired = operatorExpired;
-    }
-
-    public Integer getOperatorType() {
-        return operatorType;
-    }
-
-    public void setOperatorType(Integer operatorType) {
-        this.operatorType = operatorType;
-    }
-
-    public Integer getForceCancelFlag() {
-        return forceCancelFlag;
-    }
-
-    public void setForceCancelFlag(Integer forceCancelFlag) {
-        this.forceCancelFlag = forceCancelFlag;
-    }
-
-    public String getNodeAddress() {
-        return nodeAddress;
-    }
-
-    public void setNodeAddress(String nodeAddress) {
-        this.nodeAddress = nodeAddress;
-    }
-
-    public Timestamp getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Timestamp gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Timestamp getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Timestamp gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ScheduleJobOperatorRecord that = (ScheduleJobOperatorRecord) o;
-        return Objects.equals(id, that.id) && Objects.equals(jobId, that.jobId) && Objects.equals(version, that.version) && Objects.equals(operatorExpired, that.operatorExpired) && Objects.equals(operatorType, that.operatorType) && Objects.equals(forceCancelFlag, that.forceCancelFlag) && Objects.equals(nodeAddress, that.nodeAddress) && Objects.equals(gmtCreate, that.gmtCreate) && Objects.equals(gmtModified, that.gmtModified) && Objects.equals(isDeleted, that.isDeleted);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, jobId, version, operatorExpired, operatorType, forceCancelFlag, nodeAddress, gmtCreate, gmtModified, isDeleted);
-    }
-
-    @Override
-    public String toString() {
-        return "ScheduleJobOperatorRecord{" +
-                "id=" + id +
-                ", jobId='" + jobId + '\'' +
-                ", version=" + version +
-                ", operatorExpired=" + operatorExpired +
-                ", operatorType=" + operatorType +
-                ", forceCancelFlag=" + forceCancelFlag +
-                ", nodeAddress='" + nodeAddress + '\'' +
-                ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
-                ", isDeleted=" + isDeleted +
-                '}';
-    }
 }

@@ -24,24 +24,18 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.pool2.BasePooledObjectFactory;
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.impl.DefaultPooledObject;
-import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.Properties;
 
-/**
- * @author: 小北(xiaobei @ dtstack.com)
- * @description:
- * @create: 2021-12-15 22:46
- **/
+@Slf4j
 public class SftpFactory extends BasePooledObjectFactory<ChannelSftp> {
-
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SftpFactory.class);
 
     private static final String KEY_USERNAME = "username";
     private static final String KEY_PASSWORD = "password";
@@ -92,7 +86,7 @@ public class SftpFactory extends BasePooledObjectFactory<ChannelSftp> {
         try {
             return create(DEFAULT_RETRY_TIMES);
         } catch (Exception e) {
-            logger.error("Create ChannelSftp error : " + e);
+            log.error("Create ChannelSftp error : " + e);
             throw new RuntimeException(e);
         }
     }
@@ -126,7 +120,7 @@ public class SftpFactory extends BasePooledObjectFactory<ChannelSftp> {
         ChannelSftp channelSftp = (ChannelSftp) session.openChannel("sftp");
         channelSftp.connect();
 
-        logger.info("create execute, connect sftp server success : " + channelSftp);
+        log.info("create execute, connect sftp server success : " + channelSftp);
 
         return channelSftp;
 
@@ -152,16 +146,14 @@ public class SftpFactory extends BasePooledObjectFactory<ChannelSftp> {
 
         if (channelSftp != null) {
             try {
-                logger.info("SftpFactory destroyObject is called");
+                log.info("SftpFactory destroyObject is called");
                 channelSftp.disconnect();
                 channelSftp.getSession().disconnect();
             } catch (JSchException e) {
-                logger.error("destroySftpObject error: ", e);
+                log.error("destroySftpObject error: ", e);
             }
         } else {
-            logger.error("When destroyObject channelSftp, channelSftp is null");
+            log.error("When destroyObject channelSftp, channelSftp is null");
         }
-
-
     }
 }

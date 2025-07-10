@@ -25,11 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collection;
 
-/**
- * Company: www.dtstack.com
- *
- * @author qianyi
- */
 public abstract class AssertUtils {
 
     public static void isTrue(boolean expression, String message) {

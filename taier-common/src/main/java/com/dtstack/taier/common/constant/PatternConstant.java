@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.constant;
 
-
 public interface PatternConstant {
 
 	String FUNCTION_PATTERN = "[a-z0-9_]+";

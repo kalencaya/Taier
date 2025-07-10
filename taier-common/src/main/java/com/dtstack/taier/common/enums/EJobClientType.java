@@ -18,34 +18,24 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * job client 类型
- *
- * @author ：wangchuan
- * date：Created in 下午6:00 2022/9/29
- * company: www.dtstack.com
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EJobClientType {
 
     /**
      * worker-plugin 任务
      */
     WORKER_PLUGIN(0),
-
     /**
      * datasource-plugin 任务, 用于执行 rdb 类型的任务
      */
     DATASOURCE_PLUGIN(1);
 
     private final Integer typeCode;
-
-    EJobClientType(Integer typeCode) {
-        this.typeCode = typeCode;
-    }
-
-    public Integer getTypeCode() {
-        return typeCode;
-    }
 
     public static EJobClientType getJobClientTypeByTask(Integer taskType) {
         return EScheduleJobType.getByTaskType(taskType).getJobClientType();

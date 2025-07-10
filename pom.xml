@@ -7,31 +7,57 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>taier</name>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <taier.datasource.version>1.0.0</taier.datasource.version>
+
         <zookeeper.version>3.4.6</zookeeper.version>
         <hadoop.version>2.7.3</hadoop.version>
         <hadoop2.version>2.7.3</hadoop2.version>
         <hadoop3.version>3.3.1</hadoop3.version>
+        <hive.version>2.1.0</hive.version>
         <spring.version>5.2.3.RELEASE</spring.version>
         <fastjson>1.2.83</fastjson>
         <jackson>2.9.6</jackson>
         <log4j.version>1.2.17</log4j.version>
         <slf4j-api.version>1.7.21</slf4j-api.version>
         <guava.version>26.0-jre</guava.version>
-        <commons-lang3.version>3.11</commons-lang3.version>
+        <commons-lang3.version>3.15.0</commons-lang3.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <httpclient.version>4.5.2</httpclient.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
-        <hive.version>2.1.0</hive.version>
         <poi.version>5.0.0</poi.version>
-        <taier.datasource.version>1.0.0</taier.datasource.version>
+
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <lombok.version>1.18.38</lombok.version>
+
         <frontend-maven-plugin.version>1.12.1</frontend-maven-plugin.version>
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
-
         <node.version>v16.16.0</node.version>
         <yarn.version>v1.22.19</yarn.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+
+        <repository>
+            <id>oss-sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+
+        <repository>
+            <id>huawei</id>
+            <url>https://repo.huaweicloud.com/repository/maven/huaweicloudsdk/</url>
+        </repository>
+    </repositories>
 
     <modules>
         <module>taier-common</module>
@@ -46,6 +72,14 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.4.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
@@ -55,14 +89,6 @@
                 <groupId>com.dtstack.taier</groupId>
                 <artifactId>taier-datasource-api</artifactId>
                 <version>${taier.datasource.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.2.4.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
 
             <dependency>
@@ -112,12 +138,6 @@
                 <artifactId>commons-collections</artifactId>
                 <version>${commons-collections.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
-                <version>${spring.version}</version>
-                <scope>test</scope>
-            </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
             <dependency>
@@ -139,42 +159,51 @@
                 <version>${hive.version}</version>
                 <exclusions>
                     <exclusion>
-                        <artifactId>log4j</artifactId>
                         <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
                     </exclusion>
                     <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
                         <artifactId>log4j-1.2-api</artifactId>
-                        <groupId>org.apache.logging.log4j</groupId>
                     </exclusion>
                     <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
                         <artifactId>log4j-slf4j-impl</artifactId>
-                        <groupId>org.apache.logging.log4j</groupId>
                     </exclusion>
                     <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
                         <artifactId>log4j-api</artifactId>
-                        <groupId>org.apache.logging.log4j</groupId>
                     </exclusion>
                     <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
                         <artifactId>log4j-core</artifactId>
-                        <groupId>org.apache.logging.log4j</groupId>
                     </exclusion>
                     <exclusion>
+                        <groupId>org.slf4j</groupId>
                         <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <groupId>org.slf4j</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>calcite-core</artifactId>
-                        <groupId>org.apache.calcite</groupId>
-                    </exclusion>
-                    <exclusion>
                         <artifactId>slf4j-log4j12</artifactId>
-                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.calcite</groupId>
+                        <artifactId>calcite-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-lang3</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
-
     </dependencyManagement>
 
     <dependencies>
@@ -196,23 +225,6 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-
-        <repository>
-            <id>oss-sonatype</id>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
-
-        <repository>
-            <id>huawei</id>
-            <url>https://repo.huaweicloud.com/repository/maven/huaweicloudsdk/</url>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
             <plugin>
@@ -220,16 +232,21 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <compilerVersion>1.8</compilerVersion>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <compilerVersion>${java.version}</compilerVersion>
 
                     <compilerArgument>-XDignore.symbol.file</compilerArgument>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>1.4.2.Final</version>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -240,7 +257,6 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <!--once就表示单线程挨个执行Junit test-->
-                    <!--                    <forkMode>once</forkMode>-->
                     <forkCount>1</forkCount>
                     <reuseForks>true</reuseForks>
                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
@@ -293,6 +309,7 @@
             </plugin>
         </plugins>
     </build>
+
     <reporting>
         <plugins>
             <plugin>

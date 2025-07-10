@@ -20,10 +20,11 @@ package com.dtstack.taier.dao.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
-/**
- * @author zhichen
- */
+@Getter
+@Setter
 @TableName("task_dirty_data_manage")
 public class TaskDirtyDataManage extends BaseEntity {
 
@@ -67,60 +68,4 @@ public class TaskDirtyDataManage extends BaseEntity {
      */
     @TableField(value = "max_collect_failed_rows")
     private Integer maxCollectFailedRows;
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getOutputType() {
-        return outputType;
-    }
-
-    public void setOutputType(String outputType) {
-        this.outputType = outputType;
-    }
-
-    public Integer getLogPrintInterval() {
-        return logPrintInterval;
-    }
-
-    public void setLogPrintInterval(Integer logPrintInterval) {
-        this.logPrintInterval = logPrintInterval;
-    }
-
-    public String getLinkInfo() {
-        return linkInfo;
-    }
-
-    public void setLinkInfo(String linkInfo) {
-        this.linkInfo = linkInfo;
-    }
-
-    public Integer getMaxRows() {
-        return maxRows;
-    }
-
-    public void setMaxRows(Integer maxRows) {
-        this.maxRows = maxRows;
-    }
-
-    public Integer getMaxCollectFailedRows() {
-        return maxCollectFailedRows;
-    }
-
-    public void setMaxCollectFailedRows(Integer maxCollectFailedRows) {
-        this.maxCollectFailedRows = maxCollectFailedRows;
-    }
 }

@@ -18,12 +18,6 @@
 
 package com.dtstack.taier.common.metric.prometheus;
 
-/**
- * 描述各个返回类型的数据格式
- * Date: 2018/10/10
- * Company: www.dtstack.com
- * @author xuchao
- */
 public enum MetricResultType {
 
     /**
@@ -37,7 +31,6 @@ public enum MetricResultType {
      */
     MATRIX("matrix"),
 
-
     /**
      [
      {
@@ -49,12 +42,10 @@ public enum MetricResultType {
      */
     VERTOR("vector"),
 
-
     /**
      * [ <unix_time>, "<scalar_value>" ]
      */
     SCALAR("scalar"),
-
 
     /**
      * [ <unix_time>, "<string_value>" ]

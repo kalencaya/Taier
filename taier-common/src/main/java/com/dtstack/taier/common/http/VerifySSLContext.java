@@ -23,12 +23,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import java.security.cert.CertificateException;
 
-/**
- * @author: 小北(xiaobei @ dtstack.com)
- * @description:
- * @create: 2021-12-16 00:08
- **/
 public class VerifySSLContext {
+
     public static SSLContext createIgnoreVerifySSL() throws Exception {
         SSLContext sc = SSLContext.getInstance("SSLv3");
 

@@ -18,19 +18,17 @@
 
 package com.dtstack.taier.dao.domain;
 
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.util.Objects;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2019/10/22
- */
+@Data
 @TableName("schedule_job_job")
 public class ScheduleJobJob {
 
@@ -84,104 +82,4 @@ public class ScheduleJobJob {
      * 是否逻辑删除
      */
     private Integer isDeleted;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getJobKey() {
-        return jobKey;
-    }
-
-    public void setJobKey(String jobKey) {
-        this.jobKey = jobKey;
-    }
-
-    public String getParentJobKey() {
-        return parentJobKey;
-    }
-
-    public void setParentJobKey(String parentJobKey) {
-        this.parentJobKey = parentJobKey;
-    }
-
-    public Integer getJobKeyType() {
-        return jobKeyType;
-    }
-
-    public void setJobKeyType(Integer jobKeyType) {
-        this.jobKeyType = jobKeyType;
-    }
-
-    public Integer getRule() {
-        return rule;
-    }
-
-    public void setRule(Integer rule) {
-        this.rule = rule;
-    }
-
-    public Timestamp getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Timestamp gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Timestamp getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Timestamp gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ScheduleJobJob that = (ScheduleJobJob) o;
-        return Objects.equals(id, that.id) && Objects.equals(tenantId, that.tenantId) && Objects.equals(jobKey, that.jobKey) && Objects.equals(parentJobKey, that.parentJobKey) && Objects.equals(jobKeyType, that.jobKeyType) && Objects.equals(rule, that.rule) && Objects.equals(gmtCreate, that.gmtCreate) && Objects.equals(gmtModified, that.gmtModified) && Objects.equals(isDeleted, that.isDeleted);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, tenantId, jobKey, parentJobKey, jobKeyType, rule, gmtCreate, gmtModified, isDeleted);
-    }
-
-    @Override
-    public String toString() {
-        return "ScheduleJobJob{" +
-                "id=" + id +
-                ", tenantId=" + tenantId +
-                ", jobKey='" + jobKey + '\'' +
-                ", parentJobKey='" + parentJobKey + '\'' +
-                ", jobKeyType=" + jobKeyType +
-                ", rule=" + rule +
-                ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
-                ", isDeleted=" + isDeleted +
-                '}';
-    }
 }

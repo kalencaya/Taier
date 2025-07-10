@@ -18,16 +18,16 @@
 
 package com.dtstack.taier.common.enums;
 
-
 import com.dtstack.taier.common.exception.TaierDefineException;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * metric 指标过滤 key
- *
- * @author ：wangchuan
- * date：Created in 下午5:49 2021/4/20
- * company: www.dtstack.com
  */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EMetricTag {
 
     /**
@@ -42,38 +42,12 @@ public enum EMetricTag {
 
     // 枚举唯一值
     private final Integer tagVal;
-
     // tag 名称
     private final String tagName;
-
     // 类型：=、=~、!=、!~
     private final String type;
-
     // value
     private final String filter;
-
-    EMetricTag(Integer tagVal, String tagName, String type, String filter) {
-        this.tagVal = tagVal;
-        this.tagName = tagName;
-        this.type = type;
-        this.filter = filter;
-    }
-
-    public Integer getTagVal() {
-        return tagVal;
-    }
-
-    public String getTagName() {
-        return tagName;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getFilter() {
-        return filter;
-    }
 
     /**
      * 根据 tagVal 获取对应的枚举

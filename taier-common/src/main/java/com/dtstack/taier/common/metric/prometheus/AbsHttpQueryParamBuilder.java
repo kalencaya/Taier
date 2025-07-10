@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.prometheus;
 
-
 import com.dtstack.taier.common.metric.Filter;
 import com.dtstack.taier.common.metric.IFunction;
 import com.dtstack.taier.common.metric.QueryInfo;
@@ -30,18 +29,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 
-/**
- * Reason:
- * Date: 2018/10/25
- * Company: www.dtstack.com
- *
- * @author xuchao
- */
-
 public class AbsHttpQueryParamBuilder {
 
     private static final String QUERY_TPL = "${metricName}${filter}";
-
 
     protected static String buildQuery(String metricName, QueryInfo queryInfo) throws UnsupportedEncodingException {
         String queryStr = QUERY_TPL.replace("${metricName}", metricName);
@@ -50,24 +40,24 @@ public class AbsHttpQueryParamBuilder {
         //generator filter
         List<Filter> filters = queryInfo.getFilters();
         List<String> filterStrList = Lists.newArrayList();
-        if(!CollectionUtils.isEmpty(filters)){
-            for(Filter filter : filters){
+        if (!CollectionUtils.isEmpty(filters)) {
+            for (Filter filter : filters) {
                 filterStrList.add(buildFilterStr(filter));
             }
         }
 
-        if(CollectionUtils.isNotEmpty(filterStrList)){
+        if (CollectionUtils.isNotEmpty(filterStrList)) {
             filterInfo = String.join(",", filterStrList);
             filterInfo = "{" + filterInfo + "}";
             filterInfo = URLEncoder.encode(filterInfo, Charsets.UTF_8.name());
             queryStr = queryStr.replace("${filter}", filterInfo);
-        }else{
+        } else {
             queryStr = queryStr.replace("${filter}", "");
         }
 
         List<IFunction> functionList = queryInfo.getAggregator();
 
-        for(IFunction func : functionList){
+        for (IFunction func : functionList) {
             queryStr = func.build(queryStr);
         }
 

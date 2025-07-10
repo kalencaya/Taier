@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.stream;
 
-
 import com.dtstack.taier.common.metric.Filter;
 import com.dtstack.taier.common.metric.QueryInfo;
 import com.dtstack.taier.common.metric.prometheus.func.CommonFunc;
@@ -28,7 +27,6 @@ import java.util.List;
 
 /**
  * 各个数据源的脏数据
- * @author jiangbo
  */
 public class SourceDirtyDataMetric extends StreamBaseMetric {
 

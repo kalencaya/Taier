@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.batch;
 
-
 import com.dtstack.taier.common.metric.Filter;
 import com.dtstack.taier.common.metric.MetricData;
 import com.dtstack.taier.common.metric.MetricResult;
@@ -29,12 +28,6 @@ import org.apache.commons.collections.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @company: www.dtstack.com
- * @Author ：Nanqi
- * @Date ：Created in 16:24 2019-07-16
- * @Description：
- */
 public class SyncJobMetricWithCountMaxSum extends BaseMetric {
 
     @Override

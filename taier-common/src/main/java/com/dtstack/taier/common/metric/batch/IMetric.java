@@ -20,9 +20,6 @@ package com.dtstack.taier.common.metric.batch;
 
 import java.text.DecimalFormat;
 
-/**
- * @author toutian
- */
 public interface IMetric {
 
     Object getMetric();

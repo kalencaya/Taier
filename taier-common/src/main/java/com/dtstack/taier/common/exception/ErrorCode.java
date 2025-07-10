@@ -23,12 +23,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import java.io.Serializable;
 import java.util.Locale;
 
-/**
- * @author yuebai
- * @date 2021-09-07
- */
 public enum ErrorCode implements ExceptionEnums, Serializable {
-
 
     /**
      * 0 ~ 100 常用错误code
@@ -47,14 +42,9 @@ public enum ErrorCode implements ExceptionEnums, Serializable {
     TENANT_IS_NULL(7, "tenant is null", "租户为空"),
     PARAM_NULL(8, "param is null", "参数不能为空"),
     FILE_PARSE_ERROR(9, "file parse error","文件解析异常"),
-
-
     UNKNOWN_ERROR(10, "unknown error", "未知错误"),
     SERVER_EXCEPTION(11, "server exception", "服务异常"),
     EMPTY_PARAMETERS(12, "empty parameters", "必填参数为空"),
-
-
-
     INVALID_PARAMETERS(13, "invalid parameters", "非法参数"),
     NAME_ALREADY_EXIST(14, "name already exist","名称已存在"),
     NAME_FORMAT_ERROR(15, "","名称格式错误"),
@@ -65,17 +55,15 @@ public enum ErrorCode implements ExceptionEnums, Serializable {
     JOB_STATUS_IS_SAME(23, "job status is same as cluster","任务状态与集群一致"),
     FUNCTION_CAN_NOT_FIND(28, "function can not found","方法不存在"),
     SFTP_NOT_FOUND(29, "sftp can not found","sftp不存在"),
-
     UPDATE_EXCEPTION(30, "update exception", "更新异常"),
     UNSUPPORTED_OPERATION(31, "unSupported operation", "不支持的操作"),
     CONFIG_ERROR(51, "config error","配置错误"),
 
     HTTP_CALL_ERROR(64, "http call error", "远程调用失败"),
-
     INVALID_PAGE_PARAM(65, "page params invalid","无效的分页数据"),
     TENANT_ID_NOT_NULL(66, "TenantId cat not be null","租户id不能为空"),
-
     SYSTEM_FUNCTION_CAN_NOT_MODIFY(67, "","系统方法不能修改"),
+
     CATALOGUE_NO_EMPTY(130, "","目录不为空"),
     CAN_NOT_FIND_CATALOGUE(131,"", "该目录不存在"),
     CAN_NOT_MOVE_CATALOGUE(132, "","该目录不允许移动至当前目录和子目录"),
@@ -96,8 +84,6 @@ public enum ErrorCode implements ExceptionEnums, Serializable {
     CATALOGUE_INIT_FAILED(147, "init catalogue failed","初始化目录失败"),
     CATALOGUE_FUNCTION_MANAGE_UN_INIT(148, "function manage catalogue un init","函数管理未初始化"),
     TENANT_NAME_VERIFICATION_ERROR(149, "tenant name verification error","租户名称只能由字母、数字、下划线组成，且长度不超过64个字符"),
-
-
 
     RESOURCE_COMPONENT_NOT_CONFIG(200,"please config resource component", "请先配置调度组件"),
     STORE_COMPONENT_NOT_CONFIG(201,"please config store component", "请先配置存储组件"),
@@ -139,6 +125,7 @@ public enum ErrorCode implements ExceptionEnums, Serializable {
     CAN_NOT_FIND_JOB(258, "job can not found","任务实例不存在"),
     JOB_CAN_NOT_STOP(259, "job can not stop","该任务处于不可停止状态"),
     JOB_ID_CAN_NOT_EMPTY(260, "job id can not empty","jobId不能为空"),
+
     ROLE_SIZE_LIMIT(300, "role size limit","超过管理员用户限制"),
     USER_NOT_ADMIN(301, "user not admin","当前操作用户不是管理员"),
     APPLICATION_CAT_NOT_EMPTY(302, "application can not be empty","application不能为空"),

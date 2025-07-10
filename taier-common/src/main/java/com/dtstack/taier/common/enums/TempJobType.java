@@ -18,32 +18,21 @@
 
 package com.dtstack.taier.common.enums;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum TempJobType {
 
-    /**
-     *
-     */
     SELECT(1),
-
     /**
      * 数据同步任务
      */
     SYNC_TASK(2),
-
     PYTHON_SHELL(4),
-
-    /**
-     *
-     */
     OTHER(3);
 
-    private Integer type;
-
-    TempJobType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getType() {
-        return type;
-    }
+    private final Integer type;
 }

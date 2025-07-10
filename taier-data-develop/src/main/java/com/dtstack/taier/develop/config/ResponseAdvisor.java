@@ -24,9 +24,8 @@ import com.dtstack.taier.common.exception.ExceptionEnums;
 import com.dtstack.taier.common.exception.TaierDefineException;
 import com.dtstack.taier.common.lang.web.R;
 import com.dtstack.taier.pluginapi.constrant.ConfigConstant;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -46,14 +45,10 @@ import javax.xml.bind.ValidationException;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @RestControllerAdvice
 public class ResponseAdvisor implements ResponseBodyAdvice<Object> {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(ResponseAdvisor.class);
-
-    /**
-     * ValidationException
-     */
     @ResponseBody
     @ExceptionHandler(BindException.class)
     public R handleValidationException(BindException e) {
@@ -114,7 +109,7 @@ public class ResponseAdvisor implements ResponseBodyAdvice<Object> {
                 errorCode = taierDefineException.getErrorCode();
             }
         }
-        LOGGER.error("", e.getCause());
+        log.error("", e.getCause());
         return R.fail(errorCode.getCode(), Optional.ofNullable(e.getMessage()).orElse(ExceptionUtils.getMessage(e.getCause())));
     }
 

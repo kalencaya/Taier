@@ -18,12 +18,8 @@
 
 package com.dtstack.taier.common.metric.batch;
 
-
 import com.dtstack.taier.common.metric.prometheus.PrometheusMetricQuery;
 
-/**
- * @author toutian
- */
 public class MetricBuilder {
 
     public static IMetric buildMetric(String metricName, String jobId, long startTime, long endTime, PrometheusMetricQuery prometheusMetricQuery) {

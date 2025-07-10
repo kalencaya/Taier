@@ -26,7 +26,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-
 public interface DevelopTaskVersionMapper extends BaseMapper<TaskVersion> {
 
     List<DevelopTaskVersionDetailDTO> listByTaskId(@Param("taskId") Long taskId, @Param("pageQuery") PageQuery pageQuery);

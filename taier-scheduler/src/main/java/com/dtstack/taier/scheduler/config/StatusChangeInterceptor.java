@@ -23,6 +23,7 @@ import com.dtstack.taier.pluginapi.util.MathUtil;
 import com.dtstack.taier.scheduler.event.ScheduleJobBatchEvent;
 import com.dtstack.taier.scheduler.event.ScheduleJobEventPublisher;
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
@@ -34,8 +35,6 @@ import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Proxy;
 import java.sql.Statement;
@@ -43,17 +42,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author yuebai
- * @date 2020-11-24
- */
-
+@Slf4j
 @Intercepts({@Signature(type = StatementHandler.class, method = "update", args = {Statement.class})})
 public class StatusChangeInterceptor implements Interceptor {
 
     private static List<String> watchTable = Lists.newArrayList("com.dtstack.taier.dao.ScheduleJobDao");
-
-    private static final Logger LOG = LoggerFactory.getLogger(StatusChangeInterceptor.class);
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -98,7 +91,7 @@ public class StatusChangeInterceptor implements Interceptor {
 
             }
         } catch (Throwable e) {
-            LOG.error("event filter originalSql 【{}】 error", originalSql, e);
+            log.error("event filter originalSql 【{}】 error", originalSql, e);
         }
 
     }

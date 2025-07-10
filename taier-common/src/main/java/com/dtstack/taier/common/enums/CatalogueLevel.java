@@ -18,12 +18,14 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * @author: 小北(xiaobei @ dtstack.com)
- * @description:
- * @create: 2021-12-16 00:15
- **/
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum CatalogueLevel {
+
     /**
      * 目录层级顶级
      */
@@ -37,17 +39,5 @@ public enum CatalogueLevel {
      */
     OTHER(2);
 
-    private int level;
-
-    CatalogueLevel(int level){
-        this.level = level;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
+    private final int level;
 }

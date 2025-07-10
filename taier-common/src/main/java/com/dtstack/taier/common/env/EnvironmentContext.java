@@ -37,14 +37,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-
-/**
- * @author sishu.yss
- */
 @Component("environmentContext")
 @PropertySource(value = "file:${user.dir.conf}/application.properties")
 public class EnvironmentContext implements InitializingBean {
-
 
     @Autowired
     private Environment environment;

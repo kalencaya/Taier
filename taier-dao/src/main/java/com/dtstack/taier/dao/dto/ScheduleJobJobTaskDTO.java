@@ -19,24 +19,15 @@
 package com.dtstack.taier.dao.dto;
 
 import com.dtstack.taier.dao.domain.ScheduleJobJob;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2019/10/22
- */
+@Getter
+@Setter
 public class ScheduleJobJobTaskDTO extends ScheduleJobJob {
 
     private Long taskId;
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
 
     public ScheduleJobJob toJobJob() {
         ScheduleJobJob scheduleJobJob = new ScheduleJobJob();

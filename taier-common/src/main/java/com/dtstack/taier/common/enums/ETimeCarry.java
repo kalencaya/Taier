@@ -18,20 +18,20 @@
 
 package com.dtstack.taier.common.enums;
 
-
 import com.dtstack.taier.common.exception.TaierDefineException;
 import com.google.common.collect.Lists;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Comparator;
 import java.util.List;
 
 /**
  * 时间达到多少往前进位
- *
- * @author ：wangchuan
- * date：Created in 下午2:10 2021/4/19
- * company: www.dtstack.com
  */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum ETimeCarry {
 
     /**
@@ -66,47 +66,15 @@ public enum ETimeCarry {
 
     // 时间类型
     private final String type;
-
     // 达到多少后往前进位
     private final Integer carry;
-
     // 时间类型位置标志 s -> m -> h -> d -> w -> y 从小到大
     private final Integer flag;
-
     // 进位后的时间类型
     private final String carryType;
-
     // 转换时间单位为秒
     private final Integer convertToSecond;
-
-    ETimeCarry(String type, Integer carry, Integer flag, String carryType, Integer convertToSecond) {
-        this.type = type;
-        this.carry = carry;
-        this.flag = flag;
-        this.carryType = carryType;
-        this.convertToSecond = convertToSecond;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public Integer getCarry() {
-        return carry;
-    }
-
-    public Integer getFlag() {
-        return flag;
-    }
-
-    public String getCarryType() {
-        return carryType;
-    }
-
-    public Integer getConvertToSecond() {
-        return convertToSecond;
-    }
-
+    
     public static ETimeCarry getTimeCarryByType(String type) {
         for (ETimeCarry timeCarry : values()) {
             if (timeCarry.type.equals(type)) {

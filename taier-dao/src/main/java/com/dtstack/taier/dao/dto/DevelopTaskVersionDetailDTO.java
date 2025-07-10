@@ -20,13 +20,13 @@ package com.dtstack.taier.dao.dto;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dtstack.taier.dao.domain.DevelopTaskVersion;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-/**
- * date: 2022/1/24 3:09 下午
- * author: zhaiyue
- */
+@Getter
+@Setter
 public class DevelopTaskVersionDetailDTO extends DevelopTaskVersion {
 
     private String userName;
@@ -34,28 +34,4 @@ public class DevelopTaskVersionDetailDTO extends DevelopTaskVersion {
     private List<String> dependencyTaskNames;
 
     private JSONObject dependencyTasks;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public List<String> getDependencyTaskNames() {
-        return dependencyTaskNames;
-    }
-
-    public void setDependencyTaskNames(List<String> dependencyTaskNames) {
-        this.dependencyTaskNames = dependencyTaskNames;
-    }
-
-    public JSONObject getDependencyTasks() {
-        return dependencyTasks;
-    }
-
-    public void setDependencyTasks(JSONObject dependencyTasks) {
-        this.dependencyTasks = dependencyTasks;
-    }
 }

@@ -29,27 +29,20 @@ import java.util.Map;
 
 import static com.dtstack.taier.common.metric.stream.DAGBackPressureMetrics.METRIC_QUERY;
 
-/**
- * @company:www.dtstack.com
- * @Author:shiFang
- * @Date:2020-09-11 20:10
- * @Description:
- */
-public class DAGBytesInMetric extends DagMetric{
+public class DAGBytesInMetric extends DagMetric {
 
     private static String METRIC_NAME = "flink_taskmanager_job_task_numBytesIn";
 
-
     @Override
     public Object formatData(String result) {
-        Map<String,Object> metricMap = new HashMap<>();
+        Map<String, Object> metricMap = new HashMap<>();
         if (result == null) {
             return metricMap;
         }
-        PromtheusMetrics promtheusMetrics = JSONObject.parseObject(result,PromtheusMetrics.class);
-        for(MetricResult metricResult:promtheusMetrics.getData().getResult()){
+        PromtheusMetrics promtheusMetrics = JSONObject.parseObject(result, PromtheusMetrics.class);
+        for (MetricResult metricResult : promtheusMetrics.getData().getResult()) {
             MetricPO metricPO = metricResult.getMetric();
-            metricMap.putIfAbsent(String.format(METRIC_QUERY, DAGMetricType.BYTES_RECORDS_IN.getMetricName(),metricPO.getTaskId(),metricPO.getSubtaskIndex()),metricResult.getValue().get(1));
+            metricMap.putIfAbsent(String.format(METRIC_QUERY, DAGMetricType.BYTES_RECORDS_IN.getMetricName(), metricPO.getTaskId(), metricPO.getSubtaskIndex()), metricResult.getValue().get(1));
         }
         return metricMap;
     }
@@ -59,12 +52,12 @@ public class DAGBytesInMetric extends DagMetric{
         return null;
     }
 
-    public static String getMetrics() {
+    @Override
+    public String getMetricName() {
         return METRIC_NAME;
     }
 
-    @Override
-    public String getMetricName() {
+    public static String getMetrics() {
         return METRIC_NAME;
     }
 

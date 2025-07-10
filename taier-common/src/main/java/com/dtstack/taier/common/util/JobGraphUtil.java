@@ -22,10 +22,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.dtstack.taier.pluginapi.enums.ComputeType;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author yuebai
- * @date 2020-09-08
- */
 public class JobGraphUtil {
 
     /**

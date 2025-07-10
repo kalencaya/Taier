@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.stream;
 
-
 import com.dtstack.taier.common.metric.MetricResult;
 import com.dtstack.taier.common.metric.QueryInfo;
 import com.dtstack.taier.common.metric.batch.IMetric;
@@ -27,7 +26,6 @@ import com.dtstack.taier.common.metric.prometheus.PrometheusMetricQuery;
 public abstract class DataDelayMetric implements IMetric {
 
     protected String jobId;
-
     private PrometheusMetricQuery prometheusMetricQuery;
 
     @Override

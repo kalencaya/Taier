@@ -67,16 +67,12 @@ public class DevelopFlinkController {
 
     @Autowired
     private FlinkTaskService flinkTaskService;
-
     @Autowired
     private FlinkRuntimeLogService flinkRuntimeLogService;
-
     @Autowired
     private FlinkServerLogService flinkServerLogService;
-
     @Autowired
     private FlinkTaskVertexGraphService flinkTaskVertexGraphService;
-
 
     @ApiOperation(value = "运行FlinkSQL任务")
     @PostMapping(value = "start")

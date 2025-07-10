@@ -60,7 +60,6 @@
         limit 1
     </select>
 
-
     <select id="listByIds" resultType="com.dtstack.taier.dao.domain.DevelopResource">
         SELECT
         <include refid="select_content_fragment"/>

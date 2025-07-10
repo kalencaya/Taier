@@ -29,7 +29,6 @@ import java.util.List;
 
 /**
  * 各Sink的数据输出rps
- * @author jiangbo
  */
 public class SinkOutputRPSMetric extends StreamBaseMetric {
 

@@ -18,12 +18,12 @@
 
 package com.dtstack.taier.dao.domain;
 
-
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Getter;
+import lombok.Setter;
 
-/**
- * @author sishu.yss
- */
+@Getter
+@Setter
 @TableName("tenant")
 public class Tenant extends BaseEntity {
 
@@ -34,36 +34,4 @@ public class Tenant extends BaseEntity {
     private String tenantDesc;
 
     private String tenantIdentity;
-
-    public String getTenantIdentity() {
-        return tenantIdentity;
-    }
-
-    public void setTenantIdentity(String tenantIdentity) {
-        this.tenantIdentity = tenantIdentity;
-    }
-
-    public void setTenantName(String tenantName) {
-        this.tenantName = tenantName;
-    }
-
-    public Long getCreateUserId() {
-        return createUserId;
-    }
-
-    public void setCreateUserId(Long createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public String getTenantDesc() {
-        return tenantDesc;
-    }
-
-    public void setTenantDesc(String tenantDesc) {
-        this.tenantDesc = tenantDesc;
-    }
-
-    public String getTenantName() {
-        return tenantName;
-    }
 }

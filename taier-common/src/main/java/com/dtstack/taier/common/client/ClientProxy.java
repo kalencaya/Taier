@@ -53,7 +53,6 @@ import java.util.concurrent.TimeoutException;
  *
  * @author xuchao
  */
-
 public class ClientProxy implements IClient {
 
     private IClient targetClient;

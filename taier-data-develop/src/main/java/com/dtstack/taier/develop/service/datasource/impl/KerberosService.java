@@ -33,10 +33,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Kerberos 服务类
@@ -122,7 +119,7 @@ public class KerberosService {
      */
     public String getSourceKey(Long sourceId, String prefix) {
         prefix = StringUtils.isBlank(prefix) ? DS_CENTER :
-                StringUtils.toRootUpperCase(prefix);
+                prefix.toUpperCase(Locale.ROOT);
         return prefix + "_" + Optional.ofNullable(sourceId).orElse(0L);
     }
 

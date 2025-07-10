@@ -146,7 +146,7 @@ public class FlinkUtil {
     public static PackagedProgram buildProgram(String jarPath, List<URL> classPaths, EJobType jobType,
                                                String entryPointClass, String[] programArgs,
                                                SavepointRestoreSettings spSetting,
-                                               org.apache.flink.configuration.Configuration flinkConfiguration,
+                                               Configuration flinkConfiguration,
                                                FilesystemManager filesystemManager)
             throws IOException, ProgramInvocationException {
         if (jarPath == null) {
@@ -154,7 +154,7 @@ public class FlinkUtil {
         }
         File jarFile = new File(jarPath);
 
-        org.apache.flink.configuration.Configuration flinkConfig = new org.apache.flink.configuration.Configuration(flinkConfiguration);
+        Configuration flinkConfig = new Configuration(flinkConfiguration);
         String classloaderCache = flinkConfig.getString(
                 ClassLoaderType.CLASSLOADER_DTSTACK_CACHE,
                 ClassLoaderType.CLASSLOADER_DTSTACK_CACHE_TRUE);

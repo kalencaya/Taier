@@ -6,14 +6,12 @@
         data_type,data_version,sorted,is_deleted
     </sql>
 
-
     <select id="listDsVersion" resultType="com.dtstack.taier.dao.domain.DsVersion">
         select
         <include refid="select_content_fragment" />
         from datasource_version
         where is_deleted = 0
     </select>
-
 
     <select id="queryDsVersionByType" resultType="com.dtstack.taier.dao.domain.DsVersion">
         select

@@ -18,17 +18,12 @@
 
 package com.dtstack.taier.dao.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class TenantEntity extends BaseEntity {
 
     private Long tenantId;
-
-    public Long getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(Long tenantId) {
-        this.tenantId = tenantId;
-    }
-
-
 }

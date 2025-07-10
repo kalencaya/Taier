@@ -20,13 +20,6 @@ package com.dtstack.taier.develop.datasource.convert;
 
 import java.io.File;
 
-/**
- * 该类用于维护一些常量
- *
- * @author ：wangchuan
- * date：Created in 下午2:26 2021/7/5
- * company: www.dtstack.com
- */
 public interface Consistent {
     /**
      * kerberos 配置 key

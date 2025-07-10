@@ -18,19 +18,19 @@
 
 package com.dtstack.taier.common.enums;
 
-import com.dtstack.taier.datasource.api.source.DataSourceType;
 import com.dtstack.taier.common.exception.DtCenterDefException;
+import com.dtstack.taier.datasource.api.source.DataSourceType;
 import com.google.common.collect.Sets;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Set;
 
-/**
- * @company: www.dtstack.com
- * @Author ：Nanqi
- * @Date ：Created in 10:44 2020/12/26
- * @Description：表类型
- */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum ETableType {
+
     HIVE(1, "Hive", DataSourceType.HIVE),
     LIBRA(2, "LibrA", DataSourceType.LIBRA),
     TIDB(3, "TiDB", DataSourceType.TiDB),
@@ -39,53 +39,18 @@ public enum ETableType {
     IMPALA(6, "IMPALA", DataSourceType.IMPALA),
     ADB_FOR_PG(7, "AnalyticDB for PostgreSQL", DataSourceType.ADB_FOR_PG);
 
-    int type;
-    String content;
-    DataSourceType dataSourceType;
+    private final int type;
+    private final String content;
+    private final DataSourceType dataSourceType;
 
-    final static Set<Integer> dataSourceTypeToHiveSet = Sets.newHashSet(DataSourceType.SparkThrift2_1.getVal(),
-            DataSourceType.Spark.getVal(), DataSourceType.HIVE1X.getVal(), DataSourceType.HIVE.getVal(), DataSourceType.HIVE3X.getVal(),
+    final static Set<Integer> dataSourceTypeToHiveSet = Sets.newHashSet(
+            DataSourceType.SparkThrift2_1.getVal(),
+            DataSourceType.Spark.getVal(),
+            DataSourceType.HIVE1X.getVal(),
+            DataSourceType.HIVE.getVal(),
+            DataSourceType.HIVE3X.getVal(),
             DataSourceType.IMPALA.getVal());
 
-    ETableType(int type, String content, DataSourceType dataSourceType) {
-        this.content = content;
-        this.type = type;
-        this.dataSourceType = dataSourceType;
-    }
-
-    /**
-     * 获取类型
-     *
-     * @return
-     */
-    public int getType() {
-        return this.type;
-    }
-
-    /**
-     * 获取描述
-     *
-     * @return
-     */
-    public String getContent() {
-        return content;
-    }
-
-    /**
-     * 获取数据源类型
-     *
-     * @return
-     */
-    public DataSourceType getDataSourceType() {
-        return dataSourceType;
-    }
-
-    /**
-     * 根据表类型获取枚举值
-     *
-     * @param tableType
-     * @return
-     */
     public static ETableType getTableType(int tableType) {
         for (ETableType eType : ETableType.values()) {
             if (eType.getType() == tableType) {
@@ -96,14 +61,8 @@ public enum ETableType {
         throw new DtCenterDefException(String.format("not support tableType's ETableType:%d", tableType));
     }
 
-    /**
-     * 根据数据源类型获取枚举值
-     *
-     * @param datasourceType
-     * @return
-     */
     public static ETableType getDatasourceType(Integer datasourceType) {
-        if (dataSourceTypeToHiveSet.contains(datasourceType)){
+        if (dataSourceTypeToHiveSet.contains(datasourceType)) {
             return ETableType.HIVE;
         }
         for (ETableType etype : ETableType.values()) {

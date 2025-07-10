@@ -57,19 +57,14 @@ public class DevelopSelectSqlController {
 
     @Autowired
     private TaskConfiguration taskConfiguration;
-
     @Autowired
     private DevelopSelectSqlService developSelectSqlService;
-
     @Autowired
     private DevelopTaskService developTaskService;
-
     @Autowired
     private ScheduleJobService scheduleJobService;
-
     @Autowired
     private EnvironmentContext environmentContext;
-
     @Autowired
     private ScriptTaskRunner scriptTaskRunner;
 

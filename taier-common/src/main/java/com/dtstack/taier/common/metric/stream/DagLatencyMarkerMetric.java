@@ -28,26 +28,15 @@ import java.util.Map;
 
 import static com.dtstack.taier.common.metric.stream.DAGBackPressureMetrics.METRIC_QUERY_LATENCY;
 
-/**
- * @company:www.dtstack.com
- * @Author:shiFang
- * @Date:2020-09-03 15:36
- * @Description:
- */
-
 public class DagLatencyMarkerMetric extends DagMetric{
 
-    private String operatorId;
-
-    private String sourceId;
-
-    private String sourceName;
-
-    private Double quantile;
-
-    private Integer operatorSubtaskIndex;
-
     private static String METRIC_NAME = "flink_taskmanager_job_latency_source_id_operator_id_operator_subtask_index_latency";
+
+    private String operatorId;
+    private String sourceId;
+    private String sourceName;
+    private Double quantile;
+    private Integer operatorSubtaskIndex;
 
     @Override
     public Object formatData(String result) {
@@ -63,14 +52,9 @@ public class DagLatencyMarkerMetric extends DagMetric{
         return metricMap;
     }
 
-
     @Override
     public Object formatData(MetricResult metricResult) {
         return null;
-    }
-
-    public static String getMetrics() {
-        return METRIC_NAME;
     }
 
     @Override
@@ -78,4 +62,7 @@ public class DagLatencyMarkerMetric extends DagMetric{
         return METRIC_NAME;
     }
 
+    public static String getMetrics() {
+        return METRIC_NAME;
+    }
 }

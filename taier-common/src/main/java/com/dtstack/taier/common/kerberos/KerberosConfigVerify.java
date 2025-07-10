@@ -25,6 +25,7 @@ import com.dtstack.taier.common.util.Xml2JsonUtil;
 import com.dtstack.taier.common.util.ZipUtil;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.SftpException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -44,13 +45,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Vector;
 
-/**
- * @author: 小北(xiaobei @ dtstack.com)
- * @description:
- * @create: 2021-12-15 22:42
- **/
+@Slf4j
 public class KerberosConfigVerify {
-    private static final Logger logger = LoggerFactory.getLogger(KerberosConfigVerify.class);
 
     private static final String LOCK_SUFFIX = ".lock";
 
@@ -90,7 +86,7 @@ public class KerberosConfigVerify {
             try {
                 confMap = parseAndRead(xmlFileList);
             } catch (Exception e) {
-                logger.error("{}", e);
+                log.error("{}", e);
                 throw new DtCenterDefException("配置文件解析失败");
             }
         }
@@ -127,7 +123,7 @@ public class KerberosConfigVerify {
             List<File> xmlFiles = ZipUtil.upzipFile(zipLocation, unzipLocation);
             return xmlFiles;
         } catch (Exception e) {
-            logger.error("{}", e);
+            log.error("{}", e);
             throw new DtCenterDefException("压缩包解压失败");
         }
     }
@@ -183,7 +179,7 @@ public class KerberosConfigVerify {
                 }
             }
         } catch (Exception e) {
-            logger.warn("下载kerberos配置失败 {}", e);
+            log.warn("下载kerberos配置失败 {}", e);
         } finally {
             if (handler != null) {
                 handler.close();
@@ -214,7 +210,7 @@ public class KerberosConfigVerify {
                 delFile(f);
             }
         }
-        logger.info("delete local file path：{}", file.getAbsolutePath());
+        log.info("delete local file path：{}", file.getAbsolutePath());
         return file.delete();
     }
 
@@ -376,7 +372,7 @@ public class KerberosConfigVerify {
         try {
             canonicalHostName = InetAddress.getLocalHost().getCanonicalHostName();
         } catch (UnknownHostException e) {
-            logger.error("", e);
+            log.error("", e);
             throw new DtCenterDefException("本地地址获取失败");
         }
         for (String key : confMap.keySet()) {

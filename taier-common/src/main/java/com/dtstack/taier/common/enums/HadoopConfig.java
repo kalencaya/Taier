@@ -18,9 +18,12 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- *
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum HadoopConfig {
 
     /**
@@ -38,14 +41,5 @@ public enum HadoopConfig {
      */
     HADOOP_CONFIG("hadoopConfig");
 
-    private String val;
-
-    public String getVal() {
-        return val;
-    }
-
-    HadoopConfig(String val) {
-        this.val = val;
-    }
-
+    private final String val;
 }

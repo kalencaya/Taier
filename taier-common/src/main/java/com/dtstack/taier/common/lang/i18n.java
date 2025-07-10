@@ -18,14 +18,11 @@
 
 package com.dtstack.taier.common.lang;
 
-
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-/**
- * @author 猫爸
- */
 public class i18n {
+
     private static ResourceBundle resourceBundle;
 
     static {

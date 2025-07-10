@@ -45,10 +45,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/**
- * @author yuebai
- * @date 2021-08-02
- */
 @RestController
 @RequestMapping("/user")
 @Api(value = "/user", tags = {"用户接口"})
@@ -56,16 +52,12 @@ public class UserController {
 
     @Autowired
     private LoginService loginService;
-
     @Autowired
     private CookieService cookieService;
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private TokenService tokenService;
-
     @Autowired
     private TenantService tenantService;
 
@@ -127,7 +119,6 @@ public class UserController {
         loginService.onAuthenticationSuccess(request, response, dtUser);
         return R.ok(user.getUserName());
     }
-
 
     @RequestMapping(value = "/queryUser")
     public R<List<UserVO>> queryUser() {

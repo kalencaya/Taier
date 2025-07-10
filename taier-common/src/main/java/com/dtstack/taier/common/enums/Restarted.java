@@ -18,28 +18,16 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * Reason:
- * Date: 2017/8/15
- * Company: www.dtstack.com
- *
- * @ahthor xuchao
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum Restarted {
 
-    NORMAL(0), RESTARTED(1);
+    NORMAL(0),
+    RESTARTED(1);
 
-    private int status;
-
-    Restarted(int status){
-        this.status = status;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
+    private final int status;
 }

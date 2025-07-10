@@ -18,20 +18,12 @@
 
 package com.dtstack.taier.dao.domain.po;
 
-
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dtstack.taier.common.param.DtInsightPageAuthParam;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Objects;
 
-
-/**
- *
- * @description:
- * @author: liuxx
- * @date: 2021/3/26
- */
 public class BasePageParam extends DtInsightPageAuthParam {
 
     public static final int DEFAULT_PAGE_NO = 0;
@@ -64,7 +56,7 @@ public class BasePageParam extends DtInsightPageAuthParam {
         return new Page<>(super.getCurrentPage(), super.getPageSize());
     }
 
-
+    @Override
     public BasePageParam turn() {
         if (Objects.isNull(this.getCurrentPage())) {
             this.setCurrentPage(DEFAULT_PAGE_NO);

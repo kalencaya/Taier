@@ -18,10 +18,6 @@
 
 package com.dtstack.taier.scheduler.event;
 
-/**
- * @author yuebai
- * @date 2020-07-28
- */
 public interface ScheduleJobEventLister {
 
     void publishBatchEvent(ScheduleJobBatchEvent event);

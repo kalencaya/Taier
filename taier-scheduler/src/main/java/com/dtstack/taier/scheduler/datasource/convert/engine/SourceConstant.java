@@ -18,13 +18,6 @@
 
 package com.dtstack.taier.scheduler.datasource.convert.engine;
 
-/**
- * source 常量
- *
- * @author ：wangchuan
- * date：Created in 上午9:58 2022/3/23
- * company: www.dtstack.com
- */
 public interface SourceConstant {
 
     /**

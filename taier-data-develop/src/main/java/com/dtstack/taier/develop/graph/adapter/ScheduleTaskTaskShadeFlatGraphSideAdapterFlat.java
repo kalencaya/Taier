@@ -26,10 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * @author leon
- * @date 2022-08-02 15:41
- **/
 public class ScheduleTaskTaskShadeFlatGraphSideAdapterFlat extends AbstractFlatDirectGraphSide<Long, Long> {
 
     private final ScheduleTaskTaskShade ScheduleTaskTaskShade;

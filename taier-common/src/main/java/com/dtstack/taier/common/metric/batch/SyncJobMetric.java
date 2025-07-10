@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.common.metric.batch;
 
-
 import com.dtstack.taier.common.metric.Filter;
 import com.dtstack.taier.common.metric.QueryInfo;
 import com.dtstack.taier.common.metric.prometheus.func.CommonFunc;

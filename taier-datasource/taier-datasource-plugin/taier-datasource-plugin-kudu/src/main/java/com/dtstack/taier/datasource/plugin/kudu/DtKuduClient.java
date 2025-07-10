@@ -119,7 +119,7 @@ public class DtKuduClient extends AbsNoSqlClient {
         return TableUtil.dealColumnType(columnMetaData, KuduColumnTypeConverter::apply);
     }
 
-    private List<ColumnMetaDTO> getTableColumns(org.apache.kudu.client.KuduClient client, String tableName) {
+    private List<ColumnMetaDTO> getTableColumns(KuduClient client, String tableName) {
         if (StringUtils.isBlank(tableName)) {
             return Collections.emptyList();
         }
@@ -253,7 +253,7 @@ public class DtKuduClient extends AbsNoSqlClient {
     }
 
 
-    public static void closeClient(org.apache.kudu.client.KuduClient client, KuduSession kuduSession, KuduScanner kuduScanner) {
+    public static void closeClient(KuduClient client, KuduSession kuduSession, KuduScanner kuduScanner) {
         try {
             if (kuduScanner != null) {
                 kuduScanner.close();

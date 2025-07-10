@@ -36,10 +36,6 @@ import java.util.Objects;
 
 /**
  * 查询单个点位的 prometheus 的指标
- *
- * @author ：wangchuan
- * date：Created in 下午1:17 2021/4/15
- * company: www.dtstack.com
  */
 public class SinglePointMetric implements IMetric {
 

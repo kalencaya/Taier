@@ -19,47 +19,25 @@
 package com.dtstack.taier.common.enums;
 
 import com.dtstack.taier.common.exception.TaierDefineException;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**
- * 
- * @since 1.3.1
- */
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum EFTPTaskFileType {
-    EXCEL(Stream.of(
-            ".xls",
-            ".xlsx"
-    ).collect(Collectors.toList()), "EXCEL"),
-
-    CSV(Stream.of(
-            ".csv"
-    ).collect(Collectors.toList()), "CSV"),
-
-    TXT(Stream.of(
-            ".txt"
-    ).collect(Collectors.toList()), "TXT"),
+    EXCEL(Stream.of(".xls", ".xlsx").collect(Collectors.toList()), "EXCEL"),
+    CSV(Stream.of(".csv").collect(Collectors.toList()), "CSV"),
+    TXT(Stream.of(".txt").collect(Collectors.toList()), "TXT"),
     ;
 
     private final List<String> filetypes;
-
     private final String taskFiletype;
-
-    EFTPTaskFileType(List<String> filetypes, String taskFiletype) {
-        this.filetypes = filetypes;
-        this.taskFiletype = taskFiletype;
-    }
-
-    public List<String> getFiletypes() {
-        return filetypes;
-    }
-
-    public String getTaskFiletype() {
-        return taskFiletype;
-    }
 
     public static EFTPTaskFileType filetype(String filetype) {
         filetype = filetype.toLowerCase(Locale.ROOT);

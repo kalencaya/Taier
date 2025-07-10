@@ -16,16 +16,14 @@
  * limitations under the License.
  */
 
-
-
 package com.dtstack.taier.dao.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * date: 2022/1/24 2:58 下午
- * author: zhaiyue
- */
+@Getter
+@Setter
 public class DevelopSysParameter {
 
     private long id;
@@ -39,47 +37,11 @@ public class DevelopSysParameter {
      */
     private int isDeleted;
 
-    public Integer getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Integer isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
     public boolean strIsSysParam(String str) {
         if (StringUtils.isEmpty(str)) {
             return false;
         }
         String target = String.format("${%s}", this.getParamName());
         return target.equals(str);
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getParamName() {
-        return paramName;
-    }
-
-    public void setParamName(String paramName) {
-        this.paramName = paramName;
-    }
-
-    public String getParamCommand() {
-        return paramCommand;
-    }
-
-    public void setParamCommand(String paramCommand) {
-        this.paramCommand = paramCommand;
-    }
-
-    public void setIsDeleted(int isDeleted) {
-        this.isDeleted = isDeleted;
     }
 }

@@ -18,27 +18,18 @@
 
 package com.dtstack.taier.common.enums;
 
-/**
- * @author yuebai
- * @date 2020-05-09
- */
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public enum DownloadType {
+
     Kerberos(0),
     Config(1),
     Template(2),
     DEVELOP_LOG(3);
 
-    private int code;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    DownloadType(int code) {
-        this.code = code;
-    }
+    private final int code;
 }

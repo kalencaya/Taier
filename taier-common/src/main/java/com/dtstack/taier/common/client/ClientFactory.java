@@ -82,7 +82,6 @@ public class ClientFactory {
         return ClientFactory.createPluginClass(classLoader);
     }
 
-
     private static URLClassLoader createDtClassLoader(File dir) {
         File[] files = dir.listFiles();
         URL[] urls = Arrays.stream(files)

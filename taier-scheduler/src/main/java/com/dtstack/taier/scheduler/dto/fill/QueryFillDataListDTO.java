@@ -18,12 +18,6 @@
 
 package com.dtstack.taier.scheduler.dto.fill;
 
-/**
- * @Auther: dazhi
- * @Date: 2021/12/9 1:40 PM
- * @Email:dazhi@dtstack.com
- * @Description:
- */
 public class QueryFillDataListDTO {
 
     /**

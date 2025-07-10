@@ -108,7 +108,7 @@ public class PluginConfig {
 
     /**
      * 构建执行 com.dtstack.flinkx.Main#main所需的参数
-     * {@link com.dtstack.taier.flink.config.FlinkConfig}
+     * {@link FlinkConfig}
      * todo: 应该结合com.dtstack.flinkx.options.Options规范参数名
      */
     public List<String> buildProgramArgs(JobClient jobClient) throws IOException {

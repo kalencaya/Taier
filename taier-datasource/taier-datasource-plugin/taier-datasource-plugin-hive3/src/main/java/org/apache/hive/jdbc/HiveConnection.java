@@ -121,7 +121,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * HiveConnection.
  *
  */
-public class HiveConnection implements java.sql.Connection {
+public class HiveConnection implements Connection {
     public static final Logger LOG = LoggerFactory.getLogger(HiveConnection.class.getName());
 
     private String jdbcUriString;
@@ -401,7 +401,7 @@ public class HiveConnection implements java.sql.Connection {
         Map<String, String> customCookies = new HashMap<String, String>();
 
         // Retrieve the additional HttpHeaders
-        for (Map.Entry<String, String> entry : sessConfMap.entrySet()) {
+        for (Entry<String, String> entry : sessConfMap.entrySet()) {
             String key = entry.getKey();
             if (key.startsWith(JdbcConnectionParams.HTTP_HEADER_PREFIX)) {
                 additionalHttpHeaders.put(key.substring(JdbcConnectionParams.HTTP_HEADER_PREFIX.length()),
@@ -979,7 +979,7 @@ public class HiveConnection implements java.sql.Connection {
      *
      * @throws SQLException
      *           if a database access error occurs.
-     * @see java.sql.Connection#createStatement()
+     * @see Connection#createStatement()
      */
 
     @Override
