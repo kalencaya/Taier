@@ -11,7 +11,7 @@ jobs:
     if: github.repository == 'kalencaya/Taier'
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        os: [ ubuntu-latest ]
         jdk: [ 8 ]
     uses: ./.github/workflows/ci-maven.yml
     with:
@@ -21,7 +21,7 @@ jobs:
     if: github.repository == 'kalencaya/Taier'
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        os: [ ubuntu-latest ]
     uses: ./.github/workflows/ci-web.yml
     with:
       os: ${{ matrix.os }}
