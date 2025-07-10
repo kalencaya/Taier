@@ -22,7 +22,7 @@ jobs:
         with:
           java-version: ${{ inputs.jdk }}
 #          distribution: temurin
-          distribution: oracle
+          distribution: dragonwell
           cache: maven
       - name: Build
         timeout-minutes: 360
