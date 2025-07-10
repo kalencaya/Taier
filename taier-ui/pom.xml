@@ -33,7 +33,7 @@
 							<pnpmVersion>${node.version}</pnpmVersion>
 
 							<!-- If it is inconvenient to visit the official website, you can use the domestic Taobao mirror-->
-							<nodeDownloadRoot>https://mirrors.aliyun.com/nodejs-release/</nodeDownloadRoot>
+<!--							<nodeDownloadRoot>https://mirrors.aliyun.com/nodejs-release/</nodeDownloadRoot>-->
 						</configuration>
 					</execution>
 
