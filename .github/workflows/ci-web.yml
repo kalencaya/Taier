@@ -23,15 +23,15 @@ jobs:
 #          cache: yarn
       - name: Install dependencies
         working-directory: ${{ env.working-directory }}
-        run: yarn
+        run: pnpm install
 
       - name: Run build
         working-directory: ${{ env.working-directory }}
-        run: yarn run build
+        run: pnpm build
 
       - name: Run tests
         working-directory: ${{ env.working-directory }}
-        run: yarn run test
+        run: pnpm test
         env:
           CI: true
           NODE_ENV: test
