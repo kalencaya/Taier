@@ -20,17 +20,12 @@ package com.dtstack.taier.flink.base.enums;
 
 import com.dtstack.taier.pluginapi.exception.PluginDefineException;
 
-/**
- * Created by sishu.yss on 2018/3/9.
- */
 public enum ClusterMode {
 
     // job executed in the per job
     PER_JOB,
-
     // job executed in the session
     SESSION,
-
     // job executed in the standalone
     STANDALONE;
 

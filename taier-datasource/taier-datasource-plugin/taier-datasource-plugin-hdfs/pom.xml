@@ -28,6 +28,22 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.dtstack.taier</groupId>
+            <artifactId>taier-datasource-plugin-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dtstack.taier</groupId>
+            <artifactId>taier-datasource-plugin-kerberos-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.9</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
             <groupId>org.anarres.lzo</groupId>
             <artifactId>lzo-hadoop</artifactId>
             <version>${lzo-hadoop.verison}</version>
@@ -83,11 +99,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.dtstack.taier</groupId>
-            <artifactId>taier-datasource-plugin-common</artifactId>
         </dependency>
 
         <!-- 类隔离 jar 包
@@ -227,14 +238,6 @@
         </dependency>
 
         <dependency>
-            <artifactId>groovy-all</artifactId>
-            <groupId>org.codehaus.groovy</groupId>
-            <version>3.0.9</version>
-            <type>pom</type>
-        </dependency>
-
-
-        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>${hadoop-client.version}</version>
@@ -318,11 +321,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.dtstack.taier</groupId>
-            <artifactId>taier-datasource-plugin-kerberos-core</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.kerby</groupId>
             <artifactId>kerb-util</artifactId>
             <exclusions>
@@ -344,7 +342,6 @@
             <artifactId>univocity-parsers</artifactId>
             <version>${univocity-parsers.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>

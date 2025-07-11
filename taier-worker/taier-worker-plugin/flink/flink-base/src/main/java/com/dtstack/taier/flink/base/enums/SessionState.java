@@ -18,12 +18,6 @@
 
 package com.dtstack.taier.flink.base.enums;
 
-/**
- * @description: session state (healthy、unhealthy)
- * @program: engine-all
- * @author: lany
- * @create: 2021/07/10 14:24
- */
 public enum SessionState {
     // session is ok
     HEALTHY(true),

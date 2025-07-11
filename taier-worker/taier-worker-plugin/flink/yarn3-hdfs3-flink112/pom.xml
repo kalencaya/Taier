@@ -24,17 +24,15 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.dtstack.taier</groupId>
             <artifactId>taier-worker-plugin.flink.yarn-hdfs-flink112-core</artifactId>
-            <version>1.0.0</version>
+            <version>${project.parent.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.dtstack.taier</groupId>
             <artifactId>taier-worker-plugin.flink.flink-base</artifactId>
-            <version>1.0.0</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <!-- flink -->
@@ -248,9 +246,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
-
 
     <repositories>
         <repository>
