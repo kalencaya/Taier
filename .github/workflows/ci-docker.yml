@@ -68,9 +68,6 @@ jobs:
           platforms: amd64,arm64
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - name: Compile Project
-        run: ./mvnw -e -B -U -T 4C clean package -Dfast -DskipTests
       - name: Build Image
         id: build
         uses: docker/build-push-action@v5
