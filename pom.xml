@@ -31,6 +31,7 @@
 
         <node.version>v16.16.0</node.version>
         <yarn.version>v1.22.19</yarn.version>
+        <pnpm.version>7.33.7</pnpm.version>
     </properties>
 
     <modules>

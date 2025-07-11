@@ -26,51 +26,51 @@
 				<executions>
 					<!-- install node and yarn -->
 					<execution>
-						<id>install node and yarn</id>
+						<id>install node and pnpm</id>
 						<goals>
-							<goal>install-node-and-yarn</goal>
-							<!--
-							<goal>install-node-and-npm</goal>
-							-->
+							<goal>install-node-and-pnpm</goal>
 						</goals>
 						<!-- specified version -->
 						<configuration>
 							<nodeVersion>${node.version}</nodeVersion>
-							<yarnVersion>${yarn.version}</yarnVersion>
+							<pnpmVersion>${pnpm.version}</pnpmVersion>
 
 							<!-- If it is inconvenient to visit the official website, you can use the domestic Taobao mirror-->
-							<nodeDownloadRoot>https://mirrors.aliyun.com/nodejs-release/</nodeDownloadRoot>
-							<yarnDownloadRoot>https://mirrors.huaweicloud.com/yarn/</yarnDownloadRoot>
+<!--							<nodeDownloadRoot>https://mirrors.aliyun.com/nodejs-release/</nodeDownloadRoot>-->
+<!--							<yarnDownloadRoot>https://mirrors.huaweicloud.com/yarn/</yarnDownloadRoot>-->
 						</configuration>
 					</execution>
 
-					<!-- step1. configure the domestic yarn mirror proxy -->
-					<execution>
-						<id>yarn config</id>
+					<!-- step1. configure the domestic npm mirror proxy -->
+					<!--<execution>
+						<id>pnpm config</id>
 						<goals>
-							<goal>yarn</goal>
+							<goal>pnpm</goal>
 						</goals>
 						<configuration>
 							<arguments>config set registry https://registry.npmmirror.com</arguments>
 						</configuration>
-					</execution>
+					</execution>-->
 
 					<!-- step2. download dependencies -->
 					<execution>
-						<id>yarn install</id>
+						<id>pnpm install</id>
 						<goals>
-							<goal>yarn</goal>
+							<goal>pnpm</goal>
 						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
 					</execution>
 
 					<!-- step2. build -->
 					<execution>
-						<id>yarn run build</id>
+						<id>pnpm run build</id>
 						<goals>
-							<goal>yarn</goal>
+							<goal>pnpm</goal>
 						</goals>
 						<configuration>
-							<arguments>run build</arguments>
+							<arguments>build</arguments>
 						</configuration>
 					</execution>
 				</executions>
