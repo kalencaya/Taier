@@ -13,7 +13,7 @@ ENV TAIER_UI=$WORK_PATH/ui
 
 WORKDIR $WORK_PATH
 
-RUN /bin/sh -c mkdir /usr/local/node && mkdir $TAIER_UI
+RUN mkdir /usr/local/node && mkdir $TAIER_UI
 
 ADD https://nodejs.org/dist/v16.15.0/node-v16.15.0-linux-x64.tar.xz /usr/local/node
 
