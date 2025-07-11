@@ -11,12 +11,8 @@
     <artifactId>taier-datasource-plugin-restful-core</artifactId>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-        <httpasyncclient.version>4.1.3</httpasyncclient.version>
-        <httpmime.version>4.5.3</httpmime.version>
+        <httpasyncclient.version>4.1.5</httpasyncclient.version>
+        <httpmime.version>4.5.14</httpmime.version>
         <hadoop-common.version>2.7.3</hadoop-common.version>
     </properties>
 

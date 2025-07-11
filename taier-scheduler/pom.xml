@@ -20,21 +20,13 @@
         <!-- 应用内依赖 -->
         <dependency>
             <groupId>com.dtstack.taier</groupId>
-            <artifactId>taier-common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.dtstack.taier</groupId>
             <artifactId>taier-worker-api</artifactId>
-            <version>1.0.0</version>
+            <version>${project.parent.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>com.dtstack.taier</groupId>
             <artifactId>taier-dao</artifactId>
-            <version>1.0.0</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <!--应用外部依赖-->
@@ -70,7 +62,6 @@
             <artifactId>kerb-core</artifactId>
             <version>1.0.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.kerby</groupId>
             <artifactId>kerb-util</artifactId>
@@ -86,12 +77,6 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
         </dependency>
 
         <dependency>
@@ -163,12 +148,5 @@
             <version>1.9.0</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
-            <version>3.6.1</version>
-        </dependency>
-
     </dependencies>
 </project>

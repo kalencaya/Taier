@@ -12,6 +12,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.dtstack.taier</groupId>
+            <artifactId>taier-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
@@ -25,11 +31,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.dtstack.taier</groupId>
-            <artifactId>taier-common</artifactId>
-            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
