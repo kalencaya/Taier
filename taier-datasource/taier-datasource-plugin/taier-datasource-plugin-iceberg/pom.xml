@@ -68,7 +68,6 @@
             <artifactId>hive-exec</artifactId>
             <version>${hive-exec.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>

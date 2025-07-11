@@ -20,7 +20,7 @@
         <dependency>
             <groupId>com.dtstack.taier</groupId>
             <artifactId>taier-scheduler</artifactId>
-            <version>1.0.0</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
