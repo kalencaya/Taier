@@ -18,7 +18,6 @@
 
 package com.dtstack.taier.datasource.api.context;
 
-
 import com.dtstack.taier.datasource.api.manager.ManagerFactory;
 
 /**

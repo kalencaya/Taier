@@ -18,13 +18,6 @@
 
 package com.dtstack.taier.datasource.api.constant;
 
-/**
- * kerberos constants
- *
- * @author ：wangchuan
- * date：Created in 21:27 2022/9/28
- * company: www.dtstack.com
- */
 public class KerberosConstants {
 
     /**

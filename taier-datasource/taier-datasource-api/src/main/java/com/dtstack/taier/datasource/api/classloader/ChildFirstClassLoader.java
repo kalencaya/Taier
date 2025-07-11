@@ -28,13 +28,6 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.LinkedHashSet;
 
-/**
- * 子 classloader 优先加载
- *
- * @author ：wangchuan
- * date：Created in 16:09 2022/9/23
- * company: www.dtstack.com
- */
 @Slf4j
 public class ChildFirstClassLoader extends URLClassLoader {
 

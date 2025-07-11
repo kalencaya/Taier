@@ -18,13 +18,6 @@
 
 package com.dtstack.taier.datasource.api.constant;
 
-/**
- * config constants
- *
- * @author ：wangchuan
- * date：Created in 10:49 2022/9/23
- * company: www.dtstack.com
- */
 public final class ConfigConstants {
 
     // ---------------------------- base -------------------------------

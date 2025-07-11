@@ -106,7 +106,6 @@ import static com.dtstack.taier.pluginapi.constrant.ConfigConstant.TYPE_NAME_KEY
 import static com.dtstack.taier.pluginapi.constrant.ConfigConstant.USER_DIR_DOWNLOAD;
 import static com.dtstack.taier.pluginapi.constrant.ConfigConstant.USER_DIR_UNZIP;
 
-
 @org.springframework.stereotype.Component
 public class ConsoleComponentService {
 
@@ -114,34 +113,24 @@ public class ConsoleComponentService {
 
     @Autowired
     private ComponentMapper componentMapper;
-
     @Autowired
     private ClusterMapper clusterMapper;
-
     @Autowired
     private EnvironmentContext env;
-
     @Autowired
     private ConsoleKerberosMapper consoleKerberosMapper;
-
     @Autowired
     private DatasourceOperator datasourceOperator;
-
     @Autowired
     private ComponentConfigService componentConfigService;
-
     @Autowired
     private ScheduleDictService scheduleDictService;
-
     @Autowired
     private SftpFileManage sftpFileManageBean;
-
     @Autowired
     private ClusterFactory clusterFactory;
-
     @Autowired
     private ComponentService componentService;
-
     @Autowired
     private Context context;
 
@@ -154,13 +143,11 @@ public class ConsoleComponentService {
             100, TimeUnit.SECONDS, new LinkedBlockingQueue<>(10),
             new RdosThreadFactory("test-connect"), new ThreadPoolExecutor.DiscardOldestPolicy());
 
-
     static {
         //hdfs core 需要合并
         componentTypeConfigMapping.put(EComponentType.HDFS.getTypeCode(), Lists.newArrayList("hdfs-site.xml", "core-site.xml"));
         componentTypeConfigMapping.put(EComponentType.YARN.getTypeCode(), Lists.newArrayList("yarn-site.xml", "core-site.xml"));
     }
-
 
     @Transactional(rollbackFor = Exception.class)
     public ComponentVO addOrUpdateComponent(Long clusterId, String componentConfig,

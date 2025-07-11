@@ -34,7 +34,7 @@ public class SystemPropertyUtil {
                 System.setProperty("user.dir", dir);
             }
         }
-        System.setProperty("user.dir.conf", System.getProperty("user.dir") + "/conf");
+        System.setProperty("user.dir.conf", dir + "/conf");
     }
 
     public static void setHadoopUserName(String userName) {

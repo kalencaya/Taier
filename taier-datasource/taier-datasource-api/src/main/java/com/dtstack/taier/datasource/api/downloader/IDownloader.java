@@ -20,13 +20,6 @@ package com.dtstack.taier.datasource.api.downloader;
 
 import java.util.List;
 
-/**
- * 下载器
- *
- * @author ：wangchuan
- * date：Created in 下午5:05 2022/9/23
- * company: www.dtstack.com
- */
 public interface IDownloader {
 
     /**

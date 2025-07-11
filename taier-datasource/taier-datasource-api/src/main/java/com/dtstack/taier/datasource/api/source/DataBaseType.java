@@ -18,12 +18,6 @@
 
 package com.dtstack.taier.datasource.api.source;
 
-/**
- * @author ：Nanqi
- * company: www.dtstack.com
- * Date ：Created in 10:39 2020/7/27
- * Description：数据源基础
- */
 public enum DataBaseType {
     MySql("mysql", "com.mysql.jdbc.Driver"),
     TDDL("mysql", "com.mysql.jdbc.Driver"),

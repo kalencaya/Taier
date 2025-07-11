@@ -31,11 +31,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * @author nanqi
- * company www.dtstack.com
- * date Created in 10:32 2020/7/27
- */
 public enum DataSourceType {
     // RDBMS
     MySQL(1, 0, "MySQL", "MySQL", "mysql5"),

@@ -28,13 +28,6 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * abs env init
- *
- * @author ：wangchuan
- * date：Created in 19:00 2022/9/23
- * company: www.dtstack.com
- */
 @Slf4j
 public abstract class AbstractEnvInitialize implements EnvInitialize {
 

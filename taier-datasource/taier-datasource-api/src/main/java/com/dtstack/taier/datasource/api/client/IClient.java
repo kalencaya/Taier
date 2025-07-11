@@ -32,13 +32,6 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 通用 IClient 客户端接口
- *
- * @author ：wangchuan
- * date：Created in 下午3:38 2021/12/17
- * company: www.dtstack.com
- */
 public interface IClient extends Client {
 
     /**

@@ -31,11 +31,6 @@ import javax.servlet.ServletContextEvent;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * company: www.dtstack.com
- * author: toutian
- * create: 2020/07/08
- */
 @Component
 public class LogbackComponent extends ContextLoaderListener {
 

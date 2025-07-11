@@ -25,13 +25,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * abs config
- *
- * @author ：wangchuan
- * date：Created in 20:19 2022/9/23
- * company: www.dtstack.com
- */
 public abstract class AbstractConfig implements Config {
 
     /**
