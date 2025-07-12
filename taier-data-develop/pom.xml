@@ -8,18 +8,14 @@
         <artifactId>taier</artifactId>
         <version>1.0.0</version>
     </parent>
-
-    <packaging>jar</packaging>
-
     <artifactId>taier-data-develop</artifactId>
     <version>1.0.0</version>
-
+    <packaging>jar</packaging>
     <name>taier-data-develop</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     </properties>
 
     <dependencies>

@@ -8,7 +8,6 @@
         <artifactId>taier</artifactId>
         <version>1.0.0</version>
     </parent>
-
     <artifactId>taier-common</artifactId>
     <name>taier-common</name>
     <version>1.0.0</version>
